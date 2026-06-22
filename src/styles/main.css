@@ -1,0 +1,60 @@
+/* ================================================================
+   ESTILOS GLOBALES — Acordeón Cuadrangular
+   Colores oficiales Foursquare Church
+================================================================ */
+:root {
+  --rojo:         #B30000;
+  --rojo-claro:   #CC0000;
+  --azul:         #003399;
+  --azul-claro:   #1155CC;
+  --dorado:       #CC8800;
+  --dorado-claro: #FFAA00;
+  --purpura:      #880099;
+  --purpura-claro:#AA00BB;
+  --verde:        #1a7a1a;
+  --blanco:       #FFFFFF;
+  --gris-claro:   #F5F5F5;
+  --gris-texto:   #333333;
+  --gris-sub:     #666666;
+  --trans:        all .35s cubic-bezier(.4,0,.2,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: #efefef;
+  min-height: 100vh;
+  color: var(--gris-texto);
+}
+
+/* Sistema editorial común para las doce carillas */
+.lf-content i { display:none !important; }
+.lf-content .face-card,.lf-content .rostro-card,.lf-content .sim-card,.lf-content .doc-card,.lf-content .dato-card,.lf-content .ref-pill,.lf-content .art-item,.lf-content .color-card,.lf-content .signif-item { border-color:rgba(80,53,30,.13)!important; border-radius:4px!important; box-shadow:0 8px 22px rgba(61,39,21,.07)!important; background:#fffefb!important; }
+
+/* Tipografías auxiliares reutilizables */
+.font-cinzel    { font-family: 'Cinzel', serif; }
+.font-playfair  { font-family: 'Playfair Display', serif; }
+
+/* Franja de 4 colores (reutilizable) */
+.color-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: 6px;
+}
+.cs-rojo    { background: var(--rojo); }
+.cs-azul    { background: var(--azul); }
+.cs-dorado  { background: var(--dorado); }
+.cs-purpura { background: var(--purpura); }
+
+/* Swiper overrides */
+.swiper-pagination-bullet        { background: var(--azul) !important; }
+.swiper-button-next,
+.swiper-button-prev              { color: var(--azul) !important; }
+.swiper-button-next::after,
+.swiper-button-prev::after       { font-size: 16px !important; }
+
+/* Sistema editorial común para las doce carillas */
+.lf-content i{display:none!important}
+.lf-content .face-card,.lf-content .rostro-card,.lf-content .sim-card,.lf-content .doc-card,.lf-content .dato-card,.lf-content .ref-pill,.lf-content .art-item,.lf-content .color-card,.lf-content .signif-item{border-color:rgba(80,53,30,.13)!important;border-radius:4px!important;box-shadow:0 8px 22px rgba(61,39,21,.07)!important;background:#fffefb!important}
+
