@@ -3,16 +3,17 @@
 
     <!-- Logo oficial -->
     <div class="logo-display">
-      <LogoCuadrangular :size="110" />
+      <LogoCuadrangular :size="170" />
+      <p>Emblema de la Iglesia del Evangelio Cuadrangular</p>
     </div>
 
     <!-- Los 4 cuadrantes -->
     <div class="block-title">Los cuatro cuadrantes</div>
     <div class="cuadrantes-grid">
       <div v-for="c in cuadrantes" :key="c.id" class="cua-card" :style="{'background': c.color}">
-        <img :src="c.img" :alt="c.doctrina">
-        <span class="cua-doctrina">{{ c.doctrina }}</span>
-        <span class="cua-referencia">{{ c.ref }}</span>
+        <span class="cua-symbol">{{ c.simbolo }}</span>
+        <span class="cua-doctrina">Jesucristo {{ c.doctrina }}</span>
+        <span class="cua-referencia">{{ c.significado }} · {{ c.ref }}</span>
       </div>
     </div>
 
@@ -31,17 +32,17 @@
 <script setup>
 import LogoCuadrangular from '../LogoCuadrangular.vue'
 const cuadrantes = [
-  { id:'salv', doctrina:'Salvador', img:'/assets/img/doctrina-salvador-grabado.png', color:'#B30000', ref:'Jn. 3:16' },
-  { id:'san', doctrina:'Sanador', img:'/assets/img/doctrina-sanador-grabado.png', color:'#003399', ref:'Is. 53:5' },
-  { id:'baut', doctrina:'Bautizador', img:'/assets/img/doctrina-bautizador-grabado.png', color:'#CC8800', ref:'Hch. 2:4' },
-  { id:'rey', doctrina:'Rey Venidero', img:'/assets/img/doctrina-rey-grabado.png', color:'#880099', ref:'1 Ts. 4:16' },
+  { id:'salv', simbolo:'Cruz', doctrina:'Salvador', significado:'Salvación', color:'#B30000', ref:'Jn. 3:16' },
+  { id:'san', simbolo:'Copa', doctrina:'Sanador', significado:'Sanidad divina', color:'#003399', ref:'Mt. 8:17' },
+  { id:'baut', simbolo:'Paloma', doctrina:'Bautizador', significado:'Espíritu Santo', color:'#CC8800', ref:'Hch. 1:8' },
+  { id:'rey', simbolo:'Corona', doctrina:'Rey Venidero', significado:'Segunda venida', color:'#880099', ref:'1 Ts. 4:16' },
 ]
 
 const signifItems = [
-  { label:'El cuadrado',  color:'#B30000', texto:'Representa la solidez, estabilidad y completud del Evangelio que no falla.' },
+  { label:'Los cuatro cuadrantes', color:'#B30000', texto:'Presentan las cuatro facetas del ministerio completo de Jesucristo.' },
   { label:'Los cuatro colores', color:'#003399', texto:'Rojo: salvación · Azul: sanidad · Dorado: Espíritu Santo · Púrpura: realeza.' },
-  { label:'El círculo central', color:'#CC8800', texto:'Simboliza la eternidad de Dios y la unidad perfecta de las cuatro verdades.' },
-  { label:'La cruz',      color:'#880099', texto:'Centro de todo: la cruz de Cristo donde confluyen las cuatro doctrinas.' },
+  { label:'Los cuatro símbolos', color:'#CC8800', texto:'Cruz, copa, paloma y corona permiten reconocer visualmente cada doctrina.' },
+  { label:'La unidad del emblema', color:'#880099', texto:'Las cuatro declaraciones permanecen unidas en un solo Evangelio centrado en Jesucristo.' },
 ]
 </script>
 
@@ -49,10 +50,13 @@ const signifItems = [
 .logo-panel { display: flex; flex-direction: column; gap: 12px; }
 
 .logo-display {
-  display: flex; justify-content: center;
-  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
-  border-radius: 12px; padding: 20px;
+  display: flex; flex-direction:column; align-items:center; justify-content: center;
+  background: linear-gradient(180deg, #fffefb, #f3eadf);
+  border:1px solid #ddcfbd;
+  border-radius: 10px; padding: 24px 20px 16px;
+  box-shadow:0 10px 28px rgba(61,39,21,.1);
 }
+.logo-display p { margin:12px 0 0; color:#725a45; font-size:.58rem; font-weight:800; letter-spacing:.12em; text-align:center; text-transform:uppercase; }
 
 .block-title {
   font-family: 'Cinzel', serif; font-size: .72rem;
@@ -64,13 +68,13 @@ const signifItems = [
 
 .cuadrantes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
 .cua-card {
-  border-radius: 8px; padding: 12px 10px;
+  border-radius: 6px; padding: 14px 10px 12px;
   display: flex; flex-direction: column; align-items: center; gap: 5px;
   color: #fff; text-align: center;
 }
-.cua-card i { font-size: 1.4rem; }
+.cua-symbol { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; }
 .cua-doctrina { font-family: 'Cinzel', serif; font-size: .68rem; font-weight: 700; }
-.cua-referencia { font-size: .58rem; opacity: .8; }
+.cua-referencia { font-size: .56rem; opacity: .85; line-height:1.4; }
 
 .signif-list { display: flex; flex-direction: column; gap: 7px; }
 .signif-item {
