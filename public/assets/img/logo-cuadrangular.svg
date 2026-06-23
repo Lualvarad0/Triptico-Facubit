@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" role="img" aria-label="Logotipo Cuadrangular">
+  <rect width="202" height="202" rx="8" fill="#c7161e"/>
+  <rect x="218" width="202" height="202" rx="8" fill="#0873bd"/>
+  <rect y="218" width="202" height="202" rx="8" fill="#e6ad00"/>
+  <rect x="218" y="218" width="202" height="202" rx="8" fill="#7d238f"/>
+  <g fill="#fff">
+    <rect x="86" y="24" width="30" height="154" rx="3"/><rect x="24" y="78" width="154" height="30" rx="3"/>
+    <path d="M253 34h132l-18 70c-7 27-25 39-48 39s-41-12-48-39z"/><rect x="308" y="141" width="22" height="28" rx="3"/><path d="M273 171h92l8 17H265z"/>
+    <ellipse cx="102" cy="326" rx="43" ry="26" transform="rotate(-14 102 326)"/><circle cx="149" cy="302" r="18"/><path d="m164 299 19-6-18 17zM82 314Q31 263 18 244q36 8 56 28 20-16 39 34zM74 333q-39 21-51 47 36-10 61-29z"/>
+    <path d="M242 361v-48l34 25 43-74 43 74 34-25v48z"/><rect x="242" y="360" width="154" height="31" rx="5"/><circle cx="242" cy="311" r="10"/><circle cx="319" cy="258" r="12"/><circle cx="396" cy="311" r="10"/>
+  </g>
+</svg>

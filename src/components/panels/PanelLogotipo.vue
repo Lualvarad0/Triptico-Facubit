@@ -3,14 +3,15 @@
 
     <!-- Logo oficial -->
     <div class="logo-display">
-      <LogoCuadrangular :size="170" />
+      <img src="/assets/img/logo-cuadrangular.svg" alt="Logotipo oficial Cuadrangular" class="main-logo">
       <p>Emblema de la Iglesia del Evangelio Cuadrangular</p>
     </div>
 
     <!-- Los 4 cuadrantes -->
     <div class="block-title">Los cuatro cuadrantes</div>
     <div class="cuadrantes-grid">
-      <div v-for="c in cuadrantes" :key="c.id" class="cua-card" :style="{'background': c.color}">
+      <div v-for="c in cuadrantes" :key="c.id" class="cua-card" :style="{'--cc': c.color}">
+        <img :src="c.img" :alt="`${c.simbolo}: Jesucristo ${c.doctrina}`" class="cua-image">
         <span class="cua-symbol">{{ c.simbolo }}</span>
         <span class="cua-doctrina">Jesucristo {{ c.doctrina }}</span>
         <span class="cua-referencia">{{ c.significado }} · {{ c.ref }}</span>
@@ -30,12 +31,11 @@
 </template>
 
 <script setup>
-import LogoCuadrangular from '../LogoCuadrangular.vue'
 const cuadrantes = [
-  { id:'salv', simbolo:'Cruz', doctrina:'Salvador', significado:'Salvación', color:'#B30000', ref:'Jn. 3:16' },
-  { id:'san', simbolo:'Copa', doctrina:'Sanador', significado:'Sanidad divina', color:'#003399', ref:'Mt. 8:17' },
-  { id:'baut', simbolo:'Paloma', doctrina:'Bautizador', significado:'Espíritu Santo', color:'#CC8800', ref:'Hch. 1:8' },
-  { id:'rey', simbolo:'Corona', doctrina:'Rey Venidero', significado:'Segunda venida', color:'#880099', ref:'1 Ts. 4:16' },
+  { id:'salv', simbolo:'Cruz', doctrina:'Salvador', significado:'Salvación', img:'/assets/img/logo-salvador.svg', color:'#c7161e', ref:'Jn. 3:16' },
+  { id:'san', simbolo:'Copa', doctrina:'Sanador', significado:'Sanidad divina', img:'/assets/img/logo-sanador.svg', color:'#0873bd', ref:'Mt. 8:17' },
+  { id:'baut', simbolo:'Paloma', doctrina:'Bautizador', significado:'Espíritu Santo', img:'/assets/img/logo-bautizador.svg', color:'#e6ad00', ref:'Hch. 1:8' },
+  { id:'rey', simbolo:'Corona', doctrina:'Rey Venidero', significado:'Segunda venida', img:'/assets/img/logo-rey.svg', color:'#7d238f', ref:'1 Ts. 4:16' },
 ]
 
 const signifItems = [
@@ -57,6 +57,7 @@ const signifItems = [
   box-shadow:0 10px 28px rgba(61,39,21,.1);
 }
 .logo-display p { margin:12px 0 0; color:#725a45; font-size:.58rem; font-weight:800; letter-spacing:.12em; text-align:center; text-transform:uppercase; }
+.main-logo { display:block; width:min(100%,190px); height:auto; filter:drop-shadow(0 8px 14px rgba(50,30,18,.16)); }
 
 .block-title {
   font-family: 'Cinzel', serif; font-size: .72rem;
@@ -68,13 +69,17 @@ const signifItems = [
 
 .cuadrantes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
 .cua-card {
-  border-radius: 6px; padding: 14px 10px 12px;
+  border-radius: 8px; padding: 10px 10px 12px;
   display: flex; flex-direction: column; align-items: center; gap: 5px;
-  color: #fff; text-align: center;
+  color: #35271e; text-align: center;
+  background:#fffefb; border:1px solid rgba(80,53,30,.14);
+  border-bottom:4px solid var(--cc);
+  box-shadow:0 7px 18px rgba(61,39,21,.08);
 }
-.cua-symbol { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; }
-.cua-doctrina { font-family: 'Cinzel', serif; font-size: .68rem; font-weight: 700; }
-.cua-referencia { font-size: .56rem; opacity: .85; line-height:1.4; }
+.cua-image { width:76px; height:76px; object-fit:contain; border-radius:8px; margin-bottom:3px; }
+.cua-symbol { font-family:'Playfair Display',serif; font-size:.92rem; font-weight:700; color:var(--cc); }
+.cua-doctrina { font-family: 'Cinzel', serif; font-size: .64rem; font-weight: 700; }
+.cua-referencia { font-size: .54rem; color:#796a5e; line-height:1.4; }
 
 .signif-list { display: flex; flex-direction: column; gap: 7px; }
 .signif-item {

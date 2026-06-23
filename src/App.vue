@@ -89,7 +89,7 @@ const sections = [
   {
     id: 'logotipo', title: 'El Logotipo',
     subtitle: 'Representación, significado y referencias',
-    image: '/assets/img/doctrina-rey-grabado.png', color: 'purpura',
+    image: '/assets/img/logo-cuadrangular.svg', color: 'purpura',
     component: PanelLogotipo,
   },
   {
