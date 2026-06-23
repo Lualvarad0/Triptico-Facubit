@@ -1,23 +1,23 @@
 <template>
   <div class="bandera-panel">
 
-    <!-- Ilustración simbólica de la bandera -->
-    <div class="flag-visual">
-      <div class="flag-pole"></div>
-      <div class="flag-cloth">
-        <div class="flag-q q1"><img src="/assets/img/doctrina-salvador-grabado.png" alt="Cristo Salvador"><span>Salvador</span></div>
-        <div class="flag-q q2"><img src="/assets/img/doctrina-sanador-grabado.png" alt="Cristo Sanador"><span>Sanador</span></div>
-        <div class="flag-q q3"><img src="/assets/img/doctrina-bautizador-grabado.png" alt="Cristo Bautizador"><span>Bautizador</span></div>
-        <div class="flag-q q4"><img src="/assets/img/doctrina-rey-grabado.png" alt="Cristo Rey"><span>Rey</span></div>
-      </div>
-    </div>
+    <!-- Imagen oficial suministrada para el proyecto -->
+    <figure class="flag-visual">
+      <img
+        src="/assets/img/bandera-cuadrangular.png"
+        alt="Bandera oficial de la Iglesia del Evangelio Cuadrangular"
+        class="flag-image"
+      >
+      <figcaption>Bandera de la Iglesia del Evangelio Cuadrangular</figcaption>
+    </figure>
 
     <!-- Descripción -->
     <div class="block-title">Descripción</div>
     <p class="desc-text">
       La Bandera Cuadrangular es el estandarte oficial de la Iglesia del Evangelio Cuadrangular.
-      Está dividida en cuatro cuadrantes de colores que representan las cuatro verdades
-      fundamentales proclamadas en el emblema y la Declaración de Fe de la Iglesia.
+      Presenta cuatro franjas onduladas —púrpura, azul, dorado y rojo— y, en el cantón
+      superior izquierdo, el emblema cuadrangular. Cada color proclama una de las cuatro
+      verdades fundamentales acerca del ministerio de Jesucristo.
     </p>
 
     <!-- Significado de cada sección -->
@@ -63,39 +63,24 @@ const biblia = [
 <style scoped>
 .bandera-panel { display: flex; flex-direction: column; gap: 12px; }
 
-/* Ilustración de la bandera */
+/* Presentación de la bandera oficial */
 .flag-visual {
-  display: flex; align-items: flex-start; gap: 0;
-  justify-content: center; padding: 10px 0;
+  margin:0; padding:18px 16px 12px;
+  background:linear-gradient(180deg,#fffefb,#f6efe4);
+  border:1px solid #ddcfbd; border-radius:10px;
+  text-align:center; overflow:hidden;
+  box-shadow:0 10px 28px rgba(61,39,21,.11);
 }
-.flag-pole {
-  width: 8px; height: 120px;
-  background: linear-gradient(180deg, #CCC, #888, #CCC);
-  border-radius: 4px;
-  box-shadow: 2px 0 6px rgba(0,0,0,.3);
+.flag-image {
+  display:block; width:min(100%,420px); height:auto; margin:0 auto;
+  object-fit:contain; image-rendering:auto;
+  filter:drop-shadow(0 8px 8px rgba(40,25,15,.2));
 }
-.flag-cloth {
-  width: 160px; height: 100px;
-  display: grid; grid-template-columns: 1fr 1fr;
-  border: 2px solid rgba(0,0,0,.15);
-  border-radius: 0 6px 6px 0;
-  overflow: hidden;
-  box-shadow: 3px 3px 12px rgba(0,0,0,.25);
+.flag-visual figcaption {
+  margin-top:10px; color:#76614f; font-size:.58rem;
+  font-weight:800; letter-spacing:.12em; text-transform:uppercase;
 }
-.flag-q {
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 4px;
-  color: rgba(255,255,255,.95); font-size: .55rem;
-  font-family: 'Cinzel', serif; font-weight: 700;
-}
-.flag-q img { width:100%; height:100%; object-fit:cover; opacity:.48; position:absolute; inset:0; }
-.flag-q { position:relative; overflow:hidden; }
-.flag-q span { position:relative; z-index:1; text-shadow:0 1px 4px rgba(0,0,0,.7); }
 .ref-mark { width:7px; height:7px; border-radius:50%; flex-shrink:0; margin-top:4px; }
-.q1 { background: #B30000; }
-.q2 { background: #003399; }
-.q3 { background: #CC8800; }
-.q4 { background: #880099; }
 
 .block-title {
   font-family: 'Cinzel', serif; font-size: .72rem;

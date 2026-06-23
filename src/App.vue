@@ -95,7 +95,7 @@ const sections = [
   {
     id: 'bandera', title: 'La Bandera Cuadrangular',
     subtitle: 'Descripción, significado y sustento bíblico',
-    image: '/assets/img/doctrina-bautizador-grabado.png', color: 'dorado',
+    image: '/assets/img/bandera-cuadrangular.png', color: 'dorado',
     component: PanelBandera,
   },
   {

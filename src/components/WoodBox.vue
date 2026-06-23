@@ -108,6 +108,7 @@ const leavesRef = ref(null)
 const leafEls   = ref([])
 const bodyEls   = ref([])
 const innerEls  = ref([])
+let contentResizeObserver = null
 
 const isOpen      = ref(true)   // abierto por defecto
 const activeIndex = ref(null)
@@ -222,6 +223,25 @@ onMounted(async () => {
   const leaves = leafEls.value.filter(Boolean)
   const bodies = bodyEls.value.filter(Boolean)
 
+  // Recalcular la altura cuando un panel interno cambia de contenido
+  // (por ejemplo, al cambiar las pestañas de la Declaración de Fe).
+  if ('ResizeObserver' in window) {
+    contentResizeObserver = new ResizeObserver(entries => {
+      entries.forEach(entry => {
+        const index = innerEls.value.indexOf(entry.target)
+        if (index === activeIndex.value && bodyEls.value[index]) {
+          gsap.to(bodyEls.value[index], {
+            maxHeight: entry.target.scrollHeight,
+            duration: .28,
+            ease: 'power2.out',
+            overwrite: true,
+          })
+        }
+      })
+    })
+    innerEls.value.filter(Boolean).forEach(inner => contentResizeObserver.observe(inner))
+  }
+
   // Ocultar cuerpos de hoja (colapsados) vía GSAP
   bodies.forEach(b => gsap.set(b, { maxHeight: 0, opacity: 0 }))
 
@@ -257,6 +277,7 @@ onMounted(async () => {
 })
 
 onUnmounted(() => {
+  contentResizeObserver?.disconnect()
   sceneRef.value?.removeEventListener('mousemove', onMouseMove)
   sceneRef.value?.removeEventListener('mouseleave', onMouseLeave)
 })
