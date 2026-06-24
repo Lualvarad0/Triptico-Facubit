@@ -24,12 +24,10 @@
 <script setup>
 import LogoCuadrangular from '../LogoCuadrangular.vue'
 const datos = [
-  { rol: 'Director',       nombre: 'Por definir', icon: 'fas fa-user-tie' },
-  { rol: 'Coordinadora',   nombre: 'Por definir', icon: 'fas fa-chalkboard-teacher' },
-  { rol: 'Profesora',      nombre: 'Por definir', icon: 'fas fa-graduation-cap' },
-  { rol: 'Estudiante',     nombre: 'Por definir', icon: 'fas fa-user-graduate' },
-  { rol: 'Pastor',         nombre: 'Por definir', icon: 'fas fa-bible' },
-  { rol: 'Iglesia',        nombre: 'Por definir', icon: 'fas fa-church' },
+  { rol: 'Profesora',  nombre: 'Lcda. Susana Alvarado' },
+  { rol: 'Estudiante', nombre: 'Luis David Alvarado Ronquillo' },
+  { rol: 'Pastor',     nombre: 'Ángel Miguel Alvarado Ruiz' },
+  { rol: 'Iglesia',    nombre: 'Emmanuel' },
 ]
 </script>
 
