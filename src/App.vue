@@ -29,14 +29,22 @@ import PanelAimee          from './components/panels/PanelAimee.vue'
 import PanelAimeeExtra     from './components/panels/PanelAimeeExtra.vue'
 import PanelEzequiel       from './components/panels/PanelEzequiel.vue'
 import PanelSignificado    from './components/panels/PanelSignificado.vue'
-import PanelRepresentaciones from './components/panels/PanelRepresentaciones.vue'
+import PanelRepresentaciones       from './components/panels/PanelRepresentaciones.vue'
+import PanelRepresentacionesExtra  from './components/panels/PanelRepresentacionesExtra.vue'
+import PanelRepresentacionesExtra2 from './components/panels/PanelRepresentacionesExtra2.vue'
 import PanelSimbolos       from './components/panels/PanelSimbolos.vue'
+import PanelSimbolosExtra  from './components/panels/PanelSimbolosExtra.vue'
 import PanelLogotipo       from './components/panels/PanelLogotipo.vue'
-import PanelLogotipoExtra  from './components/panels/PanelLogotipoExtra.vue'
 import PanelBandera        from './components/panels/PanelBandera.vue'
 import PanelHimno          from './components/panels/PanelHimno.vue'
+import PanelHimnoExtra     from './components/panels/PanelHimnoExtra.vue'
 import PanelFe             from './components/panels/PanelFe.vue'
+import PanelFeExtra        from './components/panels/PanelFeExtra.vue'
+import PanelFeExtra2       from './components/panels/PanelFeExtra2.vue'
+import PanelFeExtra3       from './components/panels/PanelFeExtra3.vue'
+import PanelFeExtra4       from './components/panels/PanelFeExtra4.vue'
 import PanelDoctrinas      from './components/panels/PanelDoctrinas.vue'
+import PanelDoctrinasExtra from './components/panels/PanelDoctrinasExtra.vue'
 
 const sections = [
   {
@@ -77,27 +85,39 @@ const sections = [
   },
   {
     id: 'representaciones', title: 'El Cuatro en la Biblia',
-    subtitle: 'Representaciones bíblicas del número cuatro',
+    subtitle: 'Representaciones bíblicas 01 – 03',
     image: '/assets/img/rostro-aguila-grabado.png', color: 'azul',
     component: PanelRepresentaciones,
   },
   {
+    id: 'representaciones-extra', title: 'El Cuatro en la Biblia',
+    subtitle: 'Representaciones bíblicas 03 – 04',
+    image: '/assets/img/rostro-aguila-grabado.png', color: 'azul',
+    component: PanelRepresentacionesExtra,
+  },
+  {
+    id: 'representaciones-extra2', title: 'El Cuatro en la Biblia',
+    subtitle: 'Representación 05',
+    image: '/assets/img/rostro-aguila-grabado.png', color: 'azul',
+    component: PanelRepresentacionesExtra2,
+  },
+  {
     id: 'simbolos', title: 'Símbolos Cuadrangulares',
-    subtitle: 'Cruz · Copa · Paloma · Corona',
+    subtitle: 'La Cruz · La Copa',
     image: '/assets/img/doctrina-bautizador-grabado.png', color: 'rojo',
-    component: PanelSimbolos, wide: true,
+    component: PanelSimbolos,
+  },
+  {
+    id: 'simbolos-extra', title: 'Símbolos Cuadrangulares',
+    subtitle: 'La Paloma · La Corona',
+    image: '/assets/img/doctrina-bautizador-grabado.png', color: 'rojo',
+    component: PanelSimbolosExtra,
   },
   {
     id: 'logotipo', title: 'El Logotipo',
     subtitle: 'Representación, significado y referencias',
     image: '/assets/img/logo-cuadrangular.svg', color: 'purpura',
     component: PanelLogotipo,
-  },
-  {
-    id: 'logotipo-extra', title: 'El Logotipo',
-    subtitle: 'Significado, colores e historia del emblema',
-    image: '/assets/img/logo-cuadrangular.svg', color: 'purpura',
-    component: PanelLogotipoExtra,
   },
   {
     id: 'bandera', title: 'La Bandera Cuadrangular',
@@ -107,21 +127,57 @@ const sections = [
   },
   {
     id: 'himno', title: 'El Himno Cuadrangular',
-    subtitle: 'Letra y significado del himno oficial',
+    subtitle: 'Estrofas I y II',
     image: '/assets/img/doctrina-salvador-grabado.png', color: 'verde',
     component: PanelHimno,
   },
   {
+    id: 'himno-extra', title: 'El Himno Cuadrangular',
+    subtitle: 'Estrofas III y IV',
+    image: '/assets/img/doctrina-salvador-grabado.png', color: 'verde',
+    component: PanelHimnoExtra,
+  },
+  {
     id: 'fe', title: 'Declaración de Fe',
-    subtitle: '16 Artículos Fundamentales',
+    subtitle: 'Artículos 1 – 8',
     image: '/assets/img/rostro-hombre-grabado.png', color: 'azul',
     component: PanelFe,
   },
   {
+    id: 'fe-extra', title: 'Declaración de Fe',
+    subtitle: 'Artículos 9 – 16',
+    image: '/assets/img/rostro-hombre-grabado.png', color: 'azul',
+    component: PanelFeExtra,
+  },
+  {
+    id: 'fe-extra2', title: 'Declaración de Fe',
+    subtitle: 'Artículos 14 – 19',
+    image: '/assets/img/rostro-hombre-grabado.png', color: 'azul',
+    component: PanelFeExtra2,
+  },
+  {
+    id: 'fe-extra3', title: 'Declaración de Fe',
+    subtitle: 'Artículos 14 – 18',
+    image: '/assets/img/rostro-hombre-grabado.png', color: 'azul',
+    component: PanelFeExtra3,
+  },
+  {
+    id: 'fe-extra4', title: 'Declaración de Fe',
+    subtitle: 'Artículos 19 – 22',
+    image: '/assets/img/rostro-hombre-grabado.png', color: 'azul',
+    component: PanelFeExtra4,
+  },
+  {
     id: 'doctrinas', title: 'Nuestras Doctrinas',
-    subtitle: 'Las cuatro verdades del Evangelio Cuadrangular',
-    image: '/assets/img/doctrina-rey-grabado.png', color: 'multi',
+    subtitle: 'Jesucristo Salvador · Sanador',
+    image: '/assets/img/doctrina-salvador-grabado.png', color: 'multi',
     component: PanelDoctrinas,
+  },
+  {
+    id: 'doctrinas-extra', title: 'Nuestras Doctrinas',
+    subtitle: 'Jesucristo Bautizador · Rey Venidero',
+    image: '/assets/img/doctrina-rey-grabado.png', color: 'multi',
+    component: PanelDoctrinasExtra,
   },
 ]
 </script>

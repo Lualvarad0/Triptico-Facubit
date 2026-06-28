@@ -1,14 +1,9 @@
 <template>
   <div class="panel">
-    <div class="fe-header"><h2 class="fe-titulo">Declaración de Fe</h2><p class="fe-sub">Página 1 de 5 · Artículos 01 – 06</p></div>
+    <div class="fe-header"><h2 class="fe-titulo">Declaración de Fe</h2><p class="fe-sub">Página 2 de 5 · Artículos 07 – 10</p></div>
     <div class="fe-grid">
-      <div class="sec" style="background:#B30000">Dios y las Escrituras</div>
-      <div class="card" v-for="a in g1" :key="a.num" :style="{'--cc':a.c,'--cl':a.l}">
-        <div class="num"><span>{{ String(a.num).padStart(2,'0') }}</span></div>
-        <div class="body"><p class="tit">{{ a.t }}</p><p class="txt">{{ a.d }}</p><p class="ref">{{ a.r }}</p></div>
-      </div>
       <div class="sec" style="background:#003399">Salvación</div>
-      <div class="card" v-for="a in g2" :key="a.num" :style="{'--cc':a.c,'--cl':a.l}">
+      <div class="card" v-for="a in arts" :key="a.num" :style="{'--cc':a.c,'--cl':a.l}">
         <div class="num"><span>{{ String(a.num).padStart(2,'0') }}</span></div>
         <div class="body"><p class="tit">{{ a.t }}</p><p class="txt">{{ a.d }}</p><p class="ref">{{ a.r }}</p></div>
       </div>
@@ -16,15 +11,11 @@
   </div>
 </template>
 <script setup>
-const g1=[
-  {num:1,c:'#B30000',l:'#fff0f0',t:'Las Sagradas Escrituras',d:'La Biblia es la Palabra inspirada e infalible de Dios, única regla de fe y práctica.',r:'2 Tim. 3:16-17'},
-  {num:2,c:'#B30000',l:'#fff0f0',t:'La Trinidad',d:'Un solo Dios eterno en tres personas coiguales: Padre, Hijo y Espíritu Santo.',r:'Mt. 28:19 · 2 Co. 13:14'},
-]
-const g2=[
-  {num:3,c:'#003399',l:'#eef2ff',t:'La Caída del Hombre',d:'Adán y Eva desobedecieron. Toda la humanidad nace con naturaleza pecaminosa.',r:'Gn. 3 · Ro. 5:12'},
-  {num:4,c:'#003399',l:'#eef2ff',t:'La Redención',d:'Cristo murió como sustituto del pecador. Su resurrección garantiza nuestra justificación.',r:'1 P. 1:18-19'},
-  {num:5,c:'#003399',l:'#eef2ff',t:'Salvación por Gracia',d:'La salvación es don gratuito de Dios, recibida por fe, no por obras humanas.',r:'Ef. 2:8-9'},
-  {num:6,c:'#003399',l:'#eef2ff',t:'Arrepentimiento',d:'El verdadero arrepentimiento produce un cambio radical de mente y corazón hacia Dios.',r:'Hch. 2:38'},
+const arts=[
+  {num:7, c:'#003399',l:'#eef2ff',t:'El Nuevo Nacimiento',d:'Nacer de nuevo por el Espíritu Santo es necesario para entrar en el reino de Dios.',r:'Jn. 3:3-7'},
+  {num:8, c:'#003399',l:'#eef2ff',t:'Vida Cristiana',d:'El creyente está llamado a vivir una vida santa, separada del pecado, consagrada a Dios.',r:'1 Ts. 5:23'},
+  {num:9, c:'#003399',l:'#eef2ff',t:'Bautismo en Agua',d:'El bautismo por inmersión simboliza la muerte al pecado y resurrección a nueva vida.',r:'Ro. 6:3-4'},
+  {num:10,c:'#003399',l:'#eef2ff',t:'La Santa Cena',d:'Conmemora el sacrificio de Cristo. El pan es su cuerpo y la copa su sangre.',r:'1 Co. 11:23-26'},
 ]
 </script>
 <style scoped>

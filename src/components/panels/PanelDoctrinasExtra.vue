@@ -26,18 +26,18 @@
 <script setup>
 const doctrinas = [
   {
-    id: 'salvador', num: 'I', color: '#B30000', light: '#fff0f0',
-    titulo: 'Jesucristo Salvador',
-    img: '/assets/img/doctrina-salvador-grabado.png',
-    texto: 'La cruz de Cristo provee perdón total. No hay otro nombre bajo el cielo por el cual debamos ser salvos. Quien crea en Él recibe vida eterna.',
-    refs: 'Romanos 10:9 · Hechos 4:12 · Juan 14:6',
+    id: 'bautizador', num: 'III', color: '#CC8800', light: '#fff8e6',
+    titulo: 'Jesucristo Bautizador',
+    img: '/assets/img/doctrina-bautizador-grabado.png',
+    texto: 'Cristo bautiza con Espíritu Santo y fuego, distribuyendo dones sobrenaturales y capacitando a su Iglesia para ser testigos poderosos.',
+    refs: 'Hechos 1:8 · 1 Corintios 12:4–11',
   },
   {
-    id: 'sanador', num: 'II', color: '#003399', light: '#eef2ff',
-    titulo: 'Jesucristo Sanador',
-    img: '/assets/img/doctrina-sanador-grabado.png',
-    texto: 'Cristo cargó nuestras enfermedades en la cruz. La sanidad divina es parte de la expiación y la oración de fe es el medio bíblico de sanidad.',
-    refs: 'Isaías 53:4–5 · Santiago 5:14–16',
+    id: 'rey', num: 'IV', color: '#880099', light: '#fdf0ff',
+    titulo: 'Jesucristo Rey Venidero',
+    img: '/assets/img/doctrina-rey-grabado.png',
+    texto: 'La segunda venida de Cristo es la esperanza viva de la Iglesia. Jesús regresará en gloria para establecer su reino eterno de paz.',
+    refs: '1 Tesalonicenses 4:16–17 · Apocalipsis 22:20',
   },
 ]
 </script>

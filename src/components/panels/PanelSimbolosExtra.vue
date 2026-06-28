@@ -29,22 +29,22 @@
 <script setup>
 const simbolos = [
   {
-    id: 'cruz', num: '01',
-    nombre: 'La Cruz', doctrina: 'Jesucristo Salvador',
-    color: '#B30000', light: '#fff3f3',
-    img: '/assets/img/simbolo-cruz-roja.png',
-    alt: 'Cruz roja cuadrangular',
-    ref: 'Juan 3:16 · Romanos 5:8',
-    verso: 'Cristo salva por medio de su sacrificio en la cruz. Su sangre derramada en el Calvario redime a toda la humanidad.',
+    id: 'paloma', num: '03',
+    nombre: 'La Paloma', doctrina: 'Cristo Bautizador en el E.S.',
+    color: '#CC8800', light: '#fff8e8',
+    img: '/assets/img/simbolo-paloma-dorada.png',
+    alt: 'Paloma dorada cuadrangular',
+    ref: 'Hechos 1:8 · Hechos 2:4',
+    verso: 'Cristo bautiza con fuego y poder sobrenatural para testificar y servir.',
   },
   {
-    id: 'copa', num: '02',
-    nombre: 'La Copa', doctrina: 'Jesucristo Sanador',
-    color: '#003399', light: '#eef3ff',
-    img: '/assets/img/simbolo-copa-azul.png',
-    alt: 'Copa azul cuadrangular',
-    ref: 'Isaías 53:5 · Mateo 8:17',
-    verso: 'Cristo sana y restaura cuerpo, alma y espíritu conforme a su obra redentora.',
+    id: 'corona', num: '04',
+    nombre: 'La Corona', doctrina: 'Jesucristo Rey que Viene',
+    color: '#880099', light: '#fdf0ff',
+    img: '/assets/img/simbolo-corona-purpura.png',
+    alt: 'Corona púrpura cuadrangular',
+    ref: 'Apocalipsis 19:16 · 1 Ts. 4:16',
+    verso: 'Cristo volverá en gloria como Rey de reyes y Señor de señores.',
   },
 ]
 </script>
@@ -97,10 +97,7 @@ const simbolos = [
   background: var(--sl);
 }
 
-.card-img {
-  position: relative;
-  flex-shrink: 0;
-}
+.card-img { position: relative; flex-shrink: 0; }
 .img-stage {
   height: 190px;
   background: linear-gradient(180deg, #fffdf7, #ede0c4);
@@ -147,12 +144,12 @@ const simbolos = [
   opacity: .8;
 }
 .c-tit {
+  font-family: 'Cinzel', serif;
   font-size: 1.18rem;
   font-weight: 900;
   color: var(--sc);
   margin: 0;
   line-height: 1.2;
-  font-family: 'Cinzel', serif;
 }
 .c-doc {
   font-size: 1.05rem;
@@ -161,11 +158,11 @@ const simbolos = [
   margin: 0;
 }
 .c-txt {
+  font-family: 'Playfair Display', serif;
   font-size: 1.02rem;
+  font-style: italic;
   color: #444;
   margin: 0;
   line-height: 1.55;
-  font-style: italic;
-  font-family: 'Playfair Display', serif;
 }
 </style>

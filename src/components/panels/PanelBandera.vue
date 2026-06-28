@@ -1,43 +1,44 @@
 <template>
   <div class="bandera-panel">
 
-    <!-- Imagen oficial suministrada para el proyecto -->
-    <figure class="flag-visual">
-      <img
-        src="/assets/img/bandera-cuadrangular.png"
-        alt="Bandera oficial de la Iglesia del Evangelio Cuadrangular"
-        class="flag-image"
-      >
-      <figcaption>Bandera de la Iglesia del Evangelio Cuadrangular</figcaption>
-    </figure>
+    <!-- Header -->
+    <div class="ban-header">
+      <h2 class="ban-titulo">La Bandera Cuadrangular</h2>
+      <p class="ban-sub">Estandarte oficial de la Iglesia del Evangelio Cuadrangular</p>
+    </div>
 
-    <!-- Descripción -->
-    <div class="block-title">Descripción</div>
-    <p class="desc-text">
-      La Bandera Cuadrangular es el estandarte oficial de la Iglesia del Evangelio Cuadrangular.
-      Presenta cuatro franjas onduladas —púrpura, azul, dorado y rojo— y, en el cantón
-      superior izquierdo, el emblema cuadrangular. Cada color proclama una de las cuatro
-      verdades fundamentales acerca del ministerio de Jesucristo.
-    </p>
-
-    <!-- Significado de cada sección -->
-    <div class="block-title">Significado de los colores</div>
-    <div class="color-cards">
-      <div v-for="c in colores" :key="c.color" class="color-card" :style="{'--cc': c.hex}">
-        <div class="cc-swatch"></div>
-        <div class="cc-body">
-          <strong>{{ c.color }}</strong>
-          <span>{{ c.significado }}</span>
-        </div>
+    <!-- Imagen + descripción lado a lado -->
+    <div class="ban-intro">
+      <figure class="flag-fig">
+        <img src="/assets/img/bandera-cuadrangular.png" alt="Bandera Cuadrangular" class="flag-img" />
+      </figure>
+      <div class="ban-desc">
+        <p class="ban-desc-txt">
+          Estandarte oficial que presenta <strong>cuatro franjas onduladas</strong> —
+          púrpura, azul, dorado y rojo — y en el cantón superior izquierdo
+          el <strong>emblema cuadrangular</strong>. Cada franja proclama
+          una verdad esencial del ministerio de Jesucristo.
+        </p>
+        <p class="ban-ref-base">Base bíblica · <em>Cantares 2:4</em><br>
+          <span class="ban-cita">"Su bandera sobre mí fue amor."</span>
+        </p>
       </div>
     </div>
 
-    <!-- Sustento bíblico -->
-    <div class="block-title">Sustento Bíblico</div>
-    <div class="bibl-refs">
-      <div v-for="b in biblia" :key="b.cita" class="bibl-ref">
-        <span class="ref-mark" :style="{background:b.color}"></span>
-        <span><strong>{{ b.cita }}</strong> — {{ b.texto }}</span>
+    <!-- Significado de los 4 colores -->
+    <div class="sec-titulo" style="--sc:#B30000">Significado de los Cuatro Colores</div>
+
+    <div class="colores-grid">
+      <div v-for="c in colores" :key="c.nombre" class="color-card" :style="{'--cc':c.hex,'--cl':c.light}">
+        <div class="cc-franja"></div>
+        <div class="cc-body">
+          <div class="cc-head">
+            <span class="cc-nombre">{{ c.nombre }}</span>
+            <span class="cc-doctrina">{{ c.doctrina }}</span>
+          </div>
+          <p class="cc-texto">{{ c.texto }}</p>
+          <p class="cc-ref">{{ c.ref }}</p>
+        </div>
       </div>
     </div>
 
@@ -46,72 +47,202 @@
 
 <script setup>
 const colores = [
-  { color:'Rojo',    hex:'#B30000', significado:'La sangre preciosa de Cristo que nos redime y salva del pecado.' },
-  { color:'Azul',    hex:'#003399', significado:'El río de sanidad que fluye de la expiación. Cristo sana el cuerpo.' },
-  { color:'Dorado',  hex:'#CC8800', significado:'El fuego del Espíritu Santo que bautiza y otorga dones divinos.' },
-  { color:'Púrpura', hex:'#880099', significado:'La realeza de Jesús, Rey de reyes que pronto regresará en gloria.' },
-]
-
-const biblia = [
-  { cita:'Salmo 20:5', texto:'Alzaremos pendón en el nombre de nuestro Dios.', color:'#B30000' },
-  { cita:'Cantares 2:4', texto:'Su bandera sobre mí fue amor.', color:'#003399' },
-  { cita:'Isaías 11:10', texto:'Estará como pendón para los pueblos.', color:'#CC8800' },
-  { cita:'Apocalipsis 19:16', texto:'REY DE REYES Y SEÑOR DE SEÑORES.', color:'#880099' },
+  {
+    nombre: 'Rojo', hex: '#B30000', light: '#fff0f0', doctrina: 'Cristo Salvador',
+    texto: 'La sangre preciosa de Cristo derramada en el Calvario que redime y salva a toda la humanidad del pecado.',
+    ref: 'Ro. 5:8 · 1 P. 1:18–19',
+  },
+  {
+    nombre: 'Azul', hex: '#003399', light: '#eef2ff', doctrina: 'Cristo Sanador',
+    texto: 'El río de sanidad divina que fluye de la expiación. Jesucristo restaura cuerpo, alma y espíritu.',
+    ref: 'Is. 53:5 · Mt. 8:17',
+  },
+  {
+    nombre: 'Dorado', hex: '#CC8800', light: '#fff8e6', doctrina: 'Cristo Bautizador',
+    texto: 'El fuego del Espíritu Santo que bautiza con poder sobrenatural y otorga dones al creyente.',
+    ref: 'Hch. 1:8 · Hch. 2:1–4',
+  },
+  {
+    nombre: 'Púrpura', hex: '#880099', light: '#fdf0ff', doctrina: 'Rey Venidero',
+    texto: 'La realeza de Jesucristo. Color de reyes que declara su glorioso regreso como Señor de señores.',
+    ref: 'Ap. 19:16 · 1 Ts. 4:16',
+  },
 ]
 </script>
 
 <style scoped>
-.bandera-panel { display: flex; flex-direction: column; gap: 12px; }
-
-/* Presentación de la bandera oficial */
-.flag-visual {
-  margin:0; padding:18px 16px 12px;
-  background:linear-gradient(180deg,#fffefb,#f6efe4);
-  border:1px solid #ddcfbd; border-radius:10px;
-  text-align:center; overflow:hidden;
-  box-shadow:0 10px 28px rgba(61,39,21,.11);
-}
-.flag-image {
-  display:block; width:min(100%,420px); height:auto; margin:0 auto;
-  object-fit:contain; image-rendering:auto;
-  filter:drop-shadow(0 8px 8px rgba(40,25,15,.2));
-}
-.flag-visual figcaption {
-  margin-top:10px; color:#76614f; font-size:.84rem;
-  font-weight:800; letter-spacing:.12em; text-transform:uppercase;
-}
-.ref-mark { width:7px; height:7px; border-radius:50%; flex-shrink:0; margin-top:4px; }
-
-.block-title {
-  font-family: 'Cinzel', serif; font-size: .72rem;
-  font-weight: 700; color: #B30000;
-  text-transform: uppercase; letter-spacing: 1.5px;
-  display: flex; align-items: center; gap: 6px;
-  padding-bottom: 4px; border-bottom: 1px solid #e8dfc8;
+.bandera-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
 }
 
-.desc-text { font-size: .72rem; color: #555; line-height: 1.65; margin: 0; }
+/* ── Header ── */
+.ban-header {
+  background: linear-gradient(135deg, #1a0a00, #3a1800);
+  border-radius: 10px;
+  padding: 11px 16px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.ban-titulo {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 3px;
+  letter-spacing: .05em;
+}
+.ban-sub {
+  font-size: .96rem;
+  color: rgba(255,255,255,.6);
+  margin: 0;
+  font-style: italic;
+}
 
-.color-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+/* ── Intro: imagen + descripción ── */
+.ban-intro {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+  flex-shrink: 0;
+}
+.flag-fig {
+  margin: 0;
+  flex-shrink: 0;
+  width: 160px;
+  background: linear-gradient(180deg, #fffefb, #f6efe4);
+  border: 1.5px solid #ddcfbd;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+.flag-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,.2));
+}
+
+.ban-desc {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+}
+.ban-desc-txt {
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.65;
+  margin: 0;
+}
+.ban-desc-txt strong { color: #B30000; }
+
+.ban-ref-base {
+  font-size: 1.0rem;
+  color: #777;
+  margin: 0;
+  line-height: 1.5;
+  font-style: italic;
+  background: #fffaf0;
+  border-left: 3px solid #CC8800;
+  padding: 7px 10px;
+  border-radius: 0 6px 6px 0;
+}
+.ban-cita {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  color: #3a2a00;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* ── Sección título ── */
+.sec-titulo {
+  background: var(--sc);
+  color: #fff;
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+/* ── Grid colores: 2x2 ── */
+.colores-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 7px;
+  flex: 1;
+  min-height: 0;
+}
+
 .color-card {
-  display: flex; align-items: flex-start; gap: 8px;
-  background: #fff; border: 1px solid #e8dfc8;
-  border-radius: 7px; padding: 8px;
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid var(--cc);
+  background: var(--cl);
 }
-.cc-swatch {
-  width: 18px; height: 18px; border-radius: 4px;
-  background: var(--cc); flex-shrink: 0; margin-top: 2px;
-}
-.cc-body { display: flex; flex-direction: column; gap: 2px; }
-.cc-body strong { font-size: .86rem; color: var(--cc); }
-.cc-body span { font-size: .84rem; color: #666; line-height: 1.4; }
 
-.bibl-refs { display: flex; flex-direction: column; gap: 6px; }
-.bibl-ref {
-  display: flex; align-items: flex-start; gap: 8px;
-  background: #fff; border: 1px solid #e8dfc8;
-  border-radius: 6px; padding: 8px 10px;
-  font-size: .86rem; color: #444; line-height: 1.45;
+/* Franja vertical de color */
+.cc-franja {
+  width: 14px;
+  background: var(--cc);
+  flex-shrink: 0;
 }
-.bibl-ref i { margin-top: 2px; flex-shrink: 0; }
+
+.cc-body {
+  flex: 1;
+  padding: 10px 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.cc-head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.cc-nombre {
+  font-family: 'Cinzel', serif;
+  font-size: 1.18rem;
+  font-weight: 900;
+  color: var(--cc);
+  line-height: 1;
+}
+.cc-doctrina {
+  font-size: 1.0rem;
+  font-weight: 700;
+  color: var(--cc);
+  opacity: .7;
+  font-style: italic;
+}
+
+.cc-texto {
+  font-size: 1.05rem;
+  color: #222;
+  margin: 0;
+  line-height: 1.55;
+}
+
+.cc-ref {
+  font-family: 'Cinzel', serif;
+  font-size: .96rem;
+  font-weight: 700;
+  color: var(--cc);
+  margin: 0;
+  opacity: .75;
+}
 </style>

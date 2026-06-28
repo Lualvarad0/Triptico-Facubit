@@ -1,14 +1,9 @@
 <template>
   <div class="panel">
-    <div class="fe-header"><h2 class="fe-titulo">Declaración de Fe</h2><p class="fe-sub">Página 1 de 5 · Artículos 01 – 06</p></div>
+    <div class="fe-header"><h2 class="fe-titulo">Declaración de Fe</h2><p class="fe-sub">Página 5 de 5 · Artículos 19 – 22</p></div>
     <div class="fe-grid">
-      <div class="sec" style="background:#B30000">Dios y las Escrituras</div>
-      <div class="card" v-for="a in g1" :key="a.num" :style="{'--cc':a.c,'--cl':a.l}">
-        <div class="num"><span>{{ String(a.num).padStart(2,'0') }}</span></div>
-        <div class="body"><p class="tit">{{ a.t }}</p><p class="txt">{{ a.d }}</p><p class="ref">{{ a.r }}</p></div>
-      </div>
-      <div class="sec" style="background:#003399">Salvación</div>
-      <div class="card" v-for="a in g2" :key="a.num" :style="{'--cc':a.c,'--cl':a.l}">
+      <div class="sec" style="background:#880099">Últimas Cosas</div>
+      <div class="card" v-for="a in arts" :key="a.num" :style="{'--cc':a.c,'--cl':a.l}">
         <div class="num"><span>{{ String(a.num).padStart(2,'0') }}</span></div>
         <div class="body"><p class="tit">{{ a.t }}</p><p class="txt">{{ a.d }}</p><p class="ref">{{ a.r }}</p></div>
       </div>
@@ -16,15 +11,11 @@
   </div>
 </template>
 <script setup>
-const g1=[
-  {num:1,c:'#B30000',l:'#fff0f0',t:'Las Sagradas Escrituras',d:'La Biblia es la Palabra inspirada e infalible de Dios, única regla de fe y práctica.',r:'2 Tim. 3:16-17'},
-  {num:2,c:'#B30000',l:'#fff0f0',t:'La Trinidad',d:'Un solo Dios eterno en tres personas coiguales: Padre, Hijo y Espíritu Santo.',r:'Mt. 28:19 · 2 Co. 13:14'},
-]
-const g2=[
-  {num:3,c:'#003399',l:'#eef2ff',t:'La Caída del Hombre',d:'Adán y Eva desobedecieron. Toda la humanidad nace con naturaleza pecaminosa.',r:'Gn. 3 · Ro. 5:12'},
-  {num:4,c:'#003399',l:'#eef2ff',t:'La Redención',d:'Cristo murió como sustituto del pecador. Su resurrección garantiza nuestra justificación.',r:'1 P. 1:18-19'},
-  {num:5,c:'#003399',l:'#eef2ff',t:'Salvación por Gracia',d:'La salvación es don gratuito de Dios, recibida por fe, no por obras humanas.',r:'Ef. 2:8-9'},
-  {num:6,c:'#003399',l:'#eef2ff',t:'Arrepentimiento',d:'El verdadero arrepentimiento produce un cambio radical de mente y corazón hacia Dios.',r:'Hch. 2:38'},
+const arts=[
+  {num:19,c:'#880099',l:'#fdf0ff',t:'El Juicio Final',d:'Dios juzgará a toda la humanidad. Cada persona dará cuenta de sus actos ante Cristo.',r:'Ap. 20:11-15'},
+  {num:20,c:'#B30000',l:'#fff0f0',t:'El Cielo',d:'Los redimidos vivirán eternamente con Dios en gozo, gloria y comunión perfecta.',r:'Jn. 14:2-3 · Ap. 21:3'},
+  {num:21,c:'#B30000',l:'#fff0f0',t:'El Infierno',d:'El rechazo de Cristo lleva a separación eterna de Dios en el lago de fuego.',r:'Ap. 20:15 · Mt. 25:46'},
+  {num:22,c:'#003399',l:'#eef2ff',t:'La Iglesia',d:'El cuerpo de Cristo, formado por todos los creyentes, llamado a proclamar el Evangelio.',r:'Ef. 1:22-23 · Mt. 16:18'},
 ]
 </script>
 <style scoped>
