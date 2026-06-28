@@ -1,20 +1,20 @@
 <template>
-  <div class="fe-panel">
+  <div class="fe-extra">
 
     <div class="fe-header">
       <h2 class="fe-titulo">Declaración de Fe</h2>
-      <p class="fe-subtitulo">Artículos 1 – 8 · Iglesia del Evangelio Cuadrangular</p>
+      <p class="fe-subtitulo">Artículos 9 – 16 · Iglesia del Evangelio Cuadrangular</p>
     </div>
 
-    <!-- Grupo: Dios y Escrituras -->
-    <div class="grupo" style="--gc:#B30000">
+    <!-- Grupo: Salvación (segunda mitad) -->
+    <div class="grupo" style="--gc:#003399">
       <div class="grupo-titulo">
         <span class="grupo-linea"></span>
-        <span>Dios y las Escrituras</span>
+        <span>Salvación</span>
         <span class="grupo-linea"></span>
       </div>
       <div class="arts">
-        <div v-for="a in grupo1" :key="a.num" class="art" style="--ac:#B30000">
+        <div v-for="a in grupo1" :key="a.num" class="art" style="--ac:#003399">
           <div class="art-num">{{ String(a.num).padStart(2,'0') }}</div>
           <div class="art-cuerpo">
             <div class="art-titulo">{{ a.titulo }}</div>
@@ -25,15 +25,34 @@
       </div>
     </div>
 
-    <!-- Grupo: Salvación (primera mitad) -->
-    <div class="grupo" style="--gc:#003399">
+    <!-- Grupo: Espíritu Santo -->
+    <div class="grupo" style="--gc:#CC8800">
       <div class="grupo-titulo">
         <span class="grupo-linea"></span>
-        <span>Salvación</span>
+        <span>Espíritu Santo</span>
         <span class="grupo-linea"></span>
       </div>
       <div class="arts">
-        <div v-for="a in grupo2" :key="a.num" class="art" style="--ac:#003399">
+        <div v-for="a in grupo2" :key="a.num" class="art" style="--ac:#CC8800">
+          <div class="art-num">{{ String(a.num).padStart(2,'0') }}</div>
+          <div class="art-cuerpo">
+            <div class="art-titulo">{{ a.titulo }}</div>
+            <div class="art-texto">{{ a.texto }}</div>
+            <div class="art-ref">{{ a.ref }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grupo: Últimas Cosas -->
+    <div class="grupo" style="--gc:#880099">
+      <div class="grupo-titulo">
+        <span class="grupo-linea"></span>
+        <span>Últimas Cosas</span>
+        <span class="grupo-linea"></span>
+      </div>
+      <div class="arts">
+        <div v-for="a in grupo3" :key="a.num" class="art" style="--ac:#880099">
           <div class="art-num">{{ String(a.num).padStart(2,'0') }}</div>
           <div class="art-cuerpo">
             <div class="art-titulo">{{ a.titulo }}</div>
@@ -49,21 +68,23 @@
 
 <script setup>
 const grupo1 = [
-  { num:1, titulo:'Las Sagradas Escrituras',  texto:'La Biblia es la Palabra inspirada e infalible de Dios, única regla de fe y práctica.', ref:'2 Tim. 3:16–17' },
-  { num:2, titulo:'La Trinidad',              texto:'Un solo Dios eterno en tres personas coiguales: Padre, Hijo y Espíritu Santo.',         ref:'Mt. 28:19 · 2 Co. 13:14' },
+  { num:9,  titulo:'Bautismo en Agua',   texto:'El bautismo por inmersión simboliza la muerte al pecado y resurrección a nueva vida.',          ref:'Ro. 6:3–4' },
+  { num:10, titulo:'La Santa Cena',      texto:'Conmemora el sacrificio de Cristo. El pan es su cuerpo y la copa su sangre.',                    ref:'1 Co. 11:23–26' },
 ]
 const grupo2 = [
-  { num:3, titulo:'La Caída del Hombre',   texto:'Adán y Eva desobedecieron. Toda la humanidad nace con naturaleza pecaminosa.',                         ref:'Gn. 3 · Ro. 5:12' },
-  { num:4, titulo:'La Redención',          texto:'Cristo murió como sustituto del pecador. Su resurrección garantiza nuestra justificación.',             ref:'1 P. 1:18–19' },
-  { num:5, titulo:'Salvación por Gracia',  texto:'La salvación es don gratuito de Dios, recibida por fe, no por obras humanas.',                         ref:'Ef. 2:8–9' },
-  { num:6, titulo:'Arrepentimiento',       texto:'El verdadero arrepentimiento produce un cambio radical de mente y corazón hacia Dios.',                 ref:'Hch. 2:38' },
-  { num:7, titulo:'El Nuevo Nacimiento',   texto:'Nacer de nuevo por el Espíritu Santo es necesario para entrar en el reino de Dios.',                   ref:'Jn. 3:3–7' },
-  { num:8, titulo:'Vida Cristiana',        texto:'El creyente está llamado a vivir una vida santa, separada del pecado, consagrada a Dios.',              ref:'1 Ts. 5:23' },
+  { num:11, titulo:'Bautismo del Espíritu Santo', texto:'Cristo bautiza con el Espíritu Santo y fuego, con evidencia de hablar en lenguas.',     ref:'Hch. 2:1–4' },
+  { num:12, titulo:'Dones del Espíritu',          texto:'El E.S. distribuye sus dones: sabiduría, fe, sanidades, milagros, profecía, lenguas.',  ref:'1 Co. 12:1–11' },
+  { num:13, titulo:'Sanidad Divina',              texto:'La sanidad física es parte de la redención. Dios sana en respuesta a la fe.',           ref:'Stg. 5:14–16' },
+]
+const grupo3 = [
+  { num:14, titulo:'Segunda Venida de Cristo', texto:'Jesucristo regresará personal y gloriosamente. Primero el rapto, luego su reino.',         ref:'1 Ts. 4:16–17' },
+  { num:15, titulo:'El Gran Mandamiento',      texto:'La Iglesia está comisionada para predicar el Evangelio a toda criatura y discipular.',     ref:'Mt. 28:18–20' },
+  { num:16, titulo:'Diezmos y Ofrendas',       texto:'El diezmo pertenece a Dios. Las ofrendas son expresión de gratitud y amor.',              ref:'Mal. 3:10' },
 ]
 </script>
 
 <style scoped>
-.fe-panel {
+.fe-extra {
   display: flex;
   flex-direction: column;
   gap: 10px;
