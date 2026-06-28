@@ -32,7 +32,6 @@ import PanelSignificado    from './components/panels/PanelSignificado.vue'
 import PanelRepresentaciones from './components/panels/PanelRepresentaciones.vue'
 import PanelSimbolos       from './components/panels/PanelSimbolos.vue'
 import PanelLogotipo       from './components/panels/PanelLogotipo.vue'
-import PanelLogotipoExtra  from './components/panels/PanelLogotipoExtra.vue'
 import PanelBandera        from './components/panels/PanelBandera.vue'
 import PanelHimno          from './components/panels/PanelHimno.vue'
 import PanelFe             from './components/panels/PanelFe.vue'
@@ -92,12 +91,6 @@ const sections = [
     subtitle: 'Representación, significado y referencias',
     image: '/assets/img/logo-cuadrangular.svg', color: 'purpura',
     component: PanelLogotipo,
-  },
-  {
-    id: 'logotipo-extra', title: 'El Logotipo',
-    subtitle: 'Significado, colores e historia del emblema',
-    image: '/assets/img/logo-cuadrangular.svg', color: 'purpura',
-    component: PanelLogotipoExtra,
   },
   {
     id: 'bandera', title: 'La Bandera Cuadrangular',

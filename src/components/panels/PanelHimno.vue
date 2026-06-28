@@ -213,9 +213,9 @@ const estrofas = [
 
 .est-txt {
   font-family: 'Playfair Display', serif;
-  font-size: .90rem;
+  font-size: 1.05rem;
   color: #2a1a0a;
-  line-height: 1.65;
+  line-height: 1.7;
   white-space: pre-line;
   margin: 0;
   padding: 8px 14px 6px;
@@ -241,9 +241,9 @@ const estrofas = [
 }
 .coro-txt {
   font-family: 'Playfair Display', serif;
-  font-size: .88rem;
+  font-size: 1.02rem;
   color: #3a1a00;
-  line-height: 1.55;
+  line-height: 1.6;
   font-style: italic;
   font-weight: 600;
   margin: 0;
