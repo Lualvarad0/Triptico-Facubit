@@ -34,6 +34,7 @@ import PanelSimbolos       from './components/panels/PanelSimbolos.vue'
 import PanelLogotipo       from './components/panels/PanelLogotipo.vue'
 import PanelBandera        from './components/panels/PanelBandera.vue'
 import PanelHimno          from './components/panels/PanelHimno.vue'
+import PanelHimnoExtra     from './components/panels/PanelHimnoExtra.vue'
 import PanelFe             from './components/panels/PanelFe.vue'
 import PanelDoctrinas      from './components/panels/PanelDoctrinas.vue'
 
@@ -100,9 +101,15 @@ const sections = [
   },
   {
     id: 'himno', title: 'El Himno Cuadrangular',
-    subtitle: 'Letra y significado del himno oficial',
+    subtitle: 'Estrofas I y II',
     image: '/assets/img/doctrina-salvador-grabado.png', color: 'verde',
     component: PanelHimno,
+  },
+  {
+    id: 'himno-extra', title: 'El Himno Cuadrangular',
+    subtitle: 'Estrofas III y IV',
+    image: '/assets/img/doctrina-salvador-grabado.png', color: 'verde',
+    component: PanelHimnoExtra,
   },
   {
     id: 'fe', title: 'Declaración de Fe',
