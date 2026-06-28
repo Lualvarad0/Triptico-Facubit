@@ -1,8 +1,6 @@
 <template>
-  <IntroScreen v-if="showIntro" @open="showIntro = false" />
-
   <Transition name="stage-fade">
-    <main v-if="!showIntro" class="stage">
+    <main class="stage">
 
       <div class="color-strip">
         <div class="cs-rojo"></div>
@@ -12,8 +10,7 @@
       </div>
 
       <header class="stage-header">
-        <span class="stage-kicker">Proyecto de difusión doctrinal · 12 carillas</span>
-        <h1 class="stage-title">Difundiendo el Fundamento<br><em>en la Comunidad</em></h1>
+        <h1 class="stage-title">Difundiendo el Fundamento <em>en la Comunidad</em></h1>
         <p class="stage-sub">FACUBIT · Fundamento Cuadrangular · 2026</p>
       </header>
 
@@ -24,13 +21,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import IntroScreen       from './components/IntroScreen.vue'
 import WoodBox           from './components/WoodBox.vue'
 
 import PanelPortada        from './components/panels/PanelPortada.vue'
 import PanelContraportada  from './components/panels/PanelContraportada.vue'
 import PanelAimee          from './components/panels/PanelAimee.vue'
+import PanelAimeeExtra     from './components/panels/PanelAimeeExtra.vue'
 import PanelEzequiel       from './components/panels/PanelEzequiel.vue'
 import PanelSignificado    from './components/panels/PanelSignificado.vue'
 import PanelRepresentaciones from './components/panels/PanelRepresentaciones.vue'
@@ -40,8 +36,6 @@ import PanelBandera        from './components/panels/PanelBandera.vue'
 import PanelHimno          from './components/panels/PanelHimno.vue'
 import PanelFe             from './components/panels/PanelFe.vue'
 import PanelDoctrinas      from './components/panels/PanelDoctrinas.vue'
-
-const showIntro = ref(true)
 
 const sections = [
   {
@@ -63,10 +57,16 @@ const sections = [
     component: PanelAimee,
   },
   {
+    id: 'aimee-extra', title: 'Aimee Semple McPherson',
+    subtitle: 'Datos biográficos y curiosidades',
+    image: '/assets/img/aimee-semple-mcpherson.jpg', color: 'purpura',
+    component: PanelAimeeExtra,
+  },
+  {
     id: 'ezequiel', title: 'Visión de Ezequiel 1:10',
     subtitle: 'Los cuatro rostros del Evangelio',
     image: '/assets/img/rostro-leon-grabado.png', color: 'verde',
-    component: PanelEzequiel,
+    component: PanelEzequiel, wide: true,
   },
   {
     id: 'significado', title: 'Significado "Cuadrangular"',
@@ -125,10 +125,10 @@ const sections = [
   background:
     radial-gradient(circle at 15% 0%, rgba(184,132,73,.14), transparent 30rem),
     linear-gradient(180deg, #f1eadf 0%, #e7ded0 100%);
-  padding-bottom: 96px;
+  padding-bottom: 24px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
 }
 
 .color-strip { display: flex; height: 6px; }
@@ -139,29 +139,25 @@ const sections = [
 
 .stage-header {
   text-align: center;
-  padding: 36px 20px 30px;
+  padding: 8px 20px 6px;
   background: rgba(255,252,246,.88);
   border-bottom: 1px solid rgba(75,44,25,.12);
-  box-shadow: 0 12px 34px rgba(71,42,23,.08);
-  margin-bottom: 42px;
+  box-shadow: 0 4px 12px rgba(71,42,23,.06);
+  margin-bottom: 8px;
   width: 100%;
 }
 .stage-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1.8rem, 5vw, 3.25rem);
+  font-size: clamp(.95rem, 2vw, 1.3rem);
   color: #2d2119;
-  letter-spacing: -.04em;
-  line-height: .98;
-  margin: 10px 0 14px;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  margin: 0 0 2px;
 }
 .stage-title em { color:#a12626; font-weight:400; }
-.stage-kicker {
-  display:inline-block; color:#7e5d3f; font-size:.62rem; font-weight:800;
-  letter-spacing:.18em; text-transform:uppercase;
-}
 .stage-sub {
-  font-size: .65rem; color: #8a7664;
-  letter-spacing: .22em; text-transform: uppercase;
+  font-size: .58rem; color: #8a7664;
+  letter-spacing: .2em; text-transform: uppercase; margin: 0;
 }
 
 .stage-fade-enter-active { animation: stageIn .5s ease both; }

@@ -1,141 +1,193 @@
 <template>
   <div class="portada">
 
-    <blockquote class="verse">
-      "En cuanto a la semejanza de sus rostros, los cuatro tenían rostro de hombre,
-      y rostro de león al lado derecho, y rostro de buey a la izquierda, y rostro de águila."
-      <cite>— Ezequiel 1:10 (RVR 1960)</cite>
-    </blockquote>
+    <!-- INSTITUCIÓN -->
+    <div class="campo campo-inst">
+      <span class="campo-label">Institución:</span>
+      <p class="campo-valor inst-valor">
+        FACULTAD CUADRANGULAR<br>TEOLÓGICA FACUBIT.
+      </p>
+    </div>
 
-    <div class="faces-grid">
-      <div v-for="f in faces" :key="f.id" class="face-card" :style="{'--fc': f.color}">
-        <div class="face-img-wrap">
-          <img :src="f.img" :alt="f.nombre" class="face-img" />
-          <div class="face-img-overlay" :style="{background: `linear-gradient(to top, ${f.color}EE 0%, ${f.color}44 50%, transparent 100%)`}"></div>
-          <span class="face-badge">{{ f.doctrina }}</span>
+    <div class="separador"></div>
+
+    <!-- ASIGNATURA -->
+    <div class="campo campo-asig">
+      <span class="campo-label">Asignatura:</span>
+      <p class="campo-valor asig-valor">FUNDAMENTO CUADRANGULAR</p>
+    </div>
+
+    <div class="separador"></div>
+
+    <!-- TÍTULO -->
+    <div class="campo campo-titulo">
+      <span class="campo-label">Título:</span>
+      <p class="campo-valor titulo-valor">
+        DIFUNDIENDO EL FUNDAMENTO<br>EN LA COMUNIDAD.
+      </p>
+    </div>
+
+    <!-- FOTOS -->
+    <div class="fotos-grid">
+
+      <div class="foto-item">
+        <div class="foto-marco">
+          <img
+            src="https://live.staticflickr.com/3948/34000647641_b235646e8f.jpg"
+            alt="Templo Angelus"
+            class="foto-img"
+          />
+          <div class="foto-overlay"></div>
         </div>
-        <div class="face-body">
-          <h4>{{ f.nombre }}</h4>
-          <p>{{ f.desc }}</p>
-          <span class="face-ref">{{ f.ref }}</span>
+        <div class="foto-pie">
+          <strong>Templo Angelus</strong>
+          <span>Los Angeles, California<br>Estados Unidos.</span>
         </div>
       </div>
-    </div>
 
-    <div class="meta-box">
-      <div class="meta-row"><span class="meta-dot" style="background:#B30000"></span><span><strong>FACUBIT</strong> — Facultad Cuadrangular Bíblica Teológica</span></div>
-      <div class="meta-row"><span class="meta-dot" style="background:#003399"></span><span>Fundamento Cuadrangular · 2026</span></div>
-      <div class="meta-row"><span class="meta-dot" style="background:#CC8800"></span><span>Base: Declaración de Fe — Iglesia Cuadrangular</span></div>
-    </div>
+      <div class="foto-item">
+        <div class="foto-marco">
+          <img
+            src="/assets/img/iglesia-emmanuel.jpg"
+            alt="Iglesia Cuadrangular Emmanuel"
+            class="foto-img"
+          />
+          <div class="foto-overlay"></div>
+        </div>
+        <div class="foto-pie">
+          <strong>Iglesia Cuadrangular "Emmanuel"</strong>
+          <span>Rcto. El Guabito<br>Guayaquil - Daule, Ecuador.</span>
+        </div>
 
-    <div class="pills">
-      <span v-for="p in pills" :key="p.label" class="pill" :style="{background: p.color}">
-        {{ p.label }}
-      </span>
+      </div>
+
     </div>
 
   </div>
 </template>
 
-<script setup>
-const faces = [
-  {
-    id:'hombre', nombre:'Rostro de Hombre', doctrina:'SALVADOR',
-    color:'#003399',
-    img:'/assets/img/rostro-hombre-grabado.png',
-    ref:'Fil. 2:7–8 · Lc. 19:10',
-    desc:'Cristo se encarnó como hombre para identificarse con la humanidad y salvarla.'
-  },
-  {
-    id:'leon', nombre:'Rostro de León', doctrina:'REY VENIDERO',
-    color:'#B30000',
-    img:'/assets/img/rostro-leon-grabado.png',
-    ref:'Ap. 19:16 · Ap. 5:5',
-    desc:'El Rey de reyes regresará en gloria y majestad para establecer su reino eterno.'
-  },
-  {
-    id:'buey', nombre:'Rostro de Buey', doctrina:'SANADOR',
-    color:'#1a7a1a',
-    img:'/assets/img/rostro-buey-grabado.png',
-    ref:'Is. 53:4–5 · Mt. 8:17',
-    desc:'Como el buey cargó el yugo, Cristo llevó nuestras enfermedades en la cruz.'
-  },
-  {
-    id:'aguila', nombre:'Rostro de Águila', doctrina:'BAUTIZADOR',
-    color:'#880099',
-    img:'/assets/img/rostro-aguila-grabado.png',
-    ref:'Hch. 1:8 · Hch. 2:1–4',
-    desc:'El águila en las alturas: Cristo bautiza con Espíritu Santo y fuego sobrenatural.'
-  },
-]
-const pills = [
-  { label:'Salvador',    color:'#B30000' },
-  { label:'Sanador',     color:'#1a7a1a' },
-  { label:'Bautizador',  color:'#CC8800' },
-  { label:'Rey Venidero',color:'#880099' },
-]
-</script>
-
 <style scoped>
-.portada { display:flex; flex-direction:column; gap:14px; }
-
-.verse {
-  font-family:'Playfair Display',serif; font-style:italic;
-  font-size:.76rem; color:#3a2a1a; line-height:1.7;
-  background:#FFF8F0; border:1px solid #e8d8c0;
-  border-left:4px solid #B30000; border-radius:4px;
-  padding:12px 14px; margin:0;
+/* ── Entrada general ── */
+.portada {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 4px 2px;
+  animation: portadaIn .6s ease both;
 }
-cite { display:block; font-size:.62rem; color:#999; margin-top:5px; font-style:normal; }
-
-.faces-grid { display:grid; grid-template-columns:1fr 1fr; gap:9px; }
-
-.face-card {
-  border-radius:10px; overflow:hidden;
-  border:1.5px solid rgba(0,0,0,.08);
-  box-shadow:0 3px 12px rgba(0,0,0,.1);
-  background:#fff;
-  transition:transform .3s,box-shadow .3s;
-}
-.face-card:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,0,0,.16); }
-
-.face-img-wrap {
-  height:90px; position:relative; overflow:hidden;
-}
-.face-img {
-  width:100%; height:100%; object-fit:cover;
-  display:block;
-}
-.face-img-overlay {
-  position:absolute; inset:0;
-}
-.face-badge {
-  position:absolute; bottom:7px; left:8px;
-  background:rgba(0,0,0,.5); color:#fff;
-  font-size:.48rem; font-weight:800; letter-spacing:1.5px;
-  padding:2px 7px; border-radius:10px; text-transform:uppercase;
-  backdrop-filter:blur(4px);
+@keyframes portadaIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
 }
 
-.face-body { padding:10px 12px; }
-.face-body h4 {
-  font-family:'Cinzel',serif; font-size:.71rem; font-weight:700;
-  color:var(--fc); margin:0 0 4px;
+/* ── Campos ── */
+.campo {
+  padding: 7px 10px;
+  border-radius: 6px;
+  animation: campoIn .5s ease both;
 }
-.face-body p { font-size:.64rem; color:#555; line-height:1.5; margin:0 0 4px; }
-.face-ref { font-size:.57rem; color:#aaa; }
+.campo-inst  { animation-delay: .05s; background: rgba(0,51,153,.05); border-left: 3px solid #003399; }
+.campo-asig  { animation-delay: .12s; background: rgba(136,0,153,.05); border-left: 3px solid #880099; }
+.campo-titulo{ animation-delay: .19s; background: rgba(179,0,0,.05);   border-left: 3px solid #B30000; }
 
-.meta-box {
-  background:#F8F5F0; border:1px solid #E5DDD0; border-radius:8px;
-  padding:10px 14px; display:flex; flex-direction:column; gap:6px;
+@keyframes campoIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: none; }
 }
-.meta-row { display:flex; align-items:center; gap:8px; font-size:.68rem; color:#555; }
-.meta-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
 
-.pills { display:flex; flex-wrap:wrap; gap:5px; }
-.pill {
-  padding:5px 12px; border-radius:20px;
-  font-size:.62rem; font-weight:700; color:#fff;
-  box-shadow:0 2px 6px rgba(0,0,0,.2);
+.campo-label {
+  font-family: 'Cinzel', serif;
+  font-size: .54rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #888;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.campo-valor {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.inst-valor  { font-size: 1.05rem; color: #003399; }
+.asig-valor  { font-size: 1.0rem;  color: #880099; }
+.titulo-valor{ font-size: 1.12rem; color: #B30000; }
+
+/* ── Separadores ── */
+.separador {
+  height: 1px;
+  margin: 3px 10px;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,.1), transparent);
+}
+
+/* ── Fotos ── */
+.fotos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+  animation: fotosIn .5s .28s ease both;
+}
+@keyframes fotosIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.foto-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.foto-marco {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 2px solid #c8a870;
+  box-shadow: 0 3px 10px rgba(0,0,0,.18);
+}
+
+.foto-img {
+  width: 100%;
+  height: 118px;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s ease;
+}
+.foto-marco:hover .foto-img {
+  transform: scale(1.05);
+}
+
+/* Brillo sutil en la esquina superior */
+.foto-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.foto-pie {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 0 1px;
+}
+
+.foto-pie strong {
+  font-family: 'Cinzel', serif;
+  font-size: .6rem;
+  font-weight: 700;
+  color: #1a0a00;
+  line-height: 1.3;
+}
+
+.foto-pie span {
+  font-size: .56rem;
+  color: #5a4030;
+  line-height: 1.45;
 }
 </style>

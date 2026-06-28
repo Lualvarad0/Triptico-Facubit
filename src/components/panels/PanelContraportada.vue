@@ -1,75 +1,181 @@
 <template>
   <div class="contra">
-    <div class="contra-logo-wrap">
-      <LogoCuadrangular :size="80" />
-    </div>
 
-    <h2 class="contra-titulo">Datos Institucionales</h2>
-    <div class="contra-strip"></div>
-
-    <div class="datos-grid">
-      <div v-for="d in datos" :key="d.rol" class="dato-card">
-        <span class="dato-rol">{{ d.rol }}</span>
-        <span class="dato-nombre">{{ d.nombre }}</span>
+    <!-- Bloque institucional -->
+    <div class="inst-block">
+      <div class="inst-fila">
+        <span class="inst-etiq">Institución</span>
+        <span class="inst-val azul">FACULTAD CUADRANGULAR<br>BÍBLICA TEOLÓGICA <em>"FACUBIT"</em></span>
+      </div>
+      <div class="inst-div"></div>
+      <div class="inst-fila">
+        <span class="inst-etiq">Asignatura</span>
+        <span class="inst-val purpura">FUNDAMENTO CUADRANGULAR</span>
       </div>
     </div>
 
-    <div class="contra-verse">
-      <span>"Escríbelo en una tabla, y grábalo en un libro…"</span>
-      <cite>— Isaías 30:8</cite>
+    <!-- Tarjetas de autoridades -->
+    <div class="autoridades">
+      <div class="auto-card" style="--accent:#003399">
+        <span class="auto-rol">Coordinador</span>
+        <span class="auto-nombre">Víctor Cañar</span>
+      </div>
+      <div class="auto-card" style="--accent:#880099">
+        <span class="auto-rol">Subcoordinadora</span>
+        <span class="auto-nombre">Luci Banchon</span>
+      </div>
+      <div class="auto-card" style="--accent:#CC8800">
+        <span class="auto-rol">Profesora</span>
+        <span class="auto-nombre">Lcda. Susana Alvarado</span>
+      </div>
     </div>
+
+    <!-- Pastor e Iglesia -->
+    <div class="iglesia-block">
+      <div class="iglesia-fila">
+        <span class="igl-etiq">Pastor(es)</span>
+        <span class="igl-val">Ps. Angel Alvarado y Ps. Ana Correa</span>
+      </div>
+      <div class="iglesia-fila">
+        <span class="igl-etiq">Iglesia</span>
+        <span class="igl-val destaca">Cuadrangular "Emmanuel"<br>Recinto El Guabito</span>
+      </div>
+    </div>
+
+    <!-- Estudiantes -->
+    <div class="estudiantes-block">
+      <div class="est-header">
+        <span class="est-titulo">Estudiantes</span>
+        <div class="est-linea"></div>
+      </div>
+      <div class="nombres-grid">
+        <div v-for="(n, i) in estudiantes" :key="n" class="nombre-item">
+          <span class="n-num">{{ String(i+1).padStart(2,'0') }}</span>
+          <span class="n-val">{{ n }}</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script setup>
-import LogoCuadrangular from '../LogoCuadrangular.vue'
-const datos = [
-  { rol: 'Profesora',  nombre: 'Lcda. Susana Alvarado' },
-  { rol: 'Estudiante', nombre: 'Luis David Alvarado Ronquillo' },
-  { rol: 'Pastor',     nombre: 'Ángel Miguel Alvarado Ruiz' },
-  { rol: 'Iglesia',    nombre: 'Emmanuel' },
+const estudiantes = [
+  'Bernardo Plúas',    'Omar Alvarado',
+  'Víctor Ronquillo',  'David Alvarado',
+  'Mayra Huacón',      'Elizabeth Alvarado',
+  'Geanella Plúas',    'Bolívar Plúas',
 ]
 </script>
 
 <style scoped>
-.contra { display: flex; flex-direction: column; align-items: center; gap: 14px; }
-
-.contra-logo-wrap {
-  display: flex; justify-content: center;
+.contra {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  animation: contraIn .45s ease both;
+}
+@keyframes contraIn {
+  from { opacity:0; transform:translateY(6px); }
+  to   { opacity:1; transform:none; }
 }
 
-.contra-titulo {
-  font-family: 'Cinzel', serif; font-size: .88rem;
-  color: #B30000; text-transform: uppercase;
-  letter-spacing: 2px; margin: 0; text-align: center;
+/* ── Institución ── */
+.inst-block {
+  background: linear-gradient(135deg,rgba(0,51,153,.06),rgba(136,0,153,.04));
+  border: 1px solid rgba(0,51,153,.15);
+  border-radius: 7px;
+  padding: 7px 9px;
+  display: flex; flex-direction: column; gap: 5px;
 }
-.contra-strip {
-  width: 60px; height: 3px;
-  background: linear-gradient(90deg,#B30000,#003399,#CC8800,#880099);
-  border-radius: 2px;
+.inst-fila { display: flex; flex-direction: column; gap: 1px; }
+.inst-div  { height: 1px; background: rgba(0,0,0,.08); }
+.inst-etiq {
+  font-size: .5rem; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: #999;
+}
+.inst-val {
+  font-family: 'Cinzel', serif;
+  font-size: .68rem; font-weight: 800; line-height: 1.2;
+}
+.inst-val.azul    { color: #003399; }
+.inst-val.purpura { color: #880099; }
+.inst-val em { font-style: italic; color: #B30000; }
+
+/* ── Autoridades ── */
+.autoridades {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
+}
+.auto-card {
+  background: color-mix(in srgb, var(--accent) 8%, white);
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  border-top: 3px solid var(--accent);
+  border-radius: 6px;
+  padding: 5px 7px;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.auto-rol {
+  font-size: .48rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em; color: #888;
+}
+.auto-nombre {
+  font-family: 'Cinzel', serif;
+  font-size: .58rem; font-weight: 700; color: #1a0a00; line-height: 1.2;
 }
 
-.datos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; width: 100%; }
+/* ── Iglesia ── */
+.iglesia-block {
+  background: rgba(26,10,0,.03);
+  border: 1px solid rgba(26,10,0,.1);
+  border-radius: 7px;
+  padding: 6px 9px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.iglesia-fila { display: flex; flex-direction: column; gap: 1px; }
+.igl-etiq {
+  font-size: .48rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; color: #999;
+}
+.igl-val {
+  font-family: 'Cinzel', serif;
+  font-size: .62rem; font-weight: 600; color: #1a3a6a; line-height: 1.3;
+}
+.igl-val.destaca { font-weight: 800; color: #003399; }
 
-.dato-card {
-  display: flex; flex-direction: column; gap: 3px;
-  background: #fff; border: 1px solid #e8dfc8;
-  border-left: 3px solid #B30000;
-  border-radius: 6px; padding: 10px 12px;
+/* ── Estudiantes ── */
+.estudiantes-block {
+  display: flex; flex-direction: column; gap: 4px;
 }
-.dato-rol {
-  font-size: .58rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 1.5px;
-  color: #B30000; display: flex; align-items: center; gap: 5px;
+.est-header {
+  display: flex; align-items: center; gap: 6px;
 }
-.dato-nombre { font-size: .7rem; color: #555; font-family: 'Cinzel', serif; }
-
-.contra-verse {
-  background: #f8f4ee; border: 1px solid #e8dfc8;
-  border-radius: 6px; padding: 12px; text-align: center;
-  font-size: .7rem; color: #666; font-style: italic;
-  display: flex; flex-direction: column; gap: 4px; width: 100%;
+.est-titulo {
+  font-family: 'Cinzel', serif;
+  font-size: .54rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .12em; color: #7a5a30;
+  white-space: nowrap;
 }
-.contra-verse i { color: #CC8800; margin-bottom: 3px; }
-cite { font-style: normal; font-size: .62rem; color: #999; }
+.est-linea {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, rgba(122,90,48,.3), transparent);
+}
+.nombres-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 8px;
+}
+.nombre-item {
+  display: flex; align-items: center; gap: 4px;
+  padding: 2px 0;
+  border-bottom: 1px dotted rgba(0,0,0,.08);
+}
+.n-num {
+  font-size: .46rem; color: #bbb; font-weight: 700; flex-shrink: 0;
+}
+.n-val {
+  font-family: 'Cinzel', serif;
+  font-size: .58rem; color: #1a0a00;
+}
 </style>
