@@ -38,6 +38,7 @@ import PanelHimnoExtra     from './components/panels/PanelHimnoExtra.vue'
 import PanelFe             from './components/panels/PanelFe.vue'
 import PanelFeExtra        from './components/panels/PanelFeExtra.vue'
 import PanelFeExtra2       from './components/panels/PanelFeExtra2.vue'
+import PanelFeExtra3       from './components/panels/PanelFeExtra3.vue'
 import PanelDoctrinas      from './components/panels/PanelDoctrinas.vue'
 
 const sections = [
@@ -127,9 +128,15 @@ const sections = [
   },
   {
     id: 'fe-extra2', title: 'Declaración de Fe',
-    subtitle: 'Artículos 17 – 22',
+    subtitle: 'Artículos 14 – 19',
     image: '/assets/img/rostro-hombre-grabado.png', color: 'azul',
     component: PanelFeExtra2,
+  },
+  {
+    id: 'fe-extra3', title: 'Declaración de Fe',
+    subtitle: 'Artículos 20 – 22',
+    image: '/assets/img/rostro-hombre-grabado.png', color: 'azul',
+    component: PanelFeExtra3,
   },
   {
     id: 'doctrinas', title: 'Nuestras Doctrinas',

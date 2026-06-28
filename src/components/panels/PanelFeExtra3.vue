@@ -1,6 +1,6 @@
 <template>
   <div class="panel">
-    <div class="fe-header"><h2 class="fe-titulo">Declaración de Fe</h2><p class="fe-sub">Página 3 de 4 · Artículos 14 – 19</p></div>
+    <div class="fe-header"><h2 class="fe-titulo">Declaración de Fe</h2><p class="fe-sub">Página 4 de 4 · Artículos 20 – 22</p></div>
     <div class="fe-grid">
       <div class="sec" style="background:#880099">Últimas Cosas</div>
       <div class="card" v-for="a in arts" :key="a.num" :style="{'--cc':a.c,'--cl':a.l}">
@@ -12,12 +12,9 @@
 </template>
 <script setup>
 const arts=[
-  {num:14,c:'#880099',l:'#fdf0ff',t:'Segunda Venida de Cristo',d:'Jesucristo regresará personal y gloriosamente. Primero el rapto, luego su reino.',r:'1 Ts. 4:16-17'},
-  {num:15,c:'#880099',l:'#fdf0ff',t:'El Gran Mandamiento',d:'La Iglesia está comisionada para predicar el Evangelio a toda criatura y discipular.',r:'Mt. 28:18-20'},
-  {num:16,c:'#880099',l:'#fdf0ff',t:'Diezmos y Ofrendas',d:'El diezmo pertenece a Dios. Las ofrendas son expresión de gratitud y amor.',r:'Mal. 3:10'},
-  {num:17,c:'#880099',l:'#fdf0ff',t:'La Resurrección',d:'Todos resucitarán: los justos a vida eterna y los impíos a juicio eterno.',r:'Jn. 5:28-29'},
-  {num:18,c:'#880099',l:'#fdf0ff',t:'El Milenio',d:'Cristo reinará en paz y justicia por mil años sobre la tierra antes del juicio final.',r:'Ap. 20:1-6'},
-  {num:19,c:'#880099',l:'#fdf0ff',t:'El Juicio Final',d:'Dios juzgará a toda la humanidad. Cada persona dará cuenta de sus actos ante Cristo.',r:'Ap. 20:11-15'},
+  {num:20,c:'#B30000',l:'#fff0f0',t:'El Cielo',d:'Los redimidos vivirán eternamente con Dios en gozo, gloria y comunión perfecta.',r:'Jn. 14:2-3 · Ap. 21:3-4'},
+  {num:21,c:'#B30000',l:'#fff0f0',t:'El Infierno',d:'El rechazo de Cristo lleva a separación eterna de Dios en el lago de fuego.',r:'Ap. 20:15 · Mt. 25:46'},
+  {num:22,c:'#003399',l:'#eef2ff',t:'La Iglesia',d:'El cuerpo de Cristo, formado por todos los creyentes, llamado a proclamar el Evangelio.',r:'Ef. 1:22-23 · Mt. 16:18'},
 ]
 </script>
 <style scoped>
