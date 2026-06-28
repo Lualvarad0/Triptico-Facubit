@@ -24,18 +24,18 @@
 <script setup>
 const reps = [
   {
-    num: 1, color: '#003399', light: '#eef2ff',
-    img: '/assets/img/cuatro-rios-eden-grabado.png',
-    cita: 'Génesis 2:10-14',
-    titulo: 'Los cuatro ríos del Edén',
-    texto: 'Pisón, Gihón, Tigris y Éufrates expresan la provisión de Dios que fluye y alcanza toda la tierra.',
+    num: 3, color: '#CC8800', light: '#fff8e6',
+    img: '/assets/img/cuatro-vientos-grabado.png',
+    cita: 'Jeremías 49:36 · Apocalipsis 7:1',
+    titulo: 'Los cuatro vientos de la tierra',
+    texto: 'Dios gobierna toda dirección, fuerza e historia. Nada queda fuera de su soberanía.',
   },
   {
-    num: 2, color: '#B30000', light: '#fff0f0',
-    img: '/assets/img/cuatro-seres-vivientes-grabado.png',
-    cita: 'Ezequiel 1:5-10 · Ap. 4:6-7',
-    titulo: 'Los cuatro seres vivientes',
-    texto: 'Hombre, León, Buey y Águila anuncian la plenitud del carácter y ministerio de Jesucristo.',
+    num: 4, color: '#880099', light: '#fdf0ff',
+    img: '/assets/img/cuatro-evangelios-grabado.png',
+    cita: 'Mateo · Marcos · Lucas · Juan',
+    titulo: 'Los cuatro Evangelios',
+    texto: 'Cuatro testimonios anuncian a Jesús como Rey, Siervo, Hombre perfecto e Hijo eterno de Dios.',
   },
 ]
 </script>
@@ -55,7 +55,6 @@ const reps = [
 .rp-titulo { font-family:"Cinzel",serif; font-size:1.2rem; font-weight:900; color:#fff; margin:0 0 2px; letter-spacing:.05em; }
 .rp-sub    { font-size:.88rem; color:rgba(255,255,255,.55); margin:0; font-style:italic; }
 
-/* Mismo patrón que PanelFe: grid con align-content:start para altura natural */
 .rp-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -74,7 +73,6 @@ const reps = [
   background: var(--cl);
 }
 
-/* Imagen de altura fija — visible pero no dominante */
 .card-img {
   position: relative;
   height: 165px;

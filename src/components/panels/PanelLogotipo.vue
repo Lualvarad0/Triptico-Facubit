@@ -105,19 +105,19 @@ const cuadrantes = [
 }
 .logo-caption strong {
   font-family: 'Cinzel', serif;
-  font-size: .9rem;
+  font-size: 1.1rem;
   font-weight: 900;
   color: #1a0a00;
   line-height: 1.2;
 }
 .logo-caption span {
-  font-size: .90rem;
+  font-size: 1.02rem;
   color: #666;
   line-height: 1.4;
 }
 .logo-año {
   font-family: 'Cinzel', serif;
-  font-size: .88rem !important;
+  font-size: 1.0rem !important;
   color: #B30000 !important;
   font-weight: 700;
   letter-spacing: .06em;
@@ -125,7 +125,7 @@ const cuadrantes = [
 
 /* ── Descripción ── */
 .logo-desc {
-  font-size: .90rem;
+  font-size: 1.05rem;
   color: #444;
   line-height: 1.65;
   background: #fff;
@@ -142,7 +142,7 @@ const cuadrantes = [
   align-items: center;
   gap: 8px;
   font-family: 'Cinzel', serif;
-  font-size: .90rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #B30000;
   text-transform: uppercase;
@@ -188,25 +188,25 @@ const cuadrantes = [
 }
 .cua-simbolo {
   font-family: 'Cinzel', serif;
-  font-size: .90rem;
+  font-size: 1.08rem;
   font-weight: 800;
   color: var(--cc);
   line-height: 1.1;
 }
 .cua-doctrina {
-  font-size: .90rem;
+  font-size: 1.05rem;
   color: #333;
   font-weight: 600;
 }
 .cua-ref {
   font-family: 'Cinzel', serif;
-  font-size: .90rem;
+  font-size: 1.0rem;
   color: var(--cc);
   font-weight: 700;
   opacity: .8;
 }
 .cua-desc {
-  font-size: .90rem;
+  font-size: 1.02rem;
   color: #555;
   line-height: 1.55;
   margin: 0;
