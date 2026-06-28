@@ -25,6 +25,12 @@
 
     <!-- Lema -->
     <div class="block-title">Lema Cuadrangular</div>
+
+    <div class="lema-frase">
+      <span class="lema-cita-txt">"Jesucristo es el mismo de ayer y hoy por los siglos."</span>
+      <span class="lema-ref">Hebreos 13:8</span>
+    </div>
+
     <div class="lema-card">
       <div class="lema-4" v-for="(l, i) in lema" :key="i" :style="{'--lc': l.color}">
         <img :src="l.img" :alt="l.texto">
@@ -81,6 +87,30 @@ const lema = [
   background: var(--rc); color: #fff;
   display: flex; align-items: center; justify-content: center;
   font-size: .80rem; font-weight:900; letter-spacing:.08em; flex-shrink: 0;
+}
+
+.lema-frase {
+  background: linear-gradient(135deg, #fff8f0, #fff);
+  border-left: 4px solid #B30000;
+  border-radius: 6px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.lema-cita-txt {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: .90rem;
+  color: #2a1a0a;
+  line-height: 1.5;
+}
+.lema-ref {
+  font-family: 'Cinzel', serif;
+  font-size: .84rem;
+  font-weight: 800;
+  color: #B30000;
+  letter-spacing: .06em;
 }
 
 .lema-card {
