@@ -128,7 +128,7 @@ const estrofas = [
   text-shadow: 0 2px 10px rgba(0,0,0,.5);
 }
 .himno-autor {
-  font-size: .84rem;
+  font-size: .90rem;
   color: rgba(255,255,255,.6);
   font-style: italic;
   margin: 0 0 10px;
@@ -201,7 +201,7 @@ const estrofas = [
 
 .est-roman {
   font-family: 'Cinzel', serif;
-  font-size: .84rem;
+  font-size: .90rem;
   font-weight: 900;
   color: #B30000;
   text-align: center;
@@ -233,7 +233,7 @@ const estrofas = [
 }
 .coro-tag {
   font-family: 'Cinzel', serif;
-  font-size: .76rem;
+  font-size: .88rem;
   font-weight: 900;
   color: #CC8800;
   letter-spacing: .18em;

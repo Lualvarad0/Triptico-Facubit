@@ -77,20 +77,20 @@ const biblia = [
   filter:drop-shadow(0 8px 8px rgba(40,25,15,.2));
 }
 .flag-visual figcaption {
-  margin-top:10px; color:#76614f; font-size:.84rem;
+  margin-top:10px; color:#76614f; font-size:.88rem;
   font-weight:800; letter-spacing:.12em; text-transform:uppercase;
 }
 .ref-mark { width:7px; height:7px; border-radius:50%; flex-shrink:0; margin-top:4px; }
 
 .block-title {
-  font-family: 'Cinzel', serif; font-size: .72rem;
+  font-family: 'Cinzel', serif; font-size: .88rem;
   font-weight: 700; color: #B30000;
   text-transform: uppercase; letter-spacing: 1.5px;
   display: flex; align-items: center; gap: 6px;
   padding-bottom: 4px; border-bottom: 1px solid #e8dfc8;
 }
 
-.desc-text { font-size: .72rem; color: #555; line-height: 1.65; margin: 0; }
+.desc-text { font-size: .88rem; color: #555; line-height: 1.65; margin: 0; }
 
 .color-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
 .color-card {
@@ -103,15 +103,15 @@ const biblia = [
   background: var(--cc); flex-shrink: 0; margin-top: 2px;
 }
 .cc-body { display: flex; flex-direction: column; gap: 2px; }
-.cc-body strong { font-size: .86rem; color: var(--cc); }
-.cc-body span { font-size: .84rem; color: #666; line-height: 1.4; }
+.cc-body strong { font-size: .92rem; color: var(--cc); }
+.cc-body span { font-size: .90rem; color: #666; line-height: 1.4; }
 
 .bibl-refs { display: flex; flex-direction: column; gap: 6px; }
 .bibl-ref {
   display: flex; align-items: flex-start; gap: 8px;
   background: #fff; border: 1px solid #e8dfc8;
   border-radius: 6px; padding: 8px 10px;
-  font-size: .86rem; color: #444; line-height: 1.45;
+  font-size: .92rem; color: #444; line-height: 1.45;
 }
 .bibl-ref i { margin-top: 2px; flex-shrink: 0; }
 </style>
