@@ -1,111 +1,286 @@
 <template>
-  <div class="reps">
-
-    <p class="reps-intro">
-      En las Escrituras el número <strong>cuatro</strong> aparece en contextos de universalidad,
-      totalidad y completud. Estos son los pasajes más emblemáticos:
-    </p>
-
-    <div class="reps-list">
-      <div v-for="r in reps" :key="r.id" class="rep-card" :style="{'--rc': r.color}">
-        <div class="rep-image"><img :src="r.img" :alt="r.titulo" loading="lazy"></div>
-        <div class="rep-body">
-          <span class="rep-cita">{{ r.cita }}</span>
-          <strong class="rep-titulo">{{ r.titulo }}</strong>
-          <p class="rep-texto">{{ r.texto }}</p>
-        </div>
-      </div>
+  <section class="reps">
+    <div class="reps-hero">
+      <span class="hero-kicker">Representaciones bíblicas</span>
+      <h2>El “cuatro” como señal de totalidad</h2>
+      <p>
+        En las Escrituras el número <strong>cuatro</strong> aparece asociado con alcance universal:
+        creación, dirección, testimonio y misión hacia toda la tierra.
+      </p>
     </div>
 
-  </div>
+    <div class="reps-grid">
+      <article
+        v-for="r in reps"
+        :key="r.id"
+        class="rep-card"
+        :class="`rep-${r.id}`"
+        :style="{ '--rc': r.color, '--soft': r.soft }"
+      >
+        <figure class="rep-image">
+          <img :src="r.img" :alt="r.alt" loading="lazy">
+          <figcaption>{{ r.caption }}</figcaption>
+        </figure>
+
+        <div class="rep-body">
+          <span class="rep-cita">{{ r.cita }}</span>
+          <h3>{{ r.titulo }}</h3>
+          <p>{{ r.texto }}</p>
+        </div>
+      </article>
+    </div>
+  </section>
 </template>
 
 <script setup>
 const reps = [
   {
-    id:'rivers', cita:'Génesis 2:10-14', color:'#003399',
-    img:'/assets/img/doctrina-sanador-grabado.png',
-    titulo:'Los cuatro ríos del Edén',
-    texto:'El río del Edén se dividía en cuatro brazos: Pisón, Gihón, Tigris y Éufrates, simbolizando la provisión divina que fluye a toda la tierra.'
+    id: 'rivers',
+    cita: 'Génesis 2:10-14',
+    color: '#003399',
+    soft: 'rgba(0, 51, 153, .10)',
+    img: '/assets/img/cuatro-rios-eden-grabado.png',
+    alt: 'Grabado bíblico de un río del Edén dividiéndose en cuatro brazos',
+    caption: 'Un río que se divide en cuatro brazos',
+    titulo: 'Los cuatro ríos del Edén',
+    texto: 'Pisón, Gihón, Tigris y Éufrates expresan la provisión de Dios que fluye y alcanza la tierra.'
   },
   {
-    id:'living', cita:'Ezequiel 1:5-10 · Ap. 4:6-7', color:'#B30000',
-    img:'/assets/img/rostro-leon-grabado.png',
-    titulo:'Los cuatro seres vivientes',
-    texto:'Cuatro seres con cuatro rostros (hombre, león, toro, águila) rodean el trono de Dios, representando las cuatro facetas del evangelio de Cristo.'
+    id: 'living',
+    cita: 'Ezequiel 1:5-10 · Apocalipsis 4:6-7',
+    color: '#B30000',
+    soft: 'rgba(179, 0, 0, .10)',
+    img: '/assets/img/cuatro-seres-vivientes-grabado.png',
+    alt: 'Grabado bíblico de los cuatro seres vivientes: hombre, león, buey y águila',
+    caption: 'Hombre, león, buey y águila',
+    titulo: 'Los cuatro seres vivientes',
+    texto: 'La visión presenta rostros que anuncian la plenitud del carácter y ministerio de Cristo.'
   },
   {
-    id:'winds', cita:'Jeremías 49:36 · Ap. 7:1', color:'#CC8800',
-    img:'/assets/img/rostro-aguila-grabado.png',
-    titulo:'Los cuatro vientos de la tierra',
-    texto:'Cuatro ángeles detienen los cuatro vientos, simbolizando la soberanía divina sobre la totalidad de la creación y la historia humana.'
+    id: 'winds',
+    cita: 'Jeremías 49:36 · Apocalipsis 7:1',
+    color: '#CC8800',
+    soft: 'rgba(204, 136, 0, .14)',
+    img: '/assets/img/cuatro-vientos-grabado.png',
+    alt: 'Grabado bíblico de cuatro ángeles deteniendo los vientos de la tierra',
+    caption: 'Los vientos desde los cuatro puntos',
+    titulo: 'Los cuatro vientos de la tierra',
+    texto: 'Dios gobierna toda dirección, fuerza e historia; nada queda fuera de su soberanía.'
   },
   {
-    id:'gospel', cita:'Mateo · Marcos · Lucas · Juan', color:'#880099',
-    img:'/assets/img/rostro-hombre-grabado.png',
-    titulo:'Los cuatro Evangelios',
-    texto:'Los cuatro evangelios presentan a Jesús como Rey (Mateo), Siervo (Marcos), Hombre (Lucas) y Dios eterno (Juan), paralelos a los cuatro rostros de Ezequiel.'
+    id: 'gospel',
+    cita: 'Mateo · Marcos · Lucas · Juan',
+    color: '#880099',
+    soft: 'rgba(136, 0, 153, .10)',
+    img: '/assets/img/cuatro-evangelios-grabado.png',
+    alt: 'Grabado bíblico de cuatro rollos antiguos que representan los cuatro Evangelios',
+    caption: 'Cuatro testimonios de Cristo',
+    titulo: 'Los cuatro Evangelios',
+    texto: 'Cuatro testimonios anuncian a Jesús como Rey, Siervo, Hombre perfecto e Hijo eterno de Dios.'
   },
   {
-    id:'corners', cita:'Isaías 11:12 · Ap. 20:8', color:'#1a7a1a',
-    img:'/assets/img/doctrina-rey-grabado.png',
-    titulo:'Los cuatro confines de la tierra',
-    texto:'La expresión "cuatro extremos/confines de la tierra" indica universalidad: el evangelio es para todos los pueblos, razas y naciones sin excepción.'
-  },
+    id: 'corners',
+    cita: 'Isaías 11:12 · Apocalipsis 20:8',
+    color: '#1a7a1a',
+    soft: 'rgba(26, 122, 26, .12)',
+    img: '/assets/img/cuatro-confines-grabado.png',
+    alt: 'Grabado bíblico del evangelio extendiéndose hacia los cuatro confines de la tierra',
+    caption: 'El mensaje hasta toda nación',
+    titulo: 'Los cuatro confines de la tierra',
+    texto: 'La misión no se encierra en un lugar: el fundamento cuadrangular se comparte con todos los pueblos.'
+  }
 ]
 </script>
 
 <style scoped>
-.reps { display: flex; flex-direction: column; gap: 12px; }
-
-.reps-intro {
-  font-size: .86rem; color: #555; line-height: 1.6; margin: 0;
-  background: #fff; border-left: 3px solid #CC8800;
-  border-radius: 0 6px 6px 0; padding: 10px 12px;
+.reps {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-.reps-list { display: flex; flex-direction: column; gap: 10px; }
+.reps-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 16px;
+  border: 1px solid rgba(80, 53, 30, .16);
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.94), rgba(255,248,229,.88)),
+    repeating-linear-gradient(90deg, rgba(80,53,30,.06) 0 1px, transparent 1px 16px);
+  box-shadow: 0 12px 24px rgba(61, 39, 21, .08);
+}
+
+.reps-hero::after {
+  content: '';
+  position: absolute;
+  right: -35px;
+  top: -42px;
+  width: 115px;
+  height: 115px;
+  border-radius: 999px;
+  background: conic-gradient(#B30000 0 25%, #003399 0 50%, #CC8800 0 75%, #880099 0);
+  opacity: .16;
+}
+
+.hero-kicker {
+  display: inline-flex;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #3b2a16;
+  color: #fff4d8;
+  font-size: .66rem;
+  font-weight: 900;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.reps-hero h2 {
+  margin: 9px 0 5px;
+  color: #2f2010;
+  font: 900 1.15rem/1.15 'Cinzel', serif;
+}
+
+.reps-hero p {
+  margin: 0;
+  color: #5d4a31;
+  font-size: .88rem;
+  line-height: 1.55;
+}
+
+.reps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
 
 .rep-card {
-  display: flex; gap: 10px; align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(118px, 43%) 1fr;
+  min-height: 150px;
+  border: 1px solid rgba(80, 53, 30, .14);
+  border-radius: 15px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.98), rgba(255,252,242,.95)),
+    linear-gradient(90deg, var(--soft), transparent);
+  box-shadow: 0 12px 30px rgba(61, 39, 21, .10);
+  transform-origin: center;
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
 }
-.rep-number {
-  width:38px; height:38px; display:grid; place-items:center; flex-shrink:0;
-  border:1px solid var(--rc); color:var(--rc); border-radius:50%;
-  font:900 .6rem/1 'Cinzel',serif; letter-spacing:.08em;
-}
-.rep-image {
-  width:92px; min-height:92px; border-radius:5px; overflow:hidden;
-  flex-shrink:0; border:1px solid rgba(80,53,30,.18);
-  box-shadow:0 5px 14px rgba(55,35,20,.13);
-}
-.rep-image img { width:100%; height:100%; min-height:92px; object-fit:cover; display:block; }
 
-.rep-icon-col {
-  display: flex; flex-direction: column; align-items: center; flex-shrink: 0;
-  gap: 0;
+.rep-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: var(--rc);
+  opacity: .95;
 }
-.rep-icon-circle {
-  width: 34px; height: 34px; border-radius: 50%;
-  background: var(--rc); color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  font-size: .8rem; flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,.18);
+
+.rep-card:hover {
+  transform: translateY(-4px) rotateX(1deg);
+  border-color: color-mix(in srgb, var(--rc), white 50%);
+  box-shadow: 0 18px 34px rgba(61, 39, 21, .16);
 }
-.rep-line {
-  width: 2px; flex: 1; min-height: 10px;
-  background: var(--rc); opacity: .2;
+
+.rep-image {
+  position: relative;
+  min-height: 150px;
+  margin: 0;
+  overflow: hidden;
+  background: #efe4cd;
+}
+
+.rep-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 150px;
+  object-fit: cover;
+  display: block;
+  filter: sepia(.12) contrast(1.04);
+  transition: transform .45s ease, filter .45s ease;
+}
+
+.rep-card:hover .rep-image img {
+  transform: scale(1.045);
+  filter: sepia(.08) contrast(1.12);
+}
+
+.rep-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 68%, rgba(255,252,242,.78));
+  pointer-events: none;
+}
+
+.rep-image figcaption {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: rgba(47, 32, 16, .78);
+  color: #fff4d8;
+  font-size: .64rem;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-align: center;
+  backdrop-filter: blur(5px);
 }
 
 .rep-body {
-  background: #fff; border: 1px solid #e8dfc8;
-  border-left: 2px solid var(--rc);
-  border-radius: 0 8px 8px 0;
-  padding: 8px 12px; flex: 1;
-  display: flex; flex-direction: column; gap: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 13px 14px 13px 16px;
 }
-.rep-cita { font-size: .84rem; color: var(--rc); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
-.rep-titulo { font-family: 'Cinzel', serif; font-size: .86rem; color: #3a2a14; }
-.rep-texto { font-size: .86rem; color: #666; line-height: 1.5; margin: 0; }
-</style>
 
+.rep-cita {
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--soft);
+  color: var(--rc);
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.rep-body h3 {
+  margin: 0;
+  color: #2f2010;
+  font: 900 .98rem/1.15 'Cinzel', serif;
+}
+
+.rep-body p {
+  margin: 0;
+  color: #5f4d35;
+  font-size: .84rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 560px) {
+  .rep-card {
+    grid-template-columns: 1fr;
+  }
+
+  .rep-image {
+    min-height: 170px;
+  }
+
+  .rep-image img {
+    min-height: 170px;
+  }
+
+  .rep-image::after {
+    background: linear-gradient(0deg, rgba(255,252,242,.75), transparent 52%);
+  }
+}
+</style>
