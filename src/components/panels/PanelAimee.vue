@@ -16,7 +16,7 @@
           <span class="htag htag-r">Pionera Pentecostal</span>
         </div>
         <blockquote class="hero-cita">
-          "Jesucristo es el mismo ayer, hoy y por los siglos."
+          "Jesucristo es el mismo de ayer y hoy por los siglos."
         </blockquote>
       </div>
     </div>
