@@ -26,26 +26,18 @@
       </div>
     </div>
 
-    <!-- ══ LEGADO ══ -->
-    <div class="ae-bloque">
-      <div class="ae-bloque-titulo">Legado Global</div>
-      <div class="ae-logros">
-        <div v-for="l in legado" :key="l.num" class="ae-logro" :style="{'--lc': l.color}">
-          <span class="ae-logro-num">{{ l.num }}</span>
-          <span class="ae-logro-txt">{{ l.texto }}</span>
-        </div>
-      </div>
-    </div>
-
     <!-- ══ PERFIL ══ -->
     <div class="ae-bloque">
       <div class="ae-bloque-titulo">Perfil Personal</div>
-      <div class="ae-filas">
-        <div v-for="d in perfil" :key="d.label" class="ae-fila">
-          <span class="ae-etiq">{{ d.label }}</span>
-          <span class="ae-val">{{ d.val }}</span>
-        </div>
-      </div>
+      <p class="ae-bio">
+        Nació el <strong>9 de octubre de 1890</strong> en Salford, Ontario, Canadá, como
+        Aimee Elizabeth Kennedy. Contrajo matrimonio con Robert Semple, misionero con quien
+        viajó a China, y más tarde con Harold McPherson. Fue madre de
+        <strong>Roberta Star</strong> y <strong>Rolf McPherson</strong>.
+        Falleció el <strong>27 de septiembre de 1944</strong> en Oakland, California,
+        dejando un legado pentecostal de alcance mundial dentro del movimiento
+        <strong>Cuadrangular</strong>.
+      </p>
     </div>
 
   </div>
@@ -59,20 +51,6 @@ const hitos = [
   { year:'1923', titulo:'Templo Angelus',         texto:'Inauguró el Angelus Temple en Echo Park, Los Ángeles.' },
   { year:'1924', titulo:'Radio KFSG',             texto:'Primera estación de radio religiosa en EE.UU.' },
   { year:'1927', titulo:'Iglesia Cuadrangular',   texto:'Fundó formalmente la Iglesia del Evangelio Cuadrangular.' },
-]
-const legado = [
-  { num:'01', color:'#B30000', texto:'+30,000 iglesias establecidas en más de 100 países del mundo.' },
-  { num:'02', color:'#003399', texto:'+8 millones de fieles activos a nivel internacional.' },
-  { num:'03', color:'#CC8800', texto:'Primera mujer en obtener licencia de radio en EE.UU. (1924).' },
-  { num:'04', color:'#880099', texto:'Alimentó a más de 1.5 millones de personas durante la Gran Depresión.' },
-]
-const perfil = [
-  { label:'Nombre completo', val:'Aimee Elizabeth Kennedy' },
-  { label:'Nacimiento',      val:'9 oct 1890 · Salford, Ontario' },
-  { label:'Fallecimiento',   val:'27 sep 1944 · Oakland, California' },
-  { label:'Esposo',          val:'Robert Semple / Harold McPherson' },
-  { label:'Hijos',           val:'Roberta Star y Rolf McPherson' },
-  { label:'Movimiento',      val:'Pentecostal · Cuadrangular' },
 ]
 </script>
 
@@ -172,53 +150,13 @@ const perfil = [
 .tl-body strong { font-size: .88rem; color: #2a1a0a; font-weight: 700; }
 .tl-body span   { font-size: .84rem; color: #666; line-height: 1.45; }
 
-/* ══ LEGADO ══ */
-.ae-logros { padding: 2px 0; }
-.ae-logro {
-  display: flex;
-  align-items: flex-start;
-  gap: 9px;
-  padding: 6px 10px;
-  border-bottom: 1px dotted rgba(0,0,0,.07);
-}
-.ae-logro:last-child { border-bottom: none; }
-.ae-logro-num {
-  font-family: 'Cinzel', serif;
-  font-size: .86rem;
-  font-weight: 900;
-  color: var(--lc);
-  min-width: 26px;
-  flex-shrink: 0;
-}
-.ae-logro-txt {
-  font-size: .86rem;
-  color: #444;
-  line-height: 1.5;
-}
-
 /* ══ PERFIL ══ */
-.ae-filas { padding: 2px 0; }
-.ae-fila {
-  display: flex;
-  gap: 8px;
-  align-items: baseline;
-  padding: 5px 10px;
-  border-bottom: 1px dotted rgba(0,0,0,.07);
+.ae-bio {
+  font-size: .88rem;
+  color: #444;
+  line-height: 1.7;
+  padding: 10px 12px;
+  margin: 0;
 }
-.ae-fila:last-child { border-bottom: none; }
-.ae-etiq {
-  font-size: .76rem;
-  color: #999;
-  min-width: 100px;
-  flex-shrink: 0;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-}
-.ae-val {
-  font-family: 'Cinzel', serif;
-  font-size: .86rem;
-  color: #1a0a00;
-  line-height: 1.35;
-}
+.ae-bio strong { color: #880099; }
 </style>
