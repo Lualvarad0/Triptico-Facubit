@@ -1,33 +1,32 @@
 <template>
   <div class="ezequiel">
 
-    <blockquote class="ez-intro">
-      Aimee Semple McPherson encontró en Ezequiel 1:10 el cuadro perfecto del ministerio
-      de Cristo. Cada rostro revela una dimensión de su poder eterno.
-    </blockquote>
-
-    <div class="rostros-grid">
-      <div v-for="r in rostros" :key="r.id" class="rostro-card" :style="{'--rc': r.color}">
-        <div class="rostro-img-wrap">
-          <img :src="r.img" :alt="r.nombre" class="rostro-img" />
-          <div class="rostro-overlay" :style="{background: `linear-gradient(to top, ${r.color}F0 0%, ${r.color}66 55%, transparent 100%)`}"></div>
-          <span class="rostro-num">{{ r.num }}</span>
-          <div class="rostro-doc-tag">{{ r.doctrina }}</div>
-        </div>
-        <div class="rostro-body">
-          <h4>{{ r.nombre }}</h4>
-          <p>{{ r.texto }}</p>
-          <div class="rostro-refs">{{ r.ref }}</div>
-        </div>
-      </div>
+    <!-- Introducción — fila superior full-width -->
+    <div class="ez-intro">
+      <span class="ez-ref">Ezequiel 1:10</span>
+      Aimee McPherson encontró en los cuatro rostros el cuadro perfecto del ministerio de Cristo:
+      <em>Salvador · Sanador · Bautizador · Rey Venidero.</em>
     </div>
 
-    <div class="cuadro-sintetico">
-      <div class="cs-title">El Evangelio Cuadrangular</div>
-      <div class="cs-grid">
-        <div v-for="r in rostros" :key="r.id" class="cs-item" :style="{background: r.color}">
-          <img :src="r.img" :alt="r.doctrina" class="cs-thumb" />
-          <span>{{ r.doctrina }}</span>
+    <!-- Grid 2×2: izquierda=cards 1&2 / derecha=cards 3&4 -->
+    <div class="rostros-grid">
+      <div
+        v-for="r in rostros" :key="r.id"
+        class="rostro-card"
+        :style="{'--rc': r.color, '--rc-light': r.colorLight}"
+      >
+        <div class="rostro-foto">
+          <img :src="r.img" :alt="r.nombre" class="rostro-img" />
+          <div class="rostro-grad" :style="{background:`linear-gradient(to top,${r.color}F0 0%,${r.color}44 55%,transparent 100%)`}"></div>
+          <div class="rostro-topbar" :style="{background: r.color}">
+            <span class="rostro-num">{{ r.num }}</span>
+            <span class="rostro-tag">{{ r.doctrina }}</span>
+          </div>
+        </div>
+        <div class="rostro-cuerpo">
+          <h4 class="rostro-titulo">{{ r.nombre }}</h4>
+          <p class="rostro-texto">{{ r.texto }}</p>
+          <p class="rostro-ref">{{ r.ref }}</p>
         </div>
       </div>
     </div>
@@ -39,106 +38,170 @@
 const rostros = [
   {
     id:'hombre', num:'01', nombre:'Rostro de Hombre', doctrina:'SALVADOR',
-    color:'#003399',
+    color:'#003399', colorLight:'#e8eeff',
     img:'/assets/img/rostro-hombre-grabado.png',
     texto:'Cristo se hizo hombre para identificarse con la humanidad caída y ofrecer su vida en rescate por el pecado.',
-    ref:'Lc. 19:10 · Fil. 2:7–8'
+    ref:'Lucas 19:10 · Filipenses 2:7–8'
   },
   {
-    id:'leon', num:'02', nombre:'Rostro de León', doctrina:'REY VENIDERO',
-    color:'#B30000',
+    id:'buey', num:'02', nombre:'Rostro de Buey', doctrina:'SANADOR',
+    color:'#1a7a1a', colorLight:'#e8f5e8',
+    img:'/assets/img/rostro-buey-grabado.png',
+    texto:'El buey bajo el yugo habla de Cristo cargando nuestras enfermedades y dolencias en la cruz del Calvario.',
+    ref:'Isaías 53:4–5 · Mateo 8:17'
+  },
+  {
+    id:'leon', num:'03', nombre:'Rostro de León', doctrina:'REY VENIDERO',
+    color:'#B30000', colorLight:'#fff0f0',
     img:'/assets/img/rostro-leon-grabado.png',
     texto:'El León, rey de la selva, habla de la majestad y realeza de Cristo que regresará victorioso y glorioso.',
-    ref:'Ap. 19:16 · Ap. 5:5'
-  },
-  {
-    id:'buey', num:'03', nombre:'Rostro de Buey', doctrina:'SANADOR',
-    color:'#1a7a1a',
-    img:'/assets/img/rostro-buey-grabado.png',
-    texto:'El buey que lleva el yugo habla de Cristo cargando nuestras enfermedades en la cruz del Calvario.',
-    ref:'Is. 53:4–5 · Mt. 8:17'
+    ref:'Apocalipsis 19:16 · Apocalipsis 5:5'
   },
   {
     id:'aguila', num:'04', nombre:'Rostro de Águila', doctrina:'BAUTIZADOR',
-    color:'#880099',
+    color:'#880099', colorLight:'#f9e8ff',
     img:'/assets/img/rostro-aguila-grabado.png',
     texto:'El águila que surca las alturas representa lo divino: Cristo bautiza con Espíritu Santo y fuego sobrenatural.',
-    ref:'Hch. 1:8 · Hch. 2:1–4'
+    ref:'Hechos 1:8 · Hechos 2:1–4'
   },
 ]
 </script>
 
 <style scoped>
-.ezequiel { display:flex; flex-direction:column; gap:13px; }
+.ezequiel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 8px;
+}
 
+/* ── Intro ── */
 .ez-intro {
-  font-family:'Playfair Display',serif; font-style:italic;
-  font-size:.75rem; color:#3a2a1a; line-height:1.65;
-  background:#F0F7F0; border:1px solid #B0D8B0;
-  border-left:4px solid #1a7a1a; border-radius:4px;
-  padding:10px 14px; margin:0;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: .72rem;
+  color: #2a1a0a;
+  line-height: 1.55;
+  background: linear-gradient(135deg, #f0f7f0, #f5f0ea);
+  border-left: 4px solid #1a7a1a;
+  border-radius: 4px;
+  padding: 7px 12px;
+  flex-shrink: 0;
+}
+.ez-ref {
+  font-family: 'Cinzel', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: .58rem;
+  color: #1a7a1a;
+  display: block;
+  margin-bottom: 2px;
+  letter-spacing: .1em;
+}
+.ez-intro em { font-weight: 600; color: #B30000; font-style: normal; }
+
+/* ── Grid 2×2 ── */
+.rostros-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  flex: 1;
+  min-height: 0;
 }
 
-.rostros-grid { display:grid; grid-template-columns:1fr 1fr; gap:9px; }
-
+/* ── Card ── */
 .rostro-card {
-  border-radius:10px; overflow:hidden; background:#fff;
-  border:1.5px solid rgba(0,0,0,.07);
-  box-shadow:0 3px 12px rgba(0,0,0,.1);
-  transition:transform .3s, box-shadow .3s;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  border: 1.5px solid rgba(0,0,0,.08);
+  box-shadow: 0 3px 12px rgba(0,0,0,.12);
+  transition: transform .25s, box-shadow .25s;
 }
-.rostro-card:hover { transform:translateY(-4px); box-shadow:0 8px 22px rgba(0,0,0,.15); }
+.rostro-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0,0,0,.16);
+}
 
-.rostro-img-wrap {
-  height:88px; position:relative; overflow:hidden;
+/* Foto */
+.rostro-foto {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
 }
 .rostro-img {
-  width:100%; height:100%; object-fit:cover; display:block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
 }
-.rostro-overlay { position:absolute; inset:0; }
+.rostro-card:hover .rostro-img { transform: scale(1.05); }
 
+.rostro-grad {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.rostro-topbar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 8px;
+}
 .rostro-num {
-  position:absolute; top:7px; right:9px;
-  font-family:'Cinzel',serif; font-size:.72rem; font-weight:900;
-  color:rgba(255,255,255,.8);
-  text-shadow: 0 1px 4px rgba(0,0,0,.5);
+  font-family: 'Cinzel', serif;
+  font-size: .7rem;
+  font-weight: 900;
+  color: rgba(255,255,255,.95);
+  text-shadow: 0 1px 4px rgba(0,0,0,.4);
 }
-.rostro-doc-tag {
-  position:absolute; bottom:7px; left:8px;
-  background:rgba(0,0,0,.45); color:#fff;
-  font-size:.48rem; font-weight:800; letter-spacing:1.5px;
-  padding:2px 7px; border-radius:10px;
-  backdrop-filter:blur(4px);
+.rostro-tag {
+  font-size: .46rem;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  color: #fff;
+  background: rgba(0,0,0,.3);
+  padding: 2px 6px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
 }
 
-.rostro-body { padding:9px 11px; }
-.rostro-body h4 {
-  font-family:'Cinzel',serif; font-size:.69rem; font-weight:700;
-  color:var(--rc); margin:0 0 5px;
+/* Cuerpo de texto */
+.rostro-cuerpo {
+  padding: 7px 10px;
+  background: var(--rc-light);
+  border-top: 2px solid var(--rc);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex-shrink: 0;
 }
-.rostro-body p { font-size:.63rem; color:#555; line-height:1.5; margin:0 0 5px; }
-.rostro-refs { font-size:.57rem; color:#aaa; }
-
-.cuadro-sintetico {
-  background:#fff; border:1.5px solid #e8dfc8;
-  border-radius:10px; overflow:hidden;
+.rostro-titulo {
+  font-family: 'Cinzel', serif;
+  font-size: .66rem;
+  font-weight: 800;
+  color: var(--rc);
+  margin: 0;
 }
-.cs-title {
-  font-family:'Cinzel',serif; font-size:.72rem; font-weight:700;
-  color:#3a2a14; background:#F8F5F0; border-bottom:1px solid #e8dfc8;
-  padding:8px 12px; text-align:center;
+.rostro-texto {
+  font-size: .58rem;
+  color: #444;
+  line-height: 1.5;
+  margin: 0;
 }
-.cs-grid { display:grid; grid-template-columns:1fr 1fr; }
-.cs-item {
-  display:flex; align-items:center; gap:8px;
-  padding:8px 10px; color:#fff;
-  font-size:.6rem; font-weight:700; letter-spacing:.5px;
-  border:1px solid rgba(255,255,255,.12);
-  overflow:hidden;
-}
-.cs-thumb {
-  width:32px; height:32px; border-radius:6px;
-  object-fit:cover; flex-shrink:0;
-  border:1.5px solid rgba(255,255,255,.4);
+.rostro-ref {
+  font-family: 'Cinzel', serif;
+  font-size: .52rem;
+  color: #888;
+  margin: 0;
+  font-style: italic;
 }
 </style>
