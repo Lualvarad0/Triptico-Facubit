@@ -86,14 +86,14 @@ function artColor(num) {
 <style scoped>
 .fe-panel { display: flex; flex-direction: column; gap: 12px; }
 
-.fe-intro { font-size: .73rem; color: #555; line-height: 1.6; margin: 0; }
+.fe-intro { font-size: .86rem; color: #555; line-height: 1.6; margin: 0; }
 
 /* Tabs de categoría */
 .cat-tabs { display: flex; flex-wrap: wrap; gap: 5px; }
 .cat-tab {
   padding: 5px 10px; border-radius: 20px;
   border: 1.5px solid #ddd; background: #fff;
-  font-size: .62rem; font-weight: 700; color: #888;
+  font-size: .84rem; font-weight: 700; color: #888;
   cursor: pointer; display: flex; align-items: center; gap: 4px;
   transition: all .2s; font-family: inherit;
 }
@@ -120,10 +120,10 @@ function artColor(num) {
 
 .art-body { flex: 1; display: flex; flex-direction: column; gap: 3px; }
 .art-title {
-  font-size: .73rem; font-weight: 700; color: #3a2a1a;
+  font-size: .86rem; font-weight: 700; color: #3a2a1a;
   display: flex; align-items: center; gap: 5px;
 }
-.art-title i { color: var(--ac, #B30000); font-size: .65rem; }
-.art-texto { font-size: .67rem; color: #666; line-height: 1.45; }
-.art-ref { font-size: .6rem; color: #999; }
+.art-title i { color: var(--ac, #B30000); font-size: .86rem; }
+.art-texto { font-size: .86rem; color: #666; line-height: 1.45; }
+.art-ref { font-size: .84rem; color: #999; }
 </style>

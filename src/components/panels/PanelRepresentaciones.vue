@@ -59,7 +59,7 @@ const reps = [
 .reps { display: flex; flex-direction: column; gap: 12px; }
 
 .reps-intro {
-  font-size: .73rem; color: #555; line-height: 1.6; margin: 0;
+  font-size: .86rem; color: #555; line-height: 1.6; margin: 0;
   background: #fff; border-left: 3px solid #CC8800;
   border-radius: 0 6px 6px 0; padding: 10px 12px;
 }
@@ -104,8 +104,8 @@ const reps = [
   padding: 8px 12px; flex: 1;
   display: flex; flex-direction: column; gap: 3px;
 }
-.rep-cita { font-size: .58rem; color: var(--rc); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
-.rep-titulo { font-family: 'Cinzel', serif; font-size: .72rem; color: #3a2a14; }
-.rep-texto { font-size: .66rem; color: #666; line-height: 1.5; margin: 0; }
+.rep-cita { font-size: .84rem; color: var(--rc); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+.rep-titulo { font-family: 'Cinzel', serif; font-size: .86rem; color: #3a2a14; }
+.rep-texto { font-size: .86rem; color: #666; line-height: 1.5; margin: 0; }
 </style>
 

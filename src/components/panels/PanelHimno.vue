@@ -98,13 +98,13 @@ const estrofas = [
   font-family: 'Cinzel', serif; font-size: .95rem; margin: 0 0 3px;
   text-shadow: 0 2px 8px rgba(0,0,0,.6);
 }
-.himno-header-overlay p { font-size: .62rem; opacity: .85; margin: 0; }
+.himno-header-overlay p { font-size: .84rem; opacity: .85; margin: 0; }
 
 /* Nota */
 .himno-nota {
   background: #f8f4ee; border: 1px solid #e8dfc8;
   border-left: 3px solid #CC8800; border-radius: 0 6px 6px 0;
-  padding: 9px 12px; font-size: .68rem; color: #666; line-height: 1.55;
+  padding: 9px 12px; font-size: .86rem; color: #666; line-height: 1.55;
 }
 
 /* Estrofas */
@@ -125,15 +125,15 @@ const estrofas = [
   background: var(--ec);
 }
 .est-num {
-  display: block; font-size: .5rem; font-weight: 700;
+  display: block; font-size: .80rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,.8);
 }
 .est-doc {
-  display: block; font-family: 'Cinzel', serif; font-size: .62rem;
+  display: block; font-family: 'Cinzel', serif; font-size: .84rem;
   font-weight: 700; color: #fff;
 }
 .est-letra {
-  font-size: .6rem; color: #555; line-height: 1.55;
+  font-size: .84rem; color: #555; line-height: 1.55;
   white-space: pre-line; margin: 0; font-style: italic;
   padding: 8px 10px;
 }
@@ -146,20 +146,20 @@ const estrofas = [
   border-top: 3px solid #CC8800;
 }
 .coro-label {
-  font-family: 'Cinzel', serif; font-size: .72rem;
+  font-family: 'Cinzel', serif; font-size: .86rem;
   font-weight: 700; color: #CC8800;
   text-transform: uppercase; letter-spacing: 2px;
   margin-bottom: 8px;
 }
 .coro-letra {
   font-family: 'Playfair Display', serif;
-  font-size: .75rem; color: #3a2a14; line-height: 1.7;
+  font-size: .88rem; color: #3a2a14; line-height: 1.7;
   font-style: italic; margin: 0;
 }
 
 /* Fuente */
 .himno-fuente {
-  font-size: .58rem; color: #aaa; text-align: center; margin: 0;
+  font-size: .84rem; color: #aaa; text-align: center; margin: 0;
 }
 .himno-fuente a { color: #CC8800; }
 </style>

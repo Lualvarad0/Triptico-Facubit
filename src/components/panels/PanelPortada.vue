@@ -97,7 +97,7 @@
 
 .campo-label {
   font-family: 'Cinzel', serif;
-  font-size: .54rem;
+  font-size: .78rem;
   font-weight: 700;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -179,14 +179,14 @@
 
 .foto-pie strong {
   font-family: 'Cinzel', serif;
-  font-size: .6rem;
+  font-size: .82rem;
   font-weight: 700;
   color: #1a0a00;
   line-height: 1.3;
 }
 
 .foto-pie span {
-  font-size: .56rem;
+  font-size: .80rem;
   color: #5a4030;
   line-height: 1.45;
 }

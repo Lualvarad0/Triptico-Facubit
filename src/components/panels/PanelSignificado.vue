@@ -55,7 +55,7 @@ const lema = [
 .signif { display: flex; flex-direction: column; gap: 12px; }
 
 .block-title {
-  font-family: 'Cinzel', serif; font-size: .72rem;
+  font-family: 'Cinzel', serif; font-size: .86rem;
   font-weight: 700; color: #B30000;
   text-transform: uppercase; letter-spacing: 1.5px;
   display: flex; align-items: center; gap: 6px;
@@ -66,7 +66,7 @@ const lema = [
   background: #fff; border: 1px solid #e8dfc8;
   border-left: 3px solid #003399;
   border-radius: 6px; padding: 12px;
-  font-size: .72rem; color: #444; line-height: 1.65;
+  font-size: .86rem; color: #444; line-height: 1.65;
 }
 
 .refs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
@@ -74,13 +74,13 @@ const lema = [
   background: #fff; border: 1.5px solid var(--rc);
   border-radius: 8px; padding: 8px 10px;
   display: flex; align-items: flex-start; gap: 8px;
-  font-size: .65rem; color: #444; line-height: 1.4;
+  font-size: .86rem; color: #444; line-height: 1.4;
 }
 .ref-number {
   width: 26px; height: 26px; border-radius: 50%;
   background: var(--rc); color: #fff;
   display: flex; align-items: center; justify-content: center;
-  font-size: .55rem; font-weight:900; letter-spacing:.08em; flex-shrink: 0;
+  font-size: .80rem; font-weight:900; letter-spacing:.08em; flex-shrink: 0;
 }
 
 .lema-card {
@@ -90,7 +90,7 @@ const lema = [
   background: linear-gradient(135deg, var(--lc), color-mix(in srgb, var(--lc) 60%, #fff));
   border-radius: 8px; padding: 10px 12px;
   display: flex; align-items: center; gap: 8px;
-  color: #fff; font-size: .7rem; font-weight: 700;
+  color: #fff; font-size: .88rem; font-weight: 700;
   font-family: 'Cinzel', serif;
 }
 .lema-4 img { width:36px; height:36px; border-radius:4px; object-fit:cover; flex-shrink:0; }
