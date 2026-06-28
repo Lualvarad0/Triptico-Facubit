@@ -1,9 +1,9 @@
 <template>
-  <div class="fe-extra">
+  <div class="fe-extra2">
 
     <div class="fe-header">
       <h2 class="fe-titulo">Declaración de Fe</h2>
-      <p class="fe-sub">Artículos 09 – 16 de 22</p>
+      <p class="fe-sub">Artículos 17 – 22 de 22</p>
     </div>
 
     <div class="fe-grid">
@@ -24,19 +24,17 @@
 
 <script setup>
 const articulos = [
-  { num:9,  color:'#003399', light:'#eef2ff', titulo:'Bautismo en Agua',            texto:'El bautismo por inmersión simboliza la muerte al pecado y resurrección a nueva vida.',          ref:'Ro. 6:3–4' },
-  { num:10, color:'#003399', light:'#eef2ff', titulo:'La Santa Cena',               texto:'Conmemora el sacrificio de Cristo. El pan es su cuerpo y la copa su sangre.',                   ref:'1 Co. 11:23–26' },
-  { num:11, color:'#CC8800', light:'#fff8e6', titulo:'Bautismo del Espíritu Santo',  texto:'Cristo bautiza con el Espíritu Santo y fuego, con evidencia de hablar en lenguas.',            ref:'Hch. 2:1–4' },
-  { num:12, color:'#CC8800', light:'#fff8e6', titulo:'Dones del Espíritu',           texto:'El E.S. distribuye sus dones: sabiduría, fe, sanidades, milagros, profecía, lenguas.',        ref:'1 Co. 12:1–11' },
-  { num:13, color:'#CC8800', light:'#fff8e6', titulo:'Sanidad Divina',               texto:'La sanidad física es parte de la redención. Dios sana en respuesta a la fe.',                 ref:'Stg. 5:14–16' },
-  { num:14, color:'#880099', light:'#fdf0ff', titulo:'Segunda Venida de Cristo',     texto:'Jesucristo regresará personal y gloriosamente. Primero el rapto, luego su reino.',            ref:'1 Ts. 4:16–17' },
-  { num:15, color:'#880099', light:'#fdf0ff', titulo:'El Gran Mandamiento',          texto:'La Iglesia está comisionada para predicar el Evangelio a toda criatura y discipular.',        ref:'Mt. 28:18–20' },
-  { num:16, color:'#880099', light:'#fdf0ff', titulo:'Diezmos y Ofrendas',           texto:'El diezmo pertenece a Dios. Las ofrendas son expresión de gratitud y amor.',                  ref:'Mal. 3:10' },
+  { num:17, color:'#880099', light:'#fdf0ff', titulo:'La Resurrección de los Muertos', texto:'Todos resucitarán: los justos a vida eterna y los impíos a juicio eterno.',                    ref:'Jn. 5:28–29 · 1 Co. 15:52' },
+  { num:18, color:'#880099', light:'#fdf0ff', titulo:'El Milenio',                     texto:'Cristo reinará en paz y justicia por mil años sobre la tierra antes del juicio final.',       ref:'Ap. 20:1–6' },
+  { num:19, color:'#880099', light:'#fdf0ff', titulo:'El Juicio Final',                texto:'Dios juzgará a toda la humanidad. Cada persona dará cuenta de sus actos ante Cristo.',        ref:'Ap. 20:11–15 · 2 Co. 5:10' },
+  { num:20, color:'#B30000', light:'#fff0f0', titulo:'El Cielo',                       texto:'Los redimidos vivirán eternamente con Dios en gozo, gloria y comunión perfecta.',            ref:'Jn. 14:2–3 · Ap. 21:3–4' },
+  { num:21, color:'#B30000', light:'#fff0f0', titulo:'El Infierno',                    texto:'El rechazo de Cristo lleva a separación eterna de Dios en el lago de fuego.',                ref:'Ap. 20:15 · Mt. 25:46' },
+  { num:22, color:'#003399', light:'#eef2ff', titulo:'La Iglesia',                     texto:'El cuerpo de Cristo, formado por todos los creyentes, llamado a proclamar el Evangelio.',    ref:'Ef. 1:22–23 · Mt. 16:18' },
 ]
 </script>
 
 <style scoped>
-.fe-extra {
+.fe-extra2 {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -66,10 +64,11 @@ const articulos = [
   letter-spacing: .06em;
 }
 
+/* Grid — 6 artículos: 2 col × 3 filas */
 .fe-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   gap: 6px;
   flex: 1;
   min-height: 0;
@@ -86,7 +85,7 @@ const articulos = [
 
 .fc-izq {
   background: var(--cc);
-  min-width: 54px;
+  min-width: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,11 +101,11 @@ const articulos = [
 
 .fc-der {
   flex: 1;
-  padding: 8px 12px;
+  padding: 10px 14px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 4px;
+  gap: 5px;
 }
 .fc-titulo {
   font-size: 1.18rem;

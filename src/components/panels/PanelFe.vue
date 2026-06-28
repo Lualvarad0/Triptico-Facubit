@@ -4,7 +4,7 @@
     <!-- Header -->
     <div class="fe-header">
       <h2 class="fe-titulo">Declaración de Fe</h2>
-      <p class="fe-sub">Artículos 01 – 08 de 16</p>
+      <p class="fe-sub">Artículos 01 – 08 de 22</p>
     </div>
 
     <!-- Grid de cards -->
@@ -55,14 +55,14 @@ const articulos = [
 }
 .fe-titulo {
   font-family: 'Cinzel', serif;
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   font-weight: 900;
   color: #fff;
   margin: 0 0 2px;
   letter-spacing: .05em;
 }
 .fe-sub {
-  font-size: .92rem;
+  font-size: 1.02rem;
   color: rgba(255,255,255,.55);
   margin: 0;
   font-style: italic;
@@ -100,7 +100,7 @@ const articulos = [
 }
 .fc-num {
   font-family: 'Cinzel', serif;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 900;
   color: #fff;
   line-height: 1;
@@ -116,21 +116,21 @@ const articulos = [
   gap: 4px;
 }
 .fc-titulo {
-  font-size: 1.05rem;
+  font-size: 1.18rem;
   font-weight: 800;
   color: var(--cc);
   margin: 0;
   line-height: 1.2;
 }
 .fc-texto {
-  font-size: .96rem;
+  font-size: 1.08rem;
   color: #222;
   margin: 0;
   line-height: 1.5;
 }
 .fc-ref {
   font-family: 'Cinzel', serif;
-  font-size: .88rem;
+  font-size: 1.0rem;
   font-weight: 700;
   color: var(--cc);
   margin: 0;
