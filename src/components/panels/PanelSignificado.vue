@@ -31,12 +31,6 @@
       <span class="lema-ref">Hebreos 13:8</span>
     </div>
 
-    <div class="lema-card">
-      <div class="lema-4" v-for="(l, i) in lema" :key="i" :style="{'--lc': l.color}">
-        <img :src="l.img" :alt="l.texto">
-        <span>{{ l.texto }}</span>
-      </div>
-    </div>
 
   </div>
 </template>
@@ -49,12 +43,6 @@ const refs = [
   { cita:'Hechos 2:4', texto:'Bautismo del Espíritu Santo', icon:'fas fa-fire', color:'#CC8800' },
 ]
 
-const lema = [
-  { texto:'Jesucristo Salvador', img:'/assets/img/doctrina-salvador-grabado.png', color:'#B30000' },
-  { texto:'Jesucristo Sanador', img:'/assets/img/doctrina-sanador-grabado.png', color:'#003399' },
-  { texto:'Jesucristo Bautizador', img:'/assets/img/doctrina-bautizador-grabado.png', color:'#CC8800' },
-  { texto:'Jesucristo Rey Venidero', img:'/assets/img/doctrina-rey-grabado.png', color:'#880099' },
-]
 </script>
 
 <style scoped>
@@ -113,15 +101,4 @@ const lema = [
   letter-spacing: .06em;
 }
 
-.lema-card {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 7px;
-}
-.lema-4 {
-  background: linear-gradient(135deg, var(--lc), color-mix(in srgb, var(--lc) 60%, #fff));
-  border-radius: 8px; padding: 10px 12px;
-  display: flex; align-items: center; gap: 8px;
-  color: #fff; font-size: .88rem; font-weight: 700;
-  font-family: 'Cinzel', serif;
-}
-.lema-4 img { width:36px; height:36px; border-radius:4px; object-fit:cover; flex-shrink:0; }
 </style>
