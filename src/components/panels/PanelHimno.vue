@@ -1,165 +1,251 @@
 <template>
   <div class="himno-panel">
 
-    <!-- Encabezado con imagen -->
+    <!-- ── Encabezado ── -->
     <div class="himno-header">
-      <img
-        src="/assets/img/doctrina-salvador-grabado.png"
-        alt="Himno Cuadrangular"
-        class="himno-bg-img"
-      />
-      <div class="himno-header-overlay">
-        <h3>Himno Cuadrangular</h3>
-        <p>Letra: Aimee Semple McPherson</p>
+      <div class="himno-deco">
+        <span class="deco-linea"></span>
+        <span class="deco-nota">♪</span>
+        <span class="deco-linea"></span>
       </div>
-    </div>
+      <h2 class="himno-titulo">Himno del Evangelio Cuadrangular</h2>
+      <p class="himno-autor">Letra: Aimee Semple McPherson</p>
 
-    <div class="himno-nota">
-      El himno oficial refleja las cuatro grandes verdades del Evangelio Cuadrangular,
-      reveladas en la visión de Ezequiel 1:10. Se canta como declaración de fe
-      en cada celebración de la Iglesia.
-    </div>
-
-    <!-- Estrofas -->
-    <div class="estrofas">
-      <div v-for="(est, i) in estrofas" :key="i" class="estrofa-card" :style="{'--ec': est.color}">
-        <div class="est-header">
-          <img :src="est.img" :alt="est.doctrina" class="est-img" />
-          <div class="est-num-wrap">
-            <span class="est-num">Estrofa {{ i+1 }}</span>
-            <span class="est-doc">{{ est.doctrina }}</span>
-          </div>
+      <!-- Reproductor de audio -->
+      <div class="audio-player">
+        <span class="audio-icon">♫</span>
+        <audio ref="audioEl" :src="audioSrc" @timeupdate="onTime" @loadedmetadata="onMeta" @ended="playing=false"></audio>
+        <button class="play-btn" @click="togglePlay" :class="{active: playing}">
+          {{ playing ? '⏸' : '▶' }}
+        </button>
+        <div class="progreso-wrap" @click="seek">
+          <div class="progreso-barra" :style="{width: progreso+'%'}"></div>
         </div>
-        <p class="est-letra">{{ est.letra }}</p>
+        <span class="audio-tiempo">{{ tiempoActual }} / {{ duracion }}</span>
       </div>
     </div>
 
-    <!-- Coro -->
-    <div class="coro-card">
-      <div class="coro-label">— Coro —</div>
-      <p class="coro-letra">
-        Es el cuadrangular, el cuadrangular,<br>
-        el evangelio de poder;<br>
-        Jesús salva, bautiza y sana,<br>
-        Jesucristo reinará.
-      </p>
+    <!-- ── Letra ── -->
+    <div class="himno-letra">
+      <div v-for="(est, i) in estrofas" :key="i" class="estrofa">
+        <div class="est-roman">{{ romanos[i] }}</div>
+        <p class="est-txt">{{ est }}</p>
+        <div class="coro">
+          <span class="coro-tag">CORO</span>
+          <p class="coro-txt">
+            Es el cuadrangular, el cuadrangular, el evangelio de poder<br>
+            Jesús salva, bautiza y sana, Jesucristo reinará
+          </p>
+        </div>
+      </div>
     </div>
-
-    <p class="himno-fuente">
-      Fuente: <em>Iglesia Cristiana Cuadrangular Armenia</em> ·
-      <a href="http://iccarmeniasimbologia.blogspot.com/2009/03/himno-iglesia-cuadrangular.html" target="_blank">iccarmeniasimbologia.blogspot.com</a>
-    </p>
 
   </div>
 </template>
 
 <script setup>
+import { ref, computed } from 'vue'
+
+const audioSrc = '/assets/audio/himno-cuadrangular.mp3'
+const audioEl  = ref(null)
+const playing  = ref(false)
+const seg      = ref(0)
+const total    = ref(0)
+
+const progreso    = computed(() => total.value ? (seg.value / total.value) * 100 : 0)
+const tiempoActual = computed(() => fmt(seg.value))
+const duracion     = computed(() => fmt(total.value))
+
+function fmt(s) {
+  const m = Math.floor(s / 60)
+  const ss = Math.floor(s % 60).toString().padStart(2, '0')
+  return `${m}:${ss}`
+}
+function togglePlay() {
+  if (!audioEl.value) return
+  playing.value ? audioEl.value.pause() : audioEl.value.play()
+  playing.value = !playing.value
+}
+function onTime()  { seg.value   = audioEl.value?.currentTime ?? 0 }
+function onMeta()  { total.value = audioEl.value?.duration   ?? 0 }
+function seek(e) {
+  if (!audioEl.value || !total.value) return
+  const rect = e.currentTarget.getBoundingClientRect()
+  const ratio = (e.clientX - rect.left) / rect.width
+  audioEl.value.currentTime = ratio * total.value
+}
+
+const romanos = ['I', 'II', 'III', 'IV']
 const estrofas = [
-  {
-    color:'#B30000', doctrina:'Cristo Salvador',
-    img:'/assets/img/doctrina-salvador-grabado.png',
-    letra:'Con el mensaje cuadrangular del libro de Dios,\nhablando a todos de Jesucristo el hijo de David,\nquebrantado fue por mí, muriendo en la cruz\ngran Redentor, glorioso Cristo, Jesús el Salvador.'
-  },
-  {
-    color:'#CC8800', doctrina:'Cristo Bautizador',
-    img:'/assets/img/doctrina-bautizador-grabado.png',
-    letra:'El estandarte hoy desplegad, huestes del Señor,\ncon la potencia ya revestidos del Santo Espíritu,\nRey de Reyes, el Señor, el León de Judá,\nsu gran poder su iglesia recibe y a la victoria va.'
-  },
-  {
-    color:'#1a7a1a', doctrina:'Cristo Sanador',
-    img:'/assets/img/doctrina-sanador-grabado.png',
-    letra:'Con el escudo la iglesia va, Cristo el Señor,\npor sus heridas fuimos sanados, liberación nos dio,\na los caídos levantó, al dolor venció,\ntrae al Señor tus enfermedades que aquí sanando va.'
-  },
-  {
-    color:'#880099', doctrina:'Cristo Rey Venidero',
-    img:'/assets/img/doctrina-rey-grabado.png',
-    letra:'Cristo viene pronto con poder y majestad,\nvestido de gloria, de honor y de su autoridad;\nen las nubes viene por su amada Iglesia fiel,\n¡Jesucristo es el Rey que ha de venir!'
-  },
+  'Con el mensaje cuadrangular del libro de Dios\nhablando a todos de Jesucristo el hijo de David\nquebrantado fue por mí, muriendo en la cruz gran Redentor\nglorioso Cristo, Jesús el Salvador.',
+  'El estandarte hoy desplegad huestes del Señor\ncon la potencia ya revestidos del Santo Espíritu\nRey de Reyes, el Señor, el León de Judá\nsu gran poder su iglesia recibe y a la victoria va.',
+  'Con el escudo la iglesia va, Cristo el Señor\npor sus heridas fuimos sanados, liberación nos dio\na los caídos levantó, al dolor venció\ntrae al Señor tus enfermedades que aquí sanando va.',
+  'Hacia los montes con fe mirad, con gozo cantad\ny recibid al gran Rey que viene, en gloria proclamad\ncomo el águila a reinar, pronto volverá\ndescenderá vestido de gloria, honor y majestad.',
 ]
 </script>
 
 <style scoped>
-.himno-panel { display: flex; flex-direction: column; gap: 12px; }
+.himno-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
 
-/* Header */
+/* ── Header ── */
 .himno-header {
-  position: relative; height: 90px; border-radius: 10px; overflow: hidden;
+  background: linear-gradient(135deg, #1a0000 0%, #4a0000 50%, #1a0010 100%);
+  border-radius: 12px;
+  padding: 12px 16px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(179,0,0,.35);
 }
-.himno-bg-img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
-  display: block; filter: brightness(.6);
+.himno-deco {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
 }
-.himno-header-overlay {
-  position: absolute; inset: 0; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; color: #fff; text-align: center;
-  padding: 10px;
+.deco-linea {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(204,136,0,.6));
 }
-.himno-header-overlay h3 {
-  font-family: 'Cinzel', serif; font-size: .95rem; margin: 0 0 3px;
-  text-shadow: 0 2px 8px rgba(0,0,0,.6);
+.deco-linea:last-child {
+  background: linear-gradient(90deg, rgba(204,136,0,.6), transparent);
 }
-.himno-header-overlay p { font-size: .62rem; opacity: .85; margin: 0; }
+.deco-nota {
+  font-size: 1.1rem;
+  color: #CC8800;
+}
+.himno-titulo {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 3px;
+  letter-spacing: .04em;
+  text-shadow: 0 2px 10px rgba(0,0,0,.5);
+}
+.himno-autor {
+  font-size: .84rem;
+  color: rgba(255,255,255,.6);
+  font-style: italic;
+  margin: 0 0 10px;
+}
 
-/* Nota */
-.himno-nota {
-  background: #f8f4ee; border: 1px solid #e8dfc8;
-  border-left: 3px solid #CC8800; border-radius: 0 6px 6px 0;
-  padding: 9px 12px; font-size: .68rem; color: #666; line-height: 1.55;
+/* ── Audio player ── */
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(204,136,0,.35);
+  border-radius: 30px;
+  padding: 6px 12px;
+}
+.audio-icon {
+  font-size: .9rem;
+  color: #CC8800;
+  flex-shrink: 0;
+}
+.play-btn {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: #CC8800;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: .9rem;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background .2s;
+}
+.play-btn.active { background: #B30000; }
+.play-btn:hover  { filter: brightness(1.15); }
+.progreso-wrap {
+  flex: 1;
+  height: 5px;
+  background: rgba(255,255,255,.2);
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+}
+.progreso-barra {
+  height: 100%;
+  background: #CC8800;
+  border-radius: 3px;
+  transition: width .3s linear;
+}
+.audio-tiempo {
+  font-size: .78rem;
+  color: rgba(255,255,255,.65);
+  white-space: nowrap;
+  font-family: monospace;
 }
 
-/* Estrofas */
-.estrofas { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.estrofa-card {
-  border: 1.5px solid var(--ec); border-radius: 8px; overflow: hidden;
+/* ── Letra ── */
+.himno-letra {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.estrofa {
   background: #fff;
-}
-.est-header {
-  display: flex; align-items: center; gap: 0;
-  border-bottom: 1px solid var(--ec);
-}
-.est-img {
-  width: 44px; height: 44px; object-fit: cover; flex-shrink: 0;
-}
-.est-num-wrap {
-  flex: 1; padding: 5px 8px;
-  background: var(--ec);
-}
-.est-num {
-  display: block; font-size: .5rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,.8);
-}
-.est-doc {
-  display: block; font-family: 'Cinzel', serif; font-size: .62rem;
-  font-weight: 700; color: #fff;
-}
-.est-letra {
-  font-size: .6rem; color: #555; line-height: 1.55;
-  white-space: pre-line; margin: 0; font-style: italic;
-  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #e8dfc8;
+  overflow: hidden;
 }
 
-/* Coro */
-.coro-card {
-  background: linear-gradient(135deg, #fff8f0, #f5f0ff);
-  border: 1px solid #ddd; border-radius: 8px;
-  padding: 14px; text-align: center;
-  border-top: 3px solid #CC8800;
+.est-roman {
+  font-family: 'Cinzel', serif;
+  font-size: .84rem;
+  font-weight: 900;
+  color: #B30000;
+  text-align: center;
+  padding: 4px 0;
+  background: #fff8f0;
+  border-bottom: 1px solid #e8dfc8;
+  letter-spacing: .25em;
 }
-.coro-label {
-  font-family: 'Cinzel', serif; font-size: .72rem;
-  font-weight: 700; color: #CC8800;
-  text-transform: uppercase; letter-spacing: 2px;
-  margin-bottom: 8px;
-}
-.coro-letra {
+
+.est-txt {
   font-family: 'Playfair Display', serif;
-  font-size: .75rem; color: #3a2a14; line-height: 1.7;
-  font-style: italic; margin: 0;
+  font-size: .90rem;
+  color: #2a1a0a;
+  line-height: 1.65;
+  white-space: pre-line;
+  margin: 0;
+  padding: 8px 14px 6px;
+  font-style: italic;
 }
 
-/* Fuente */
-.himno-fuente {
-  font-size: .58rem; color: #aaa; text-align: center; margin: 0;
+/* ── Coro ── */
+.coro {
+  background: linear-gradient(90deg, rgba(204,136,0,.1), rgba(179,0,0,.06));
+  border-top: 1px solid rgba(204,136,0,.3);
+  padding: 5px 14px 8px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
 }
-.himno-fuente a { color: #CC8800; }
+.coro-tag {
+  font-family: 'Cinzel', serif;
+  font-size: .76rem;
+  font-weight: 900;
+  color: #CC8800;
+  letter-spacing: .18em;
+  flex-shrink: 0;
+}
+.coro-txt {
+  font-family: 'Playfair Display', serif;
+  font-size: .88rem;
+  color: #3a1a00;
+  line-height: 1.55;
+  font-style: italic;
+  font-weight: 600;
+  margin: 0;
+}
 </style>

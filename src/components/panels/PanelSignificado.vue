@@ -25,12 +25,12 @@
 
     <!-- Lema -->
     <div class="block-title">Lema Cuadrangular</div>
-    <div class="lema-card">
-      <div class="lema-4" v-for="(l, i) in lema" :key="i" :style="{'--lc': l.color}">
-        <img :src="l.img" :alt="l.texto">
-        <span>{{ l.texto }}</span>
-      </div>
+
+    <div class="lema-frase">
+      <span class="lema-cita-txt">"Jesucristo es el mismo de ayer y hoy por los siglos."</span>
+      <span class="lema-ref">Hebreos 13:8</span>
     </div>
+
 
   </div>
 </template>
@@ -43,19 +43,13 @@ const refs = [
   { cita:'Hechos 2:4', texto:'Bautismo del Espíritu Santo', icon:'fas fa-fire', color:'#CC8800' },
 ]
 
-const lema = [
-  { texto:'Jesucristo Salvador', img:'/assets/img/doctrina-salvador-grabado.png', color:'#B30000' },
-  { texto:'Jesucristo Sanador', img:'/assets/img/doctrina-sanador-grabado.png', color:'#003399' },
-  { texto:'Jesucristo Bautizador', img:'/assets/img/doctrina-bautizador-grabado.png', color:'#CC8800' },
-  { texto:'Jesucristo Rey Venidero', img:'/assets/img/doctrina-rey-grabado.png', color:'#880099' },
-]
 </script>
 
 <style scoped>
 .signif { display: flex; flex-direction: column; gap: 12px; }
 
 .block-title {
-  font-family: 'Cinzel', serif; font-size: .72rem;
+  font-family: 'Cinzel', serif; font-size: .86rem;
   font-weight: 700; color: #B30000;
   text-transform: uppercase; letter-spacing: 1.5px;
   display: flex; align-items: center; gap: 6px;
@@ -66,7 +60,7 @@ const lema = [
   background: #fff; border: 1px solid #e8dfc8;
   border-left: 3px solid #003399;
   border-radius: 6px; padding: 12px;
-  font-size: .72rem; color: #444; line-height: 1.65;
+  font-size: .86rem; color: #444; line-height: 1.65;
 }
 
 .refs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
@@ -74,24 +68,37 @@ const lema = [
   background: #fff; border: 1.5px solid var(--rc);
   border-radius: 8px; padding: 8px 10px;
   display: flex; align-items: flex-start; gap: 8px;
-  font-size: .65rem; color: #444; line-height: 1.4;
+  font-size: .86rem; color: #444; line-height: 1.4;
 }
 .ref-number {
   width: 26px; height: 26px; border-radius: 50%;
   background: var(--rc); color: #fff;
   display: flex; align-items: center; justify-content: center;
-  font-size: .55rem; font-weight:900; letter-spacing:.08em; flex-shrink: 0;
+  font-size: .80rem; font-weight:900; letter-spacing:.08em; flex-shrink: 0;
 }
 
-.lema-card {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 7px;
+.lema-frase {
+  background: linear-gradient(135deg, #fff8f0, #fff);
+  border-left: 4px solid #B30000;
+  border-radius: 6px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
-.lema-4 {
-  background: linear-gradient(135deg, var(--lc), color-mix(in srgb, var(--lc) 60%, #fff));
-  border-radius: 8px; padding: 10px 12px;
-  display: flex; align-items: center; gap: 8px;
-  color: #fff; font-size: .7rem; font-weight: 700;
+.lema-cita-txt {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: .90rem;
+  color: #2a1a0a;
+  line-height: 1.5;
+}
+.lema-ref {
   font-family: 'Cinzel', serif;
+  font-size: .84rem;
+  font-weight: 800;
+  color: #B30000;
+  letter-spacing: .06em;
 }
-.lema-4 img { width:36px; height:36px; border-radius:4px; object-fit:cover; flex-shrink:0; }
+
 </style>

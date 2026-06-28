@@ -16,7 +16,7 @@
           <span class="htag htag-r">Pionera Pentecostal</span>
         </div>
         <blockquote class="hero-cita">
-          "Jesucristo es el mismo ayer, hoy y por los siglos."
+          "Jesucristo es el mismo de ayer y hoy por los siglos."
         </blockquote>
       </div>
     </div>
@@ -29,39 +29,16 @@
       </div>
     </div>
 
-    <!-- ══ TIMELINE ══ -->
-    <div class="tl-wrap">
-      <div class="tl-header">
-        <div class="tl-linea"></div>
-        <span class="tl-titulo">Hitos Biográficos</span>
-        <div class="tl-linea"></div>
-      </div>
-      <div class="timeline">
-        <div v-for="h in hitos" :key="h.year" class="tl-item">
-          <span class="tl-year">{{ h.year }}</span>
-          <div class="tl-dot"></div>
-          <div class="tl-body">
-            <strong>{{ h.titulo }}</strong>
-            <span>{{ h.texto }}</span>
-          </div>
-        </div>
-      </div>
+    <!-- ══ BIO BREVE ══ -->
+    <div class="bio-texto">
+      Aimee Semple McPherson fue la primera mujer en fundar una denominación cristiana global. Nacida en Canadá, recorrió el mundo predicando sanidad, salvación y el bautismo del Espíritu Santo. En 1927 estableció formalmente la <strong>Iglesia del Evangelio Cuadrangular</strong> desde el Templo Angelus en Los Ángeles.
     </div>
 
-    <!-- ══ TEMPLO + LEGADO ══ -->
-    <div class="bottom-row">
-      <div class="templo">
-        <img src="/assets/img/templo-angelus.jpg" alt="Templo Angelus" class="templo-img" />
-        <div class="templo-pie">
-          <strong>Templo Angelus</strong> · Los Ángeles, 1923 · 5,300 personas
-        </div>
-      </div>
-      <div class="legado">
-        <div class="legado-titulo">Legado Global</div>
-        <div v-for="l in legado" :key="l.texto" class="legado-item">
-          <span class="ldot" :style="{background:l.color}"></span>
-          <span>{{ l.texto }}</span>
-        </div>
+    <!-- ══ TEMPLO ══ -->
+    <div class="templo">
+      <img src="/assets/img/templo-angelus.jpg" alt="Templo Angelus" class="templo-img" />
+      <div class="templo-pie">
+        <strong>Templo Angelus</strong> · Echo Park, Los Ángeles · 1923 · Capacidad: 5,300 personas
       </div>
     </div>
 
@@ -75,47 +52,29 @@ const stats = [
   { label:'Fieles',  value:'8M+',  color:'#880099' },
   { label:'Fundada', value:'1927', color:'#CC8800' },
 ]
-const hitos = [
-  { year:'1907', titulo:'Conversión',            texto:'Llamado misionero bajo el ministerio de Robert Semple.' },
-  { year:'1910', titulo:'Evangelismo itinerante',texto:'Recorrió EE.UU. predicando sanidad y el Bautismo del Espíritu.' },
-  { year:'1922', titulo:'Visión Cuadrangular',   texto:'Revelación de Ez. 1:10 en Oakland: las cuatro facetas de Cristo.' },
-  { year:'1923', titulo:'Templo Angelus',        texto:'Inauguró el Angelus Temple, Echo Park, Los Ángeles.' },
-  { year:'1924', titulo:'Radio KFSG',            texto:'Primera estación de radio religiosa de EE.UU.' },
-  { year:'1927', titulo:'Iglesia Cuadrangular',  texto:'Fundó formalmente la Iglesia del Evangelio Cuadrangular.' },
-]
-const legado = [
-  { texto:'+30,000 iglesias en el mundo',         color:'#B30000' },
-  { texto:'+8 millones de fieles en 100 países',  color:'#003399' },
-  { texto:'Primera mujer con licencia de radio',  color:'#CC8800' },
-  { texto:'Alimentó miles en la Gran Depresión',  color:'#880099' },
-]
 </script>
 
 <style scoped>
 .aimee {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 /* ══ HERO ══ */
 .hero {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   align-items: stretch;
   background: linear-gradient(135deg, #1a0033 0%, #440066 100%);
   border-radius: 10px;
-  padding: 10px;
+  padding: 12px;
   box-shadow: 0 4px 16px rgba(136,0,153,.3);
 }
-
-.hero-foto {
-  position: relative;
-  flex-shrink: 0;
-}
+.hero-foto { position: relative; flex-shrink: 0; }
 .hero-img {
-  width: 72px;
-  height: 90px;
+  width: 82px;
+  height: 104px;
   object-fit: cover;
   object-position: top center;
   border-radius: 8px;
@@ -125,34 +84,33 @@ const legado = [
 }
 .hero-años {
   position: absolute;
-  bottom: -8px;
+  bottom: -9px;
   left: 50%;
   transform: translateX(-50%);
   background: #CC8800;
   color: #fff;
-  font-size: .44rem;
+  font-size: .76rem;
   font-weight: 800;
-  padding: 2px 6px;
+  padding: 2px 8px;
   border-radius: 8px;
   white-space: nowrap;
-  letter-spacing: .5px;
 }
 
 .hero-info {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
 }
 .hero-origen {
-  font-size: .52rem;
-  color: rgba(255,255,255,.55);
+  font-size: .84rem;
+  color: rgba(255,255,255,.6);
   margin: 0;
-  letter-spacing: .06em;
+  letter-spacing: .05em;
 }
 .hero-nombre {
   font-family: 'Cinzel', serif;
-  font-size: .9rem;
+  font-size: 1.22rem;
   font-weight: 900;
   color: #fff;
   margin: 0;
@@ -162,13 +120,12 @@ const legado = [
 .hero-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 3px;
+  gap: 4px;
 }
 .htag {
-  font-size: .48rem;
+  font-size: .76rem;
   font-weight: 700;
-  letter-spacing: .8px;
-  padding: 2px 7px;
+  padding: 3px 10px;
   border-radius: 10px;
 }
 .htag-p { background: rgba(136,0,153,.4); color: #f0c0ff; }
@@ -178,131 +135,57 @@ const legado = [
 .hero-cita {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: .6rem;
-  color: rgba(255,255,255,.8);
+  font-size: .88rem;
+  color: rgba(255,255,255,.85);
   border-left: 3px solid #CC8800;
-  padding-left: 8px;
-  margin: 2px 0 0;
-  line-height: 1.45;
+  padding-left: 9px;
+  margin: 3px 0 0;
+  line-height: 1.5;
 }
 
 /* ══ STATS ══ */
 .stats-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
+  gap: 6px;
 }
 .stat {
   background: #fff;
-  border-radius: 7px;
+  border-radius: 8px;
   border-top: 3px solid var(--c);
-  padding: 6px 4px;
+  padding: 8px 4px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: 2px;
   box-shadow: 0 2px 8px rgba(0,0,0,.07);
 }
 .stat-val {
   font-family: 'Cinzel', serif;
-  font-size: .78rem;
+  font-size: 1.1rem;
   font-weight: 900;
   color: var(--c);
 }
 .stat-lbl {
-  font-size: .48rem;
+  font-size: .76rem;
   color: #999;
   text-transform: uppercase;
-  letter-spacing: .6px;
+  letter-spacing: .5px;
 }
 
-/* ══ TIMELINE ══ */
-.tl-wrap { display: flex; flex-direction: column; gap: 4px; }
+/* ══ BIO ══ */
+.bio-texto {
+  font-size: .9rem;
+  color: #444;
+  line-height: 1.65;
+  background: linear-gradient(135deg, #F8F0FF, #FFF8FF);
+  border-left: 4px solid #880099;
+  border-radius: 6px;
+  padding: 10px 13px;
+}
+.bio-texto strong { color: #880099; }
 
-.tl-header {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.tl-linea {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #E0C0F0);
-}
-.tl-linea:first-child {
-  background: linear-gradient(90deg, #E0C0F0, transparent);
-}
-.tl-titulo {
-  font-family: 'Cinzel', serif;
-  font-size: .58rem;
-  font-weight: 700;
-  color: #880099;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  white-space: nowrap;
-}
-
-.timeline {
-  display: flex;
-  flex-direction: column;
-  padding-left: 4px;
-}
-.tl-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 7px;
-  padding: 4px 0;
-  border-left: 2px solid #E0C0F0;
-  padding-left: 10px;
-  position: relative;
-}
-.tl-item:last-child { border-left-color: transparent; }
-
-.tl-dot {
-  position: absolute;
-  left: -5px;
-  top: 7px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #880099;
-  border: 2px solid #fff;
-  box-shadow: 0 0 0 2px rgba(136,0,153,.25);
-  flex-shrink: 0;
-}
-
-.tl-year {
-  font-family: 'Cinzel', serif;
-  font-size: .58rem;
-  font-weight: 900;
-  color: #880099;
-  min-width: 32px;
-  flex-shrink: 0;
-  padding-top: 1px;
-}
-.tl-body {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-.tl-body strong {
-  font-size: .6rem;
-  color: #2a1a0a;
-  font-weight: 700;
-}
-.tl-body span {
-  font-size: .56rem;
-  color: #666;
-  line-height: 1.4;
-}
-
-/* ══ BOTTOM ROW ══ */
-.bottom-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 7px;
-}
-
+/* ══ TEMPLO ══ */
 .templo {
   border-radius: 8px;
   overflow: hidden;
@@ -311,51 +194,16 @@ const legado = [
 }
 .templo-img {
   width: 100%;
-  height: 70px;
+  height: 90px;
   object-fit: cover;
   display: block;
 }
 .templo-pie {
   background: #F8F5F0;
-  padding: 5px 8px;
-  font-size: .54rem;
+  padding: 7px 10px;
+  font-size: .84rem;
   color: #555;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 .templo-pie strong { color: #2a1a0a; }
-
-.legado {
-  background: linear-gradient(135deg, #F8F0FF, #FFF8FF);
-  border: 1.5px solid #E0C0F0;
-  border-radius: 8px;
-  overflow: hidden;
-}
-.legado-titulo {
-  font-family: 'Cinzel', serif;
-  font-size: .58rem;
-  font-weight: 700;
-  color: #880099;
-  background: rgba(136,0,153,.07);
-  padding: 5px 8px;
-  border-bottom: 1px solid #E0C0F0;
-  letter-spacing: .06em;
-}
-.legado-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 6px;
-  padding: 4px 8px;
-  font-size: .56rem;
-  color: #444;
-  line-height: 1.4;
-  border-bottom: 1px solid rgba(136,0,153,.06);
-}
-.legado-item:last-child { border-bottom: none; }
-.ldot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-top: 4px;
-}
 </style>

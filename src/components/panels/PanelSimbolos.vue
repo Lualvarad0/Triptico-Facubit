@@ -1,21 +1,35 @@
 <template>
   <div class="simbolos">
 
-    <p class="sim-intro">Los cuatro símbolos del Evangelio Cuadrangular representan las cuatro verdades
-    centrales del ministerio de Jesucristo, reveladas en la visión de Ezequiel.</p>
+    <div class="sim-intro">
+      <span class="sim-ref">Símbolos Cuadrangulares</span>
+      Los cuatro símbolos representan las verdades centrales del ministerio de Cristo:
+      <em>Salvador · Sanador · Bautizador · Rey Venidero.</em>
+    </div>
 
-    <div class="sim-grid">
-      <div v-for="s in simbolos" :key="s.id" class="sim-card" :style="{'--sc': s.color}">
-        <div class="sim-img-wrap">
+    <div class="simbolos-grid">
+      <div v-for="s in simbolos" :key="s.id" class="sim-card" :style="{'--sc': s.color, '--sc-light': s.colorLight}">
+
+        <!-- Foto completa, sin overlays -->
+        <div class="sim-foto">
           <img :src="s.img" :alt="s.nombre" class="sim-img" />
-          <div class="sim-overlay" :style="{background: `linear-gradient(to top, ${s.color}EE 0%, ${s.color}55 50%, transparent 100%)`}"></div>
-          <span class="sim-name-overlay">{{ s.nombre }}</span>
         </div>
-        <div class="sim-body">
-          <span class="sim-doc">{{ s.doctrina }}</span>
-          <p>{{ s.descripcion }}</p>
-          <em class="sim-verse">{{ s.versiculo }}</em>
+
+        <!-- Todo el texto debajo -->
+        <div class="sim-cuerpo">
+          <div class="sim-head">
+            <span class="sim-num">{{ s.num }}</span>
+            <div class="sim-meta">
+              <h4 class="sim-titulo">{{ s.nombre }}</h4>
+              <span class="sim-tag">{{ s.doctrina }}</span>
+            </div>
+          </div>
+          <div class="sim-ref-box">
+            <span class="sim-ref-txt">{{ s.ref }}</span>
+            <span class="sim-verso">{{ s.verso }}</span>
+          </div>
         </div>
+
       </div>
     </div>
 
@@ -25,73 +39,177 @@
 <script setup>
 const simbolos = [
   {
-    id: 'cruz', nombre: 'La Cruz', doctrina: 'JESUCRISTO SALVADOR',
-    color: '#B30000',
+    id: 'cruz', num: '01', nombre: 'La Cruz', doctrina: 'SALVADOR',
+    color: '#B30000', colorLight: '#fff5f5',
     img: '/assets/img/doctrina-salvador-grabado.png',
-    descripcion: 'La cruz roja representa la sangre preciosa de Cristo derramada en el Calvario. Su sacrificio es el único camino de salvación para toda la humanidad.',
-    versiculo: '"De tal manera amó Dios al mundo…" — Jn. 3:16'
+    ref: 'Juan 3:16 · Romanos 5:8',
+    verso: '"De tal manera amó Dios al mundo que dio a su Hijo unigénito."',
   },
   {
-    id: 'copa', nombre: 'La Copa', doctrina: 'JESUCRISTO SANADOR',
-    color: '#003399',
+    id: 'copa', num: '02', nombre: 'La Copa', doctrina: 'SANADOR',
+    color: '#003399', colorLight: '#f0f4ff',
     img: '/assets/img/doctrina-sanador-grabado.png',
-    descripcion: 'La copa azul simboliza la sanidad que fluye del sacrificio de Cristo. Por sus llagas somos sanados en cuerpo, alma y espíritu.',
-    versiculo: '"Él mismo tomó nuestras enfermedades…" — Mt. 8:17'
+    ref: 'Isaías 53:5 · Mateo 8:17',
+    verso: '"Por su llaga fuimos nosotros curados."',
   },
   {
-    id: 'paloma', nombre: 'La Paloma', doctrina: 'JESUCRISTO BAUTIZADOR',
-    color: '#CC8800',
+    id: 'paloma', num: '03', nombre: 'La Paloma', doctrina: 'BAUTIZADOR',
+    color: '#CC8800', colorLight: '#fffaf0',
     img: '/assets/img/doctrina-bautizador-grabado.png',
-    descripcion: 'La paloma dorada representa al Espíritu Santo. Cristo bautiza con fuego y poder sobrenatural, otorgando dones sobrenaturales a su Iglesia.',
-    versiculo: '"Recibiréis poder cuando haya venido el Espíritu…" — Hch. 1:8'
+    ref: 'Hechos 1:8 · Hechos 2:4',
+    verso: '"Recibiréis poder cuando haya venido el Espíritu Santo sobre vosotros."',
   },
   {
-    id: 'corona', nombre: 'La Corona', doctrina: 'JESUCRISTO REY VENIDERO',
-    color: '#880099',
+    id: 'corona', num: '04', nombre: 'La Corona', doctrina: 'REY VENIDERO',
+    color: '#880099', colorLight: '#fdf0ff',
     img: '/assets/img/doctrina-rey-grabado.png',
-    descripcion: 'La corona púrpura proclama que Jesús regresará en poder y gloria como Rey de reyes. Su segunda venida es la esperanza de la Iglesia.',
-    versiculo: '"He aquí que viene con las nubes…" — Ap. 1:7'
+    ref: 'Ap. 19:16 · 1 Ts. 4:16',
+    verso: '"Rey de reyes y Señor de señores."',
   },
 ]
 </script>
 
 <style scoped>
-.simbolos { display: flex; flex-direction: column; gap: 12px; }
+.simbolos {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 8px;
+}
 
+/* ── Intro ── */
 .sim-intro {
-  font-size: .73rem; color: #666; line-height: 1.6; margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: .84rem;
+  color: #2a1a0a;
+  line-height: 1.5;
+  background: linear-gradient(135deg, #fff5f5, #f5f0ea);
+  border-left: 4px solid #B30000;
+  border-radius: 4px;
+  padding: 8px 13px;
+  flex-shrink: 0;
+}
+.sim-ref {
+  font-family: 'Cinzel', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: .84rem;
+  color: #B30000;
+  display: block;
+  margin-bottom: 3px;
+  letter-spacing: .1em;
+}
+.sim-intro em { font-weight: 700; color: #880099; font-style: normal; }
+
+/* ── Grid 2×2 ── */
+.simbolos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  flex: 1;
+  min-height: 0;
 }
 
-.sim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
+/* ── Card ── */
 .sim-card {
-  border-radius: 10px; overflow: hidden;
-  border: 1.5px solid #eee;
-  box-shadow: 0 3px 10px rgba(0,0,0,.09);
-  transition: transform .3s, box-shadow .3s;
-  background: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid var(--sc);
+  box-shadow: 0 3px 14px rgba(0,0,0,.13);
+  transition: transform .25s, box-shadow .25s;
 }
-.sim-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.14); }
+.sim-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.2);
+}
 
-.sim-img-wrap {
-  height: 88px; position: relative; overflow: hidden;
+/* ── Foto limpia ── */
+.sim-foto {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: #f8f6f2;
 }
 .sim-img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform .4s ease;
 }
-.sim-overlay { position: absolute; inset: 0; }
-.sim-name-overlay {
-  position: absolute; bottom: 7px; left: 8px;
-  font-family: 'Cinzel', serif; font-size: .62rem; font-weight: 700;
-  color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,.6);
-}
+.sim-card:hover .sim-img { transform: scale(1.05); }
 
-.sim-body { padding: 9px 12px; }
-.sim-doc {
-  display: inline-block; background: var(--sc); color: #fff;
-  font-size: .5rem; font-weight: 700; letter-spacing: 1px;
-  padding: 2px 6px; border-radius: 2px; margin-bottom: 6px;
+/* ── Cuerpo debajo ── */
+.sim-cuerpo {
+  background: var(--sc-light);
+  border-top: 3px solid var(--sc);
+  padding: 7px 10px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
-.sim-body p { font-size: .65rem; color: #555; line-height: 1.5; margin: 0 0 5px; }
-.sim-verse { font-size: .61rem; color: #888; font-style: italic; }
+.sim-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sim-num {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--sc);
+  line-height: 1;
+  flex-shrink: 0;
+}
+.sim-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.sim-titulo {
+  font-family: 'Cinzel', serif;
+  font-size: .88rem;
+  font-weight: 800;
+  color: var(--sc);
+  margin: 0;
+  line-height: 1.1;
+}
+.sim-tag {
+  font-size: .80rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+  background: var(--sc);
+  padding: 1px 7px;
+  border-radius: 10px;
+  width: fit-content;
+}
+.sim-ref-box {
+  background: rgba(0,0,0,.05);
+  border-left: 3px solid var(--sc);
+  border-radius: 4px;
+  padding: 5px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.sim-ref-txt {
+  font-family: 'Cinzel', serif;
+  font-size: .82rem;
+  font-weight: 800;
+  color: var(--sc);
+  letter-spacing: .04em;
+}
+.sim-verso {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: .84rem;
+  color: #333;
+  line-height: 1.45;
+}
 </style>

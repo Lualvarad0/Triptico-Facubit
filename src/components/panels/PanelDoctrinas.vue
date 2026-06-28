@@ -100,19 +100,19 @@ const doctrinas = [
 .doc-card:hover .doc-image-wrap img { transform:scale(1.045); filter:sepia(0) contrast(1.06); }
 .doc-image-label {
   position:absolute; z-index:2; left:12px; bottom:10px;
-  color:#fff; font-size:.55rem; font-weight:900;
+  color:#fff; font-size:.80rem; font-weight:900;
   letter-spacing:.17em; text-transform:uppercase;
   text-shadow:0 2px 8px rgba(0,0,0,.8);
 }
 
 .doc-body { padding: 10px 12px; }
 .doc-body h4 {
-  font-family: 'Cinzel', serif; font-size: .72rem;
+  font-family: 'Cinzel', serif; font-size: .86rem;
   color: var(--dc); margin: 0 0 5px;
   border-bottom: 1px solid #f0e8d0; padding-bottom: 4px;
 }
-.doc-body p { font-size: .66rem; color: #555; line-height: 1.5; margin: 0 0 5px; }
-.doc-ref { font-size: .6rem; color: #999; }
+.doc-body p { font-size: .86rem; color: #555; line-height: 1.5; margin: 0 0 5px; }
+.doc-ref { font-size: .84rem; color: #999; }
 
 /* Conclusión */
 .conclusion {
@@ -127,14 +127,14 @@ const doctrinas = [
   color: #B30000; margin: 0 0 10px; text-transform: uppercase;
   display: flex; align-items: center; justify-content: center; gap: 6px;
 }
-.conclusion p { font-size: .72rem; color: #444; line-height: 1.7; margin: 0 0 6px; }
+.conclusion p { font-size: .86rem; color: #444; line-height: 1.7; margin: 0 0 6px; }
 
 blockquote {
   font-family: 'Playfair Display', serif; font-style: italic;
   font-size: .76rem; color: #003399;
   border-top: 1px solid #ddd; padding-top: 10px; margin: 10px 0 0;
 }
-cite { display: block; font-size: .65rem; margin-top: 4px; color: #888; font-style: normal; }
+cite { display: block; font-size: .86rem; margin-top: 4px; color: #888; font-style: normal; }
 
 @media (max-width: 560px) {
   .doc-grid { grid-template-columns: 1fr; gap: 12px; }

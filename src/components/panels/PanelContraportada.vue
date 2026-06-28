@@ -91,12 +91,12 @@ const estudiantes = [
 .inst-fila { display: flex; flex-direction: column; gap: 1px; }
 .inst-div  { height: 1px; background: rgba(0,0,0,.08); }
 .inst-etiq {
-  font-size: .5rem; font-weight: 700; letter-spacing: .14em;
+  font-size: .78rem; font-weight: 700; letter-spacing: .14em;
   text-transform: uppercase; color: #999;
 }
 .inst-val {
   font-family: 'Cinzel', serif;
-  font-size: .68rem; font-weight: 800; line-height: 1.2;
+  font-size: .82rem; font-weight: 800; line-height: 1.2;
 }
 .inst-val.azul    { color: #003399; }
 .inst-val.purpura { color: #880099; }
@@ -117,12 +117,12 @@ const estudiantes = [
   display: flex; flex-direction: column; gap: 2px;
 }
 .auto-rol {
-  font-size: .48rem; font-weight: 700;
+  font-size: .76rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: .1em; color: #888;
 }
 .auto-nombre {
   font-family: 'Cinzel', serif;
-  font-size: .58rem; font-weight: 700; color: #1a0a00; line-height: 1.2;
+  font-size: .82rem; font-weight: 700; color: #1a0a00; line-height: 1.2;
 }
 
 /* ── Iglesia ── */
@@ -135,12 +135,12 @@ const estudiantes = [
 }
 .iglesia-fila { display: flex; flex-direction: column; gap: 1px; }
 .igl-etiq {
-  font-size: .48rem; font-weight: 700;
+  font-size: .76rem; font-weight: 700;
   letter-spacing: .14em; text-transform: uppercase; color: #999;
 }
 .igl-val {
   font-family: 'Cinzel', serif;
-  font-size: .62rem; font-weight: 600; color: #1a3a6a; line-height: 1.3;
+  font-size: .82rem; font-weight: 600; color: #1a3a6a; line-height: 1.3;
 }
 .igl-val.destaca { font-weight: 800; color: #003399; }
 
@@ -153,7 +153,7 @@ const estudiantes = [
 }
 .est-titulo {
   font-family: 'Cinzel', serif;
-  font-size: .54rem; font-weight: 700;
+  font-size: .78rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: .12em; color: #7a5a30;
   white-space: nowrap;
 }
@@ -172,10 +172,10 @@ const estudiantes = [
   border-bottom: 1px dotted rgba(0,0,0,.08);
 }
 .n-num {
-  font-size: .46rem; color: #bbb; font-weight: 700; flex-shrink: 0;
+  font-size: .76rem; color: #bbb; font-weight: 700; flex-shrink: 0;
 }
 .n-val {
   font-family: 'Cinzel', serif;
-  font-size: .58rem; color: #1a0a00;
+  font-size: .82rem; color: #1a0a00;
 }
 </style>
