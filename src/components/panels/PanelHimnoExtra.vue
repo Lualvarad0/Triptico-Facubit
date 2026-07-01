@@ -32,8 +32,8 @@
 <script setup>
 const romanos  = ['III', 'IV']
 const estrofas = [
-  'Con el escudo la iglesia va, Cristo el Señor\npor sus heridas fuimos sanados, liberación nos dio\na los caídos levantó, al dolor venció\ntrae al Señor tus enfermedades que aquí sanando va.',
-  'Hacia los montes con fe mirad, con gozo cantad\ny recibid al gran Rey que viene, en gloria proclamad\ncomo el águila a reinar, pronto volverá\ndescenderá vestido de gloria, honor y majestad.',
+  'Con el escudo la Iglesia va, Cristo el Señor\nPor sus heridas fuimos sanados, liberación nos dio\nA los caídos levantó, al dolor venció\nTrae al Señor tus enfermedades que aquí sanando va.',
+  'Hacia los montes con fe mirad, con gozo cantad\nY recibid al gran Rey que viene, en gloria proclamad\nComo el águila a reinar, pronto volverá\nDescenderá vestido de gloria, honor y majestad.',
 ]
 </script>
 

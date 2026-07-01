@@ -3,10 +3,19 @@
 
     <!-- ══ HERO ══ -->
     <div class="hero">
-      <div class="hero-foto">
+      <div class="hero-foto" @click="lightbox=true" title="Click para ampliar">
         <img src="/assets/img/aimee-semple-mcpherson.jpg" alt="Aimee Semple McPherson" class="hero-img" />
         <span class="hero-años">1890 – 1944</span>
+        <span class="expand-hint">⤢</span>
       </div>
+
+      <!-- Lightbox -->
+      <Teleport to="body">
+        <div v-if="lightbox" class="lightbox" @click="lightbox=false">
+          <img src="/assets/img/aimee-semple-mcpherson.jpg" alt="Aimee Semple McPherson" class="lb-img" />
+          <span class="lb-cerrar">✕</span>
+        </div>
+      </Teleport>
       <div class="hero-info">
         <p class="hero-origen">Salford, Ontario · Canadá</p>
         <h3 class="hero-nombre">Aimee Semple<br>McPherson</h3>
@@ -46,6 +55,9 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+const lightbox = ref(false)
+
 const stats = [
   { label:'Países',  value:'+100', color:'#003399' },
   { label:'Iglesias',value:'+30k', color:'#B30000' },
@@ -71,16 +83,71 @@ const stats = [
   padding: 12px;
   box-shadow: 0 4px 16px rgba(136,0,153,.3);
 }
-.hero-foto { position: relative; flex-shrink: 0; }
+.hero-foto {
+  position: relative;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.hero-foto:hover .hero-img {
+  border-color: #CC8800;
+  box-shadow: 0 6px 20px rgba(0,0,0,.55);
+}
 .hero-img {
-  width: 82px;
-  height: 104px;
+  width: 118px;
+  height: 150px;
   object-fit: cover;
   object-position: top center;
   border-radius: 8px;
   display: block;
   border: 2px solid rgba(255,255,255,.3);
   box-shadow: 0 4px 12px rgba(0,0,0,.4);
+  transition: border-color .2s, box-shadow .2s;
+}
+.expand-hint {
+  position: absolute;
+  top: 6px; right: 6px;
+  background: rgba(0,0,0,.55);
+  color: #fff;
+  font-size: .85rem;
+  width: 22px; height: 22px;
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.hero-foto:hover .expand-hint { opacity: 1; }
+
+/* ── Lightbox ── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  animation: lbIn .18s ease;
+}
+@keyframes lbIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.lb-img {
+  max-width: 88vw;
+  max-height: 88vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.7);
+  object-fit: contain;
+}
+.lb-cerrar {
+  position: absolute;
+  top: 18px; right: 22px;
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  opacity: .7;
+  line-height: 1;
 }
 .hero-años {
   position: absolute;

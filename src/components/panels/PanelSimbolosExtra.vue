@@ -34,8 +34,8 @@ const simbolos = [
     color: '#CC8800', light: '#fff8e8',
     img: '/assets/img/simbolo-paloma-dorada.png',
     alt: 'Paloma dorada cuadrangular',
-    ref: 'Hechos 1:8 · Hechos 2:4',
-    verso: 'Cristo bautiza con fuego y poder sobrenatural para testificar y servir.',
+    ref: 'Mateo 3:16',
+    verso: '"...vio al Espíritu de Dios que descendía como paloma, y venía sobre él."',
   },
   {
     id: 'corona', num: '04',
@@ -43,8 +43,8 @@ const simbolos = [
     color: '#880099', light: '#fdf0ff',
     img: '/assets/img/simbolo-corona-purpura.png',
     alt: 'Corona púrpura cuadrangular',
-    ref: 'Apocalipsis 19:16 · 1 Ts. 4:16',
-    verso: 'Cristo volverá en gloria como Rey de reyes y Señor de señores.',
+    ref: 'Apocalipsis 14:14',
+    verso: '"...sobre la nube uno sentado semejante al Hijo del Hombre, que tenía en la cabeza una corona de oro."',
   },
 ]
 </script>

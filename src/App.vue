@@ -45,6 +45,9 @@ import PanelFeExtra3       from './components/panels/PanelFeExtra3.vue'
 import PanelFeExtra4       from './components/panels/PanelFeExtra4.vue'
 import PanelDoctrinas      from './components/panels/PanelDoctrinas.vue'
 import PanelDoctrinasExtra from './components/panels/PanelDoctrinasExtra.vue'
+import PanelEvidencias      from './components/panels/PanelEvidencias.vue'
+import PanelEvidenciasExtra  from './components/panels/PanelEvidenciasExtra.vue'
+import PanelEvidenciasExtra2 from './components/panels/PanelEvidenciasExtra2.vue'
 
 const sections = [
   {
@@ -178,6 +181,24 @@ const sections = [
     subtitle: 'Jesucristo Bautizador · Rey Venidero',
     image: '/assets/img/doctrina-rey-grabado.png', color: 'multi',
     component: PanelDoctrinasExtra,
+  },
+  {
+    id: 'evidencias', title: 'Evidencias del Trabajo',
+    subtitle: 'Presentación y entrega',
+    image: '/assets/img/logotipo-cuadrangular.png', color: 'dorado',
+    component: PanelEvidencias,
+  },
+  {
+    id: 'evidencias-extra2', title: 'Evidencias del Trabajo',
+    subtitle: 'Encuesta a la comunidad',
+    image: '/assets/img/logotipo-cuadrangular.png', color: 'dorado',
+    component: PanelEvidenciasExtra2,
+  },
+  {
+    id: 'evidencias-extra', title: 'Evidencias del Trabajo',
+    subtitle: 'Video',
+    image: '/assets/img/logotipo-cuadrangular.png', color: 'dorado',
+    component: PanelEvidenciasExtra,
   },
 ]
 </script>

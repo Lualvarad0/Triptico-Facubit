@@ -10,18 +10,18 @@
       </div>
       <h2 class="himno-titulo">Himno del Evangelio Cuadrangular</h2>
       <p class="himno-autor">Letra: Aimee Semple McPherson</p>
+    </div>
 
-      <div class="audio-player">
-        <span class="audio-icon">♫</span>
-        <audio ref="audioEl" :src="audioSrc" @timeupdate="onTime" @loadedmetadata="onMeta" @ended="playing=false"></audio>
-        <button class="play-btn" @click="togglePlay" :class="{active: playing}">
-          {{ playing ? '⏸' : '▶' }}
-        </button>
-        <div class="progreso-wrap" @click="seek">
-          <div class="progreso-barra" :style="{width: progreso+'%'}"></div>
-        </div>
-        <span class="audio-tiempo">{{ tiempoActual }} / {{ duracion }}</span>
-      </div>
+    <!-- ── Reproductor nativo ── -->
+    <div class="audio-bloque">
+      <span class="audio-etiqueta">♫ Reproducir himno</span>
+      <audio
+        ref="audioEl"
+        class="audio-nativo"
+        :src="audioSrc"
+        controls
+        preload="auto"
+      ></audio>
     </div>
 
     <!-- ── Estrofas I y II ── -->
@@ -45,41 +45,21 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, onMounted } from 'vue'
 
-const audioSrc = '/assets/audio/himno-cuadrangular.mp3'
+const audioSrc = '/assets/audio/Himno%20Cuadrangular%20con%20Letra.mp3'
 const audioEl  = ref(null)
-const playing  = ref(false)
-const seg      = ref(0)
-const total    = ref(0)
 
-const progreso     = computed(() => total.value ? (seg.value / total.value) * 100 : 0)
-const tiempoActual = computed(() => fmt(seg.value))
-const duracion     = computed(() => fmt(total.value))
-
-function fmt(s) {
-  const m  = Math.floor(s / 60)
-  const ss = Math.floor(s % 60).toString().padStart(2, '0')
-  return `${m}:${ss}`
-}
-function togglePlay() {
-  if (!audioEl.value) return
-  playing.value ? audioEl.value.pause() : audioEl.value.play()
-  playing.value = !playing.value
-}
-function onTime() { seg.value   = audioEl.value?.currentTime ?? 0 }
-function onMeta() { total.value = audioEl.value?.duration   ?? 0 }
-function seek(e) {
-  if (!audioEl.value || !total.value) return
-  const rect  = e.currentTarget.getBoundingClientRect()
-  const ratio = (e.clientX - rect.left) / rect.width
-  audioEl.value.currentTime = ratio * total.value
-}
+onMounted(() => {
+  if (audioEl.value) {
+    audioEl.value.play().catch(() => {})
+  }
+})
 
 const romanos  = ['I', 'II']
 const estrofas = [
-  'Con el mensaje cuadrangular del libro de Dios\nhablando a todos de Jesucristo el hijo de David\nquebrantado fue por mí, muriendo en la cruz gran Redentor\nglorioso Cristo, Jesús el Salvador.',
-  'El estandarte hoy desplegad huestes del Señor\ncon la potencia ya revestidos del Santo Espíritu\nRey de Reyes, el Señor, el León de Judá\nsu gran poder su iglesia recibe y a la victoria va.',
+  'Con el mensaje cuadrangular del libro de Dios\nHablando a todos de Jesucristo el Hijo de David\nQuebrantado fue por mí. Muriendo en la cruz gran Redentor\nGlorioso Cristo, Jesús el Salvador.',
+  'El estandarte hoy desplegad huestes del Señor\nCon la potencia ya revestidos del Santo Espíritu\nRey de Reyes, el Señor, el León de Judá\nSu gran poder su Iglesia recibe y a la victoria va.',
 ]
 </script>
 
@@ -87,7 +67,7 @@ const estrofas = [
 .himno-panel {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   height: 100%;
 }
 
@@ -95,7 +75,7 @@ const estrofas = [
 .himno-header {
   background: linear-gradient(135deg, #1a0000 0%, #4a0000 50%, #1a0010 100%);
   border-radius: 12px;
-  padding: 14px 18px;
+  padding: 12px 18px;
   text-align: center;
   box-shadow: 0 4px 20px rgba(179,0,0,.35);
   flex-shrink: 0;
@@ -114,10 +94,7 @@ const estrofas = [
 .deco-linea:last-child {
   background: linear-gradient(90deg, rgba(204,136,0,.6), transparent);
 }
-.deco-nota {
-  font-size: 1.2rem;
-  color: #CC8800;
-}
+.deco-nota { font-size: 1.2rem; color: #CC8800; }
 .himno-titulo {
   font-family: 'Cinzel', serif;
   font-size: 1.1rem;
@@ -131,59 +108,41 @@ const estrofas = [
   font-size: .92rem;
   color: rgba(255,255,255,.65);
   font-style: italic;
-  margin: 0 0 12px;
+  margin: 0;
 }
 
-/* ── Audio ── */
-.audio-player {
+/* ── Reproductor nativo ── */
+.audio-bloque {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(204,136,0,.35);
-  border-radius: 30px;
-  padding: 7px 14px;
-}
-.audio-icon { font-size: 1rem; color: #CC8800; flex-shrink: 0; }
-.play-btn {
-  width: 34px; height: 34px;
-  border-radius: 50%;
-  background: #CC8800;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-size: .95rem;
-  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  background: linear-gradient(135deg, #2a0800, #4a1200);
+  border: 2px solid #CC8800;
+  border-radius: 10px;
+  padding: 10px 14px;
   flex-shrink: 0;
-  transition: background .2s;
 }
-.play-btn.active { background: #B30000; }
-.play-btn:hover  { filter: brightness(1.15); }
-.progreso-wrap {
-  flex: 1; height: 6px;
-  background: rgba(255,255,255,.2);
-  border-radius: 3px;
-  cursor: pointer;
+.audio-etiqueta {
+  font-family: 'Cinzel', serif;
+  font-size: .9rem;
+  font-weight: 700;
+  color: #CC8800;
+  letter-spacing: .06em;
 }
-.progreso-barra {
-  height: 100%;
-  background: #CC8800;
-  border-radius: 3px;
-  transition: width .3s linear;
-}
-.audio-tiempo {
-  font-size: .84rem;
-  color: rgba(255,255,255,.65);
-  white-space: nowrap;
-  font-family: monospace;
+.audio-nativo {
+  width: 100%;
+  height: 40px;
+  display: block;
+  accent-color: #CC8800;
 }
 
 /* ── Letra ── */
 .himno-letra {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   flex: 1;
+  min-height: 0;
 }
 .estrofa {
   background: #fff;
@@ -191,6 +150,7 @@ const estrofas = [
   border: 1px solid #e8dfc8;
   overflow: hidden;
   flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
 }
@@ -200,7 +160,7 @@ const estrofas = [
   font-weight: 900;
   color: #B30000;
   text-align: center;
-  padding: 6px 0;
+  padding: 5px 0;
   background: #fff8f0;
   border-bottom: 1px solid #e8dfc8;
   letter-spacing: .3em;
@@ -208,27 +168,27 @@ const estrofas = [
 }
 .est-txt {
   font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
+  font-size: 1.0rem;
   color: #2a1a0a;
-  line-height: 1.75;
+  line-height: 1.65;
   white-space: pre-line;
   margin: 0;
-  padding: 14px 18px 10px;
+  padding: 10px 16px 8px;
   font-style: italic;
   flex: 1;
 }
 .coro {
   background: linear-gradient(90deg, rgba(204,136,0,.1), rgba(179,0,0,.05));
   border-top: 1px solid rgba(204,136,0,.3);
-  padding: 8px 18px 12px;
+  padding: 7px 16px 10px;
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  gap: 10px;
   flex-shrink: 0;
 }
 .coro-tag {
   font-family: 'Cinzel', serif;
-  font-size: .92rem;
+  font-size: .88rem;
   font-weight: 900;
   color: #CC8800;
   letter-spacing: .18em;
@@ -236,9 +196,9 @@ const estrofas = [
 }
 .coro-txt {
   font-family: 'Playfair Display', serif;
-  font-size: 1.05rem;
+  font-size: .98rem;
   color: #3a1a00;
-  line-height: 1.65;
+  line-height: 1.6;
   font-style: italic;
   font-weight: 600;
   margin: 0;
