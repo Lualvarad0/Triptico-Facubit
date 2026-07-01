@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Fondo circular -->
+  <circle cx="50" cy="50" r="48" fill="#1a0a00" stroke="#CC8800" stroke-width="3"/>
+
+  <!-- Cuadrante superior-izquierdo: Cruz (Rojo - Salvador) -->
+  <rect x="10" y="10" width="37" height="37" rx="4" fill="#B30000"/>
+  <!-- Cruz -->
+  <rect x="26" y="14" width="6" height="29" rx="2" fill="white"/>
+  <rect x="14" y="24" width="29" height="6" rx="2" fill="white"/>
+
+  <!-- Cuadrante superior-derecho: Copa (Azul - Sanador) -->
+  <rect x="53" y="10" width="37" height="37" rx="4" fill="#003399"/>
+  <!-- Copa -->
+  <path d="M64 16 h14 l-4 12 h-6 l-4-12z" fill="white" opacity="0.95"/>
+  <rect x="68.5" y="28" width="5" height="8" rx="1" fill="white"/>
+  <rect x="64" y="36" width="14" height="3" rx="1.5" fill="white"/>
+
+  <!-- Cuadrante inferior-izquierdo: Paloma (Dorado - Bautizador) -->
+  <rect x="10" y="53" width="37" height="37" rx="4" fill="#CC8800"/>
+  <!-- Paloma simplificada -->
+  <ellipse cx="27" cy="70" rx="10" ry="6" fill="white" transform="rotate(-15 27 70)"/>
+  <path d="M34 63 Q42 58 38 67 Q35 65 34 63z" fill="white"/>
+  <circle cx="22" cy="66" r="1.5" fill="#CC8800"/>
+  <path d="M17 76 Q14 82 20 80z" fill="white"/>
+  <path d="M20 80 Q22 84 26 80z" fill="white"/>
+
+  <!-- Cuadrante inferior-derecho: Corona (Púrpura - Rey Venidero) -->
+  <rect x="53" y="53" width="37" height="37" rx="4" fill="#880099"/>
+  <!-- Corona -->
+  <path d="M60 80 L60 66 L67 72 L71.5 60 L76 72 L83 66 L83 80 Z" fill="white" opacity="0.95"/>
+  <circle cx="71.5" cy="59" r="2.5" fill="#FFD700"/>
+  <circle cx="60" cy="65" r="2" fill="#FFD700"/>
+  <circle cx="83" cy="65" r="2" fill="#FFD700"/>
+
+  <!-- Divisores cruzados dorados -->
+  <rect x="46" y="8" width="8" height="84" rx="4" fill="#CC8800"/>
+  <rect x="8" y="46" width="84" height="8" rx="4" fill="#CC8800"/>
+  <circle cx="50" cy="50" r="6" fill="#CC8800"/>
+  <circle cx="50" cy="50" r="3" fill="#1a0a00"/>
+</svg>
