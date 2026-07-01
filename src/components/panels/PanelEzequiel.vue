@@ -40,31 +40,31 @@
 const rostros = [
   {
     id:'hombre', num:'01', nombre:'Rostro de Hombre', doctrina:'SALVADOR',
-    color:'#003399', colorLight:'#e8eeff',
+    color:'#B30000', colorLight:'#fff0f0',
     img:'/assets/img/rostro-hombre-grabado.png',
     ref:'Lucas 19:10 · Fil. 2:7–8',
     verso:'"El Hijo del Hombre vino a buscar y a salvar lo que se había perdido."',
   },
   {
-    id:'buey', num:'02', nombre:'Rostro de Buey', doctrina:'SANADOR',
-    color:'#1a7a1a', colorLight:'#e8f5e8',
+    id:'leon', num:'02', nombre:'Rostro de León', doctrina:'BAUTIZADOR CON EL E.S.',
+    color:'#CC8800', colorLight:'#fff8e6',
+    img:'/assets/img/rostro-leon-grabado.png',
+    ref:'Hechos 1:8 · Hch. 2:1–4',
+    verso:'"Recibiréis poder cuando haya venido el Espíritu Santo sobre vosotros."',
+  },
+  {
+    id:'buey', num:'03', nombre:'Rostro de Buey', doctrina:'SANADOR',
+    color:'#003399', colorLight:'#eef2ff',
     img:'/assets/img/rostro-buey-grabado.png',
     ref:'Isaías 53:4–5 · Mt. 8:17',
     verso:'"Por su llaga fuimos nosotros curados."',
   },
   {
-    id:'leon', num:'03', nombre:'Rostro de León', doctrina:'REY VENIDERO',
-    color:'#B30000', colorLight:'#fff0f0',
-    img:'/assets/img/rostro-leon-grabado.png',
+    id:'aguila', num:'04', nombre:'Rostro de Águila', doctrina:'REY QUE VIENE',
+    color:'#880099', colorLight:'#fdf0ff',
+    img:'/assets/img/rostro-aguila-grabado.png',
     ref:'Ap. 19:16 · Ap. 5:5',
     verso:'"Rey de reyes y Señor de señores."',
-  },
-  {
-    id:'aguila', num:'04', nombre:'Rostro de Águila', doctrina:'BAUTIZADOR',
-    color:'#880099', colorLight:'#f9e8ff',
-    img:'/assets/img/rostro-aguila-grabado.png',
-    ref:'Hechos 1:8 · Hch. 2:1–4',
-    verso:'"Recibiréis poder cuando haya venido el Espíritu Santo sobre vosotros."',
   },
 ]
 </script>

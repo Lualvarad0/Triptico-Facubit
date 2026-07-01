@@ -34,8 +34,8 @@ const simbolos = [
     color: '#B30000', light: '#fff3f3',
     img: '/assets/img/simbolo-cruz-roja.png',
     alt: 'Cruz roja cuadrangular',
-    ref: 'Juan 3:16 · Romanos 5:8',
-    verso: 'Cristo salva por medio de su sacrificio en la cruz. Su sangre derramada en el Calvario redime a toda la humanidad.',
+    ref: 'Filipenses 2:8',
+    verso: '"...haciéndose obediente hasta la muerte, y muerte de cruz."',
   },
   {
     id: 'copa', num: '02',
@@ -43,8 +43,8 @@ const simbolos = [
     color: '#003399', light: '#eef3ff',
     img: '/assets/img/simbolo-copa-azul.png',
     alt: 'Copa azul cuadrangular',
-    ref: 'Isaías 53:5 · Mateo 8:17',
-    verso: 'Cristo sana y restaura cuerpo, alma y espíritu conforme a su obra redentora.',
+    ref: 'Mateo 26:39',
+    verso: '"Padre mío, si es posible, pase de mí esta copa; pero no sea como yo quiero, sino como tú."',
   },
 ]
 </script>
